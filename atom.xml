@@ -6,7 +6,7 @@
   <link href="https://www.memestarter.top/atom.xml" rel="self"/>
   
   <link href="https://www.memestarter.top/"/>
-  <updated>2022-02-21T03:27:04.681Z</updated>
+  <updated>2022-03-02T13:12:14.190Z</updated>
   <id>https://www.memestarter.top/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>fix-macos-big-sur-crash</title>
+    <link href="https://www.memestarter.top/2022/03/02/fix-macos-big-sur-crash/"/>
+    <id>https://www.memestarter.top/2022/03/02/fix-macos-big-sur-crash/</id>
+    <published>2022-03-02T13:03:20.000Z</published>
+    <updated>2022-03-02T13:12:14.190Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><pre><code>今天本来是用vscode写一个spring的小程序，编译的时候一直提示没有compile provider，百思不得其解。初步怀疑是maven和vscode的配置有关系。但是多番尝试依然无果。为了不浪费时间，还是决定intelj来开发，好久没有打开过intelj了，谁知道一打开就crash....今天真的是见了鬼。</code></pre><h1 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h1><pre><code>1. 一番观察进程之后，排除了我下载的破解插件的原因。2. 软件兼容性方面，电脑自从上次没有用idea 大概没有安装太多第三方软件，初步排除3. 查看是否是因为系统资源不够等原因的时候，查看到mac os 系统版本，最近曾经升级过....</code></pre><p>茅塞顿开！！！</p><h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>参考intelj 官方的答案：<a href="https://www.jetbrains.com/help/idea/directories-used-by-the-ide-to-store-settings-caches-plugins-and-logs.html#config-directory">https://www.jetbrains.com/help/idea/directories-used-by-the-ide-to-store-settings-caches-plugins-and-logs.html#config-directory</a></p><p>注意mac上如果直接删除参考如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -al ~/Library/Application\ Support/JetBrains   </span><br></pre></td></tr></table></figure><p>先查看自己的版本，然后决定是否备份一下配置文件。之后执行删除 <strong>JetBrains</strong> 下面的相关所有文件即可</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;今天本来是用vscode写一个spring的小程序，编译的时候一直提示没有compile provider，</summary>
+      
+    
+    
+    
+    <category term="技术生活 - 编程技术 - bug-fix" scheme="https://www.memestarter.top/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-bug-fix/"/>
+    
+    
+    <category term="maos" scheme="https://www.memestarter.top/tags/maos/"/>
+    
+    <category term="big sur" scheme="https://www.memestarter.top/tags/big-sur/"/>
+    
+    <category term="crash" scheme="https://www.memestarter.top/tags/crash/"/>
+    
+    <category term="idea" scheme="https://www.memestarter.top/tags/idea/"/>
+    
+    <category term="intelj" scheme="https://www.memestarter.top/tags/intelj/"/>
+    
+  </entry>
   
   <entry>
     <title>chrome浏览器安装Metamask</title>
