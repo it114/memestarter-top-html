@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>fix-macos-big-sur-crash |  张智进的博客</title>
+      <title>springboot-2.x-log-system |  张智进的博客</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -57,7 +57,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-fix-macos-big-sur-crash"
+  id="post-springboot-2-x-log-system"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -68,7 +68,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  fix-macos-big-sur-crash
+  springboot-2.x-log-system
 </h1>
  
 
@@ -76,11 +76,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/03/02/fix-macos-big-sur-crash/" class="article-date">
-  <time datetime="2022-03-02T13:03:20.000Z" itemprop="datePublished">2022-03-02</time>
+      <a href="/2022/03/03/springboot-2-x-log-system/" class="article-date">
+  <time datetime="2022-03-03T05:06:58.000Z" itemprop="datePublished">2022-03-03</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-bug-fix/">技术生活 - 编程技术 - bug-fix</a>
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/">技术生活 - 编程技术 - 后端技术</a>
   </div>
   
 <div class="word_count">
@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">295</span>
+            <span class="post-count">384</span>
         </span>
     </span>
 
@@ -112,16 +112,14 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>今天本来是用vscode写一个spring的小程序，编译的时候一直提示没有compile provider，百思不得其解。初步怀疑是maven和vscode的配置有关系。但是多番尝试依然无果。为了不浪费时间，还是决定intelj来开发，好久没有打开过intelj了，谁知道一打开就crash….今天真的是见了鬼。</p>
-<h1 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h1><pre><code>1. 一番观察进程之后，排除了我下载的破解插件的原因。
-2. 软件兼容性方面，电脑自从上次没有用idea 大概没有安装太多第三方软件，初步排除
-3. 查看是否是因为系统资源不够等原因的时候，查看到mac os 系统版本，最近曾经升级过....
-</code></pre>
-<p>茅塞顿开！！！</p>
-<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>参考intelj 官方的答案：<a target="_blank" rel="noopener" href="https://www.jetbrains.com/help/idea/directories-used-by-the-ide-to-store-settings-caches-plugins-and-logs.html#config-directory">https://www.jetbrains.com/help/idea/directories-used-by-the-ide-to-store-settings-caches-plugins-and-logs.html#config-directory</a></p>
-<p>注意mac上如果直接删除参考如下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -al ~/Library/Application\ Support/JetBrains   </span><br></pre></td></tr></table></figure>
-<p>先查看自己的版本，然后决定是否备份一下配置文件。之后执行删除 <strong>JetBrains</strong> 下面的相关所有文件即可</p>
+  <h1 id="springboot日志系统的理解"><a href="#springboot日志系统的理解" class="headerlink" title="springboot日志系统的理解"></a>springboot日志系统的理解</h1><h2 id="日志归一系统"><a href="#日志归一系统" class="headerlink" title="日志归一系统"></a>日志归一系统</h2><p>写代码的时候突然对log感兴趣，想到了springboot之前了解的时候是依赖于sl4j实现的统一api，在编译的时候在决定用哪一个日志框架。但是翻了一下网上的文章。得出了<strong>Spring Boot 可以自动的适配日志框架，而且底层使用 SLF4 + LogBack</strong>的结论。<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220303131251.png" alt="20220303131251"></p>
+<p>从图中可以看出几点</p>
+<ol>
+<li>所有其他日志系统例如，jul ，log4j ，logback 都是实现了和sl4j的桥接。</li>
+<li>其中只有logback实现了sl4j，这个也是得出默认springboot支持logback的原因。</li>
+</ol>
+<h2 id="在springboot中，各个日志框架究竟是如何和平相处，并且相安无事的"><a href="#在springboot中，各个日志框架究竟是如何和平相处，并且相安无事的" class="headerlink" title="在springboot中，各个日志框架究竟是如何和平相处，并且相安无事的"></a>在springboot中，各个日志框架究竟是如何和平相处，并且相安无事的</h2><p>我们写代码，免不了使用第三方的库，假设第三方库没有实现sl4j的api，那么这个日志岂不是不受到springboot的统一管理了？？？不是这样的，就类似上面的spring-logging 这个库，一些第三方的流行的库，会有一些工具包来替换接管这些第三方系统的日志。<br>大致原理，如下，下面是一个sl4j官方的一个图。<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220303132843.png" alt="20220303132843"></p>
+<h1 id="如何替换默认的logback的实现"><a href="#如何替换默认的logback的实现" class="headerlink" title="如何替换默认的logback的实现"></a>如何替换默认的logback的实现</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;    </span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;    </span><br><span class="line">    &lt;exclusions&gt;           </span><br><span class="line">        &lt;exclusion&gt;            </span><br><span class="line">           &lt;artifactId&gt;spring-boot-starter-logging&lt;/artifactId&gt;            							    </span><br><span class="line">           &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;        </span><br><span class="line">        &lt;/exclusion&gt;   </span><br><span class="line">    &lt;/exclusions&gt; </span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;    </span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    </span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-log4j2&lt;/artifactId&gt; </span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
  
       <!-- reward -->
       
@@ -186,12 +184,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.memestarter.top/2022/03/02/fix-macos-big-sur-crash/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.memestarter.top/2022/03/03/springboot-2-x-log-system/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/big-sur/" rel="tag">big sur</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/crash/" rel="tag">crash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/idea/" rel="tag">idea</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/intelj/" rel="tag">intelj</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maos/" rel="tag">maos</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/log/" rel="tag">log</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/log4j/" rel="tag">log4j</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sl4j/" rel="tag">sl4j</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%A5%E5%BF%97/" rel="tag">日志</a></li></ul>
 
     </footer>
   </div>
@@ -199,19 +197,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/03/03/springboot-2-x-log-system/" class="article-nav-link">
+      <a href="/2022/03/06/%E6%AF%8F%E6%97%A5%E5%88%86%E4%BA%AB-20220306/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            springboot-2.x-log-system
+            每日分享-20220306
           
         </div>
       </a>
     
     
-      <a href="/2022/02/21/chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E8%A3%85Metamask/" class="article-nav-link">
+      <a href="/2022/03/02/fix-macos-big-sur-crash/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">chrome浏览器安装Metamask</div>
+        <div class="article-nav-title">fix-macos-big-sur-crash</div>
       </a>
     
   </nav>
