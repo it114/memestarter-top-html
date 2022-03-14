@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>springboot-2.x-log-system |  张智进的博客</title>
+      <title>每日股票-20220314 |  张智进的博客</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -57,7 +57,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-springboot-2-x-log-system"
+  id="post-股票-20220314"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -68,7 +68,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  springboot-2.x-log-system
+  每日股票-20220314
 </h1>
  
 
@@ -76,11 +76,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/03/03/springboot-2-x-log-system/" class="article-date">
-  <time datetime="2022-03-03T05:06:58.000Z" itemprop="datePublished">2022-03-03</time>
+      <a href="/2022/03/14/%E8%82%A1%E7%A5%A8-20220314/" class="article-date">
+  <time datetime="2022-03-14T00:40:04.000Z" itemprop="datePublished">2022-03-14</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/">技术生活 - 编程技术 - 后端技术</a>
+    <a class="article-category-link" href="/categories/%E6%8A%95%E8%B5%84-%E8%82%A1%E7%A5%A8/">投资 - 股票</a>
   </div>
   
 <div class="word_count">
@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">384</span>
+            <span class="post-count">2.4k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">8 分钟</span>
         </span>
     </span>
 </div>
@@ -112,14 +112,19 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="springboot日志系统的理解"><a href="#springboot日志系统的理解" class="headerlink" title="springboot日志系统的理解"></a>springboot日志系统的理解</h1><h2 id="日志归一系统"><a href="#日志归一系统" class="headerlink" title="日志归一系统"></a>日志归一系统</h2><p>写代码的时候突然对log感兴趣，想到了springboot之前了解的时候是依赖于sl4j实现的统一api，在编译的时候在决定用哪一个日志框架。但是翻了一下网上的文章。得出了<strong>Spring Boot 可以自动的适配日志框架，而且底层使用 SLF4 + LogBack</strong>的结论。<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220303131251.png" alt="20220303131251"></p>
-<p>从图中可以看出几点</p>
-<ol>
-<li>所有其他日志系统例如，jul ，log4j ，logback 都是实现了和sl4j的桥接。</li>
-<li>其中只有logback实现了sl4j，这个也是得出默认springboot支持logback的原因。</li>
-</ol>
-<h2 id="在springboot中，各个日志框架究竟是如何和平相处，并且相安无事的"><a href="#在springboot中，各个日志框架究竟是如何和平相处，并且相安无事的" class="headerlink" title="在springboot中，各个日志框架究竟是如何和平相处，并且相安无事的"></a>在springboot中，各个日志框架究竟是如何和平相处，并且相安无事的</h2><p>我们写代码，免不了使用第三方的库，假设第三方库没有实现sl4j的api，那么这个日志岂不是不受到springboot的统一管理了？？？不是这样的，就类似上面的spring-logging 这个库，一些第三方的流行的库，会有一些工具包来替换接管这些第三方系统的日志。<br>大致原理，如下，下面是一个sl4j官方的一个图。<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220303132843.png" alt="20220303132843"></p>
-<h1 id="如何替换默认的logback的实现"><a href="#如何替换默认的logback的实现" class="headerlink" title="如何替换默认的logback的实现"></a>如何替换默认的logback的实现</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;    </span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;    </span><br><span class="line">    &lt;exclusions&gt;           </span><br><span class="line">        &lt;exclusion&gt;            </span><br><span class="line">           &lt;artifactId&gt;spring-boot-starter-logging&lt;/artifactId&gt;            							    </span><br><span class="line">           &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;        </span><br><span class="line">        &lt;/exclusion&gt;   </span><br><span class="line">    &lt;/exclusions&gt; </span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;    </span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    </span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-log4j2&lt;/artifactId&gt; </span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+  <h2 id="个股"><a href="#个股" class="headerlink" title="个股"></a>个股</h2><h3 id="亨通光电（600487）"><a href="#亨通光电（600487）" class="headerlink" title="亨通光电（600487）"></a>亨通光电（600487）</h3><p>“东数西算+智能电网+海上风电+海洋通信”，公司信息能源产品覆盖100多个国家、订单有望于今年开始释放，分析师测算目前估值仅10倍出头。<br>①国泰君安王彦龙看好公司受益“东数西算”拉动新一轮信息建设，2022年光缆市场规模有望同比增长40%以上，中国移动2021-2022年集采光缆均价同比上涨51.6%，公司占中国移动集采份额高达27%，有望更好享受价格上涨带来的红利；<br>②从海上风电建设节奏看，海缆订单有望在2022年下半年开始逐渐进行陆续释放，公司是国内少有能完整具备500kV海缆技术能力的厂商之一，并拥有多艘海上风机安装和海缆敷设船只，有望成为海洋工程利器；<br>③公司收购华为海洋后，成为跨洋通信网络解决方案的全产业链公司，海底光缆系统是全球互联互通重要载体，目前有将近40%的系统或海缆即将进行退网或者替换，有望迎来新的建设周期；<br>④王彦龙预计2021-2023年公司归母净利润预测为15.33&#x2F;24.01&#x2F;28.88亿元，同比增长44%&#x2F;57%&#x2F;20%，对应PE为21.40&#x2F;13.67&#x2F;11.36倍，给予公司2022年19倍PE估值，对应股价19元（11日收盘价13.89元）；⑤风险提示：海电缆竞争加剧、原材料成本波动。</p>
+<h3 id="国联水产-预制菜"><a href="#国联水产-预制菜" class="headerlink" title="国联水产(预制菜)"></a>国联水产(预制菜)</h3><p>这家海洋食品企业集全球采购、精深加工、食品研发于一体，预制菜品业务已形成规模，与永辉超市、盒马鲜生、山姆会员店等建立长期合作关系；<br>国联水产于3月3日接待机构调研时表示，公司致力于成为全球最具影响力的海洋食品企业，是国内少数具备全球采购、精深加工、食品研发于一体的海洋食品企业，近年来产品结构逐步从初加工水产品为主向以预制菜品、水产品精深加工为主的餐饮食材和海洋食品转型，深度布局预制菜品市场。</p>
+<p>公司预制菜品的发展已具备一定规模，公司预制菜品主要包括水煮、裹粉、米面、调理、火锅烧烤等系列。公司与全球知名西式快餐连锁企业、半天妖餐饮、永辉超市、大张超市、盒马鲜生、山姆会员店、叮叮懒人菜等建立了长期合作关系。</p>
+<p>公司构建了以“龙霸”、“小霸龙”等系列品牌的产品体系，是行业内较早进入预制菜品产业领域的生产企业之一。公司持续通过C端进行公司品牌塑造，形成线上种草，线下拔草、商超联动的综合营销格局。</p>
+<h3 id="贵州三力-中药"><a href="#贵州三力-中药" class="headerlink" title="贵州三力(中药)"></a>贵州三力(中药)</h3><p>这家贵州本地中药小龙头参与德昌祥重整快速落地，省内唯一百年老字号药企将纳入上市公司体系，产品线快速扩张；贵州三力于3月10日接待本月第二次机构调研，公司开喉剑喷雾剂在2016年以后开始布局全终端销售。截止2021年，开喉剑（儿童型）销售占比约为75%左右，开喉剑约为20%左右，其中医院端占比约为60%，其余为二、三终端。开喉剑（儿童型）目前医院端覆盖率较高，二、三终端还有较大的空间可以挖掘；而开喉剑由于是19年才纳入医保，在各终端均有较大的开发空间。</p>
+<p>2022年2月6日公司发布公告，拟成为德昌祥的破产重整投资人，一次性出资2.32亿元取得德昌祥95%股权。德昌祥是贵州省内唯一一家百年老字号药企，是家喻户晓的贵州老字号、中国驰名商标，其深厚的历史、文化底蕴，将为上市公司带来显著的品牌效应。</p>
+<p>华安证券分析师认为，德昌祥前身为贵阳中药厂，具有众多优质药品批文。德昌祥目前共有药品批准文号69个，其中独家品种9个，医保品种41个，其“龙凤至宝丹传统中药制作技艺”妇科再造丸和杜仲补天素丸更是省级非物质文化遗产。</p>
+<p>贵州三力的核心品种为开喉剑喷雾剂系列，产品结构相对集中。而德昌祥的产品线丰富，涵盖妇科、男科、儿科、呼吸科等多个科室，并有大量OTC品种，有力的补充了贵州三力的产品线。同时贵州三力经过多年发展积累的全国数千家商业公司、数千家等级医院、数万家药店、诊所及基层医疗机构资源，可以快速提升德昌祥的市场占有率。</p>
+<h2 id="新冠检测"><a href="#新冠检测" class="headerlink" title="新冠检测"></a>新冠检测</h2><p>3月12日，国家药监局网站发布的医疗器械批准证明文件(变更)待领取信息显示，由万孚生物、华大基因子公司深圳华大因源医药科技有限公司、北京金沃夫生物工程科技有限公司、南京诺唯赞医疗科技有限公司4家公司研发的4款新冠抗原检测试剂盒通过了药监局的注册信息变更。加上3月11日，国家药监局公布的北京华科泰生物的新冠抗原产品自测应用申请变更。自此，五款新冠抗原自测产品正式上市。<br>相关公司：万孚生物、华大基因，东方生物，九安医疗</p>
+<h2 id="题材"><a href="#题材" class="headerlink" title="题材"></a>题材</h2><p>装备制造（凯美特气、华测检测、乐惠国际）<br>①“增强制造业核心竞争力”首次写入政府工作报告，并提出着力培育“专精特新”企业，与去年“保持制造业比重基本稳定”的定位相比方向更加明晰；<br>②浙商证券邱世梁认为专精特新是国家战略，其中机械设备企业是主力军，并且机械板块专精特新上市公司市值普遍较小，盈利能力优异；<br>③机械行业涉及的专精特新重点领域众多，邱世梁根据子行业的市场空间、行业增速及所在公司整体的商业模式情况，精选出工业机器人、核心零部件、工业气体、检测检验、消费升级等五大核心赛道，以及潜在优质专精特新“小巨人”企业；<br>④风险因素：基建地产投资不及预期、海内外新冠疫情超预期风险。</p>
+<p>专精特新作为国家战略，聚焦高端制造，机械设备企业是主力军2021年7月30日的中央政治局会议首次将“发展专精特新中小企业”提升到国家战略高度，北交所的设立更进一步为专精特新中小企业迎来了资本支持新平台。根据邱世梁的统计，机械行业共有专精特新上市企业共计91家，占比高达26%，上市公司数量在各板块中排名第一，并且机械板块专精特新上市公司市值普遍较小，盈利能力优异。<br>精选机械行业“专精特新”领域五大核心赛道邱世梁根据子行业的市场空间、行业增速及所在公司整体的商业模式情况，精选出五大核心赛道。（1）工业机器人：预计到2025年中国工业机器人市场累计增量市场空间有望超1000亿元。<br>（2）核心零部件：零部件企业具有需求广阔、业务可靠性好、商业模式复制性强等特征，看好齿轮、减速器及FA零部件等领域。<br>（3）工业气体：中国工业气体近2000亿元市场，其中特种气体市场自主品牌占有率仅10%，潜力巨大。<br>（4）检测检验：检测行业空间大，需求来源广泛、稳定性强，受宏观经济影响较小，行业龙头有望通过“内生外延”的方式实现全国扩张，市占率持续提升。 <br>（5）消费升级：近年来国内及欧美消费升级趋势带动了新兴产业的大发展，企业通过产品升级和转型运营两大路径，可以打开数倍于原市场的成长空间。</p>
+<p>精选装备制造业“专精特新”潜在优秀标的目前，已有大批高端制造代表公司已成为了专精特新小巨人企业中的“排头兵”，其大多具有以下特点。（1）劳动力成本优势+工程师红利，国产替代加速进行。<br>（2）深耕细分赛道+专注核心产品，市场份额及龙头地位不断提升。</p>
+<p>邱世梁基于已入选名单中机械行业上市公司特点和专精特新“小巨人”培育条件两大方面，精选出机械板块潜在优质专精特新“小巨人”企业。<br>重点公司包括：宏华数科、凯美特气、乐惠国际、双环传动、中兵红箭、华测检测、春风动力、绿地谐波、华锐精密、欧科亿、弘亚数控、巨星科技、国茂股份、青鸟消防、东睦股份等。</p>
  
       <!-- reward -->
       
@@ -184,12 +189,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.memestarter.top/2022/03/03/springboot-2-x-log-system/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.memestarter.top/2022/03/14/%E8%82%A1%E7%A5%A8-20220314/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/log/" rel="tag">log</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/log4j/" rel="tag">log4j</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sl4j/" rel="tag">sl4j</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%A5%E5%BF%97/" rel="tag">日志</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8/" rel="tag">股票</a></li></ul>
 
     </footer>
   </div>
@@ -197,19 +202,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/03/06/%E5%88%86%E4%BA%AB-20220306/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            每日分享-20220306
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/03/02/fix-macos-big-sur-crash/" class="article-nav-link">
+      <a href="/2022/03/11/%E8%82%A1%E7%A5%A8-20220311/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">fix-macos-big-sur-crash</div>
+        <div class="article-nav-title">每日股票-20220311</div>
       </a>
     
   </nav>
