@@ -130,6 +130,90 @@
     
     
     <article
+  id="post-区块链游戏体验之从游戏到代码"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/02/21/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%B8%B8%E6%88%8F%E4%BD%93%E9%AA%8C%E4%B9%8B%E4%BB%8E%E6%B8%B8%E6%88%8F%E5%88%B0%E4%BB%A3%E7%A0%81/"
+    >区块链游戏体验之从游戏到代码</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/02/21/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%B8%B8%E6%88%8F%E4%BD%93%E9%AA%8C%E4%B9%8B%E4%BB%8E%E6%B8%B8%E6%88%8F%E5%88%B0%E4%BB%A3%E7%A0%81/" class="article-date">
+  <time datetime="2022-02-21T02:18:12.000Z" itemprop="datePublished">2022-02-21</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E5%8C%BA%E5%9D%97%E9%93%BE/">技术生活 - 编程技术 - 区块链</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><blockquote>
+<p>由于区块链游戏需要连接钱包，所以需要配置浏览器的MetaMask，并创建一个钱包。教程:<a href="https://www.memestarter.top/2022/02/21/chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E8%A3%85Metamask">https://www.memestarter.top/2022/02/21/chrome浏览器安装Metamask</a>   .  在说后面的内容之前先说两个概念。区块链和区块链网络。<br>区块链。只要具有多节点数据同步出块机制的几乎都可以认为它是一个区块链。也就是一个永不停机的数据库。你也可以理解为一个银行。目前已知比较有名的区块链网络有以太坊（eth），币安连（bsc），比特币（btc）等。<br>区块链网络。用来标记一个区块链网络的一组概念。拿以太坊来说，他需要有一个chainID和rpcPoint来标记这个网络，这两个参数主要是供钱包在发送交易的时候，知道该和谁通信。</p>
+</blockquote>
+<p>有了这个概念之后。我们这次的目的是体验游戏，当然不可能在真实的环境下玩了，真实环境拿以太坊来说，交易一次几十美元,也就是几百人民币（具体多少要看交易的种类，gas等因素去考虑）。</p>
+<h2 id="添加以太坊测试网络"><a href="#添加以太坊测试网络" class="headerlink" title="添加以太坊测试网络"></a>添加以太坊测试网络</h2><p>打开<a target="_blank" rel="noopener" href="https://chainlist.org/">https://chainlist.org/</a> ,这个网址汇集了几乎流行的所有区块链的所有正式环境和测试环境的配置。如下所示，选择Rinkeby网络<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220221110337.png" alt="20220221110337"></p>
+<p>点击connect之后，连接MetaMask，之后如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220221110423.png" alt="20220221110423"></p>
+<p>然后点击Add to metamask 即可完成添加。<br>如下图，可以在MetaMask中看到这个网络。<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220221110541.png" alt="20220221110541"></p>
+<h1 id="领取测试网络的测试代币"><a href="#领取测试网络的测试代币" class="headerlink" title="领取测试网络的测试代币"></a>领取测试网络的测试代币</h1><p>到水龙头网站领取：<a target="_blank" rel="noopener" href="https://faucet.rinkeby.io/">https://faucet.rinkeby.io/</a> ，如果领取有问题可以留言，我这有点</p>
+<h1 id="体验游戏"><a href="#体验游戏" class="headerlink" title="体验游戏"></a>体验游戏</h1><p>找到一个比较简单，而且带源码的游戏</p>
+<ol>
+<li>游戏网址 ：<a target="_blank" rel="noopener" href="https://epic-game-buildspace-a2c4ixjyk-zlayine.vercel.app/">https://epic-game-buildspace-a2c4ixjyk-zlayine.vercel.app/</a> </li>
+<li>博客网址：<a target="_blank" rel="noopener" href="https://betterprogramming.pub/create-a-blockchain-game-with-solidity-web3-and-vue-js-c75eed4b49a6">https://betterprogramming.pub/create-a-blockchain-game-with-solidity-web3-and-vue-js-c75eed4b49a6</a></li>
+<li>代码网址：<a target="_blank" rel="noopener" href="https://github.com/zlayine/epic-game-buildspace">https://github.com/zlayine/epic-game-buildspace</a></li>
+</ol>
+<ul>
+<li><p>连接<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220221110822.png" alt="20220221110822"></p>
+</li>
+<li><p>切换网络<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220221110733.png" alt="20220221110733"></p>
+</li>
+<li><p>选择角色<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220221110911.png" alt="20220221110911"></p>
+</li>
+<li><p>领取角色<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220221111146.png" alt="20220221111146"><br>然后点击下方的confirm确定</p>
+</li>
+<li><p>等待MetaMask把交易发送到区块链，等待区块链确认同步<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220221111243.png" alt="20220221111243"></p>
+</li>
+<li><p>mint之后自己的角色如下，并给我分配了大boss  elon。。。。<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220221111615.png" alt="20220221111615"></p>
+</li>
+</ul>
+<h1 id="玩游戏"><a href="#玩游戏" class="headerlink" title="玩游戏"></a>玩游戏</h1><p>点击攻击elon，图片晃动，这里本来期望，会弹出MetaMask，让把这次攻击的结果提交区块链，或者区块链随机决定胜负的。看来这个游戏还不够完善。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220221111729.png" alt="20220221111729"></p>
+<p>无论如何，大致的区块链游戏也就这样，最简单的。但是也可以通过这个流程大致体会一下，目前区块链游戏发展阶段。正所谓：不完善的地方机会才多。目前区块链游戏大抵如此。更多的是偏向金融属性。例如，我们一开始游戏的时候，就需要mint一个角色，这个角色其实就是一个nft，非同质化代币。在一些游戏中，这些角色是可以买卖的。还有一些游戏中，这些nft，例如装备，角色，宝石，等是可以跨越游戏使用和转移的。这也是和传统游戏区别比较大的地方。</p>
+<h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1><p>体验到此结束，只能用一句话形容目前游戏的现状。现实很骨感，理想很丰满。相信未来的人，前仆后继；</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
   id="post-分享20220212"
   class="article article-type-post"
   itemscope
