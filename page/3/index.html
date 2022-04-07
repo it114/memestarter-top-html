@@ -130,6 +130,505 @@
     
     
     <article
+  id="post-fix-macos-big-sur-crash"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/03/02/fix-macos-big-sur-crash/"
+    >fix-macos-big-sur-crash</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/03/02/fix-macos-big-sur-crash/" class="article-date">
+  <time datetime="2022-03-02T13:03:20.000Z" itemprop="datePublished">2022-03-02</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-bug-fix/">技术生活 - 编程技术 - bug-fix</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>今天本来是用vscode写一个spring的小程序，编译的时候一直提示没有compile provider，百思不得其解。初步怀疑是maven和vscode的配置有关系。但是多番尝试依然无果。为了不浪费时间，还是决定intelj来开发，好久没有打开过intelj了，谁知道一打开就crash….今天真的是见了鬼。</p>
+<h1 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h1><pre><code>1. 一番观察进程之后，排除了我下载的破解插件的原因。
+2. 软件兼容性方面，电脑自从上次没有用idea 大概没有安装太多第三方软件，初步排除
+3. 查看是否是因为系统资源不够等原因的时候，查看到mac os 系统版本，最近曾经升级过....
+</code></pre>
+<p>茅塞顿开！！！</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>参考intelj 官方的答案：<a target="_blank" rel="noopener" href="https://www.jetbrains.com/help/idea/directories-used-by-the-ide-to-store-settings-caches-plugins-and-logs.html#config-directory">https://www.jetbrains.com/help/idea/directories-used-by-the-ide-to-store-settings-caches-plugins-and-logs.html#config-directory</a></p>
+<p>注意mac上如果直接删除参考如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -al ~/Library/Application\ Support/JetBrains   </span><br></pre></td></tr></table></figure>
+<p>先查看自己的版本，然后决定是否备份一下配置文件。之后执行删除 <strong>JetBrains</strong> 下面的相关所有文件即可</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/big-sur/" rel="tag">big sur</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/crash/" rel="tag">crash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/idea/" rel="tag">idea</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/intelj/" rel="tag">intelj</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maos/" rel="tag">maos</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-chrome浏览器安装Metamask"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/02/21/chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E8%A3%85Metamask/"
+    >chrome浏览器安装Metamask</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/02/21/chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E8%A3%85Metamask/" class="article-date">
+  <time datetime="2022-02-21T02:19:26.000Z" itemprop="datePublished">2022-02-21</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E5%8C%BA%E5%9D%97%E9%93%BE/">技术生活 - 编程技术 - 区块链</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="MetaMask-为何物"><a href="#MetaMask-为何物" class="headerlink" title="MetaMask 为何物"></a>MetaMask 为何物</h1><blockquote>
+<p>最初区块链不是很火，生态还不是很完善的时候，自己的账户（也就是一对公钥和私钥）要和区块链交互，可能就需要程序员用程序来实现。这对于普通人来说是不现实的。于是各种钱包诞生了。所谓的钱包其实也就是管理区块链账户（一对公私钥）的。MetaMask其实也可以理解是一个钱包，只不过呢，这个钱包是大多数的时候被以插件的形式安装在chrome的浏览器上。（说明：chrome也有移动版，这个时候和其他钱包差别不大，今天重点说的是浏览器端metamask）。</p>
+</blockquote>
+<blockquote>
+<p>要想和区块链交互，例如玩游戏，做交易，都需要钱包来代理我们的交易，所以类似metamask，trust wallet ，imToken这种钱包是非常重要的。</p>
+</blockquote>
+<h1 id="MetaMask的安装"><a href="#MetaMask的安装" class="headerlink" title="MetaMask的安装"></a>MetaMask的安装</h1><pre><code>打开chrome浏览器，输入网址：https://metamask.io/（注意，切记对比别跑到钓鱼网站了）。点击download
+</code></pre>
+<p>随后出现如下，安装到chrome中<br>    <img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220221103028.png" alt="20220221103028"></p>
+<p>随后跳转到了<a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn">https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn</a> ，这个地方应该需要科学上网才行。</p>
+<h1 id="MetaMask的使用"><a href="#MetaMask的使用" class="headerlink" title="MetaMask的使用"></a>MetaMask的使用</h1><ul>
+<li>MetaMask安装完成之后，可以导入或者生成助记词的方式创建一个钱包。注意创建的助记词一定用心保存。否则，一旦丢失， 账户资产全部归零。</li>
+<li>类似MetaMask，imtoken这种钱包，一定注意甄别是否是正版。网上有很对李鬼app会盗取你的私钥或者助记词。一旦被盗用，您的财产就没了。</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Metamask/" rel="tag">Metamask</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chrome/" rel="tag">chrome</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">区块链</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-区块链游戏体验之从游戏到代码"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/02/21/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%B8%B8%E6%88%8F%E4%BD%93%E9%AA%8C%E4%B9%8B%E4%BB%8E%E6%B8%B8%E6%88%8F%E5%88%B0%E4%BB%A3%E7%A0%81/"
+    >区块链游戏体验之从游戏到代码</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/02/21/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%B8%B8%E6%88%8F%E4%BD%93%E9%AA%8C%E4%B9%8B%E4%BB%8E%E6%B8%B8%E6%88%8F%E5%88%B0%E4%BB%A3%E7%A0%81/" class="article-date">
+  <time datetime="2022-02-21T02:18:12.000Z" itemprop="datePublished">2022-02-21</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E5%8C%BA%E5%9D%97%E9%93%BE/">技术生活 - 编程技术 - 区块链</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><blockquote>
+<p>由于区块链游戏需要连接钱包，所以需要配置浏览器的MetaMask，并创建一个钱包。教程:<a href="https://www.memestarter.top/2022/02/21/chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E8%A3%85Metamask">https://www.memestarter.top/2022/02/21/chrome浏览器安装Metamask</a>   .  在说后面的内容之前先说两个概念。区块链和区块链网络。<br>区块链。只要具有多节点数据同步出块机制的几乎都可以认为它是一个区块链。也就是一个永不停机的数据库。你也可以理解为一个银行。目前已知比较有名的区块链网络有以太坊（eth），币安连（bsc），比特币（btc）等。<br>区块链网络。用来标记一个区块链网络的一组概念。拿以太坊来说，他需要有一个chainID和rpcPoint来标记这个网络，这两个参数主要是供钱包在发送交易的时候，知道该和谁通信。</p>
+</blockquote>
+<p>有了这个概念之后。我们这次的目的是体验游戏，当然不可能在真实的环境下玩了，真实环境拿以太坊来说，交易一次几十美元,也就是几百人民币（具体多少要看交易的种类，gas等因素去考虑）。</p>
+<h2 id="添加以太坊测试网络"><a href="#添加以太坊测试网络" class="headerlink" title="添加以太坊测试网络"></a>添加以太坊测试网络</h2><p>打开<a target="_blank" rel="noopener" href="https://chainlist.org/">https://chainlist.org/</a> ,这个网址汇集了几乎流行的所有区块链的所有正式环境和测试环境的配置。如下所示，选择Rinkeby网络<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220221110337.png" alt="20220221110337"></p>
+<p>点击connect之后，连接MetaMask，之后如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220221110423.png" alt="20220221110423"></p>
+<p>然后点击Add to metamask 即可完成添加。<br>如下图，可以在MetaMask中看到这个网络。<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220221110541.png" alt="20220221110541"></p>
+<h1 id="领取测试网络的测试代币"><a href="#领取测试网络的测试代币" class="headerlink" title="领取测试网络的测试代币"></a>领取测试网络的测试代币</h1><p>到水龙头网站领取：<a target="_blank" rel="noopener" href="https://faucet.rinkeby.io/">https://faucet.rinkeby.io/</a> ，如果领取有问题可以留言，我这有点</p>
+<h1 id="体验游戏"><a href="#体验游戏" class="headerlink" title="体验游戏"></a>体验游戏</h1><p>找到一个比较简单，而且带源码的游戏</p>
+<ol>
+<li>游戏网址 ：<a target="_blank" rel="noopener" href="https://epic-game-buildspace-a2c4ixjyk-zlayine.vercel.app/">https://epic-game-buildspace-a2c4ixjyk-zlayine.vercel.app/</a> </li>
+<li>博客网址：<a target="_blank" rel="noopener" href="https://betterprogramming.pub/create-a-blockchain-game-with-solidity-web3-and-vue-js-c75eed4b49a6">https://betterprogramming.pub/create-a-blockchain-game-with-solidity-web3-and-vue-js-c75eed4b49a6</a></li>
+<li>代码网址：<a target="_blank" rel="noopener" href="https://github.com/zlayine/epic-game-buildspace">https://github.com/zlayine/epic-game-buildspace</a></li>
+</ol>
+<ul>
+<li><p>连接<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220221110822.png" alt="20220221110822"></p>
+</li>
+<li><p>切换网络<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220221110733.png" alt="20220221110733"></p>
+</li>
+<li><p>选择角色<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220221110911.png" alt="20220221110911"></p>
+</li>
+<li><p>领取角色<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220221111146.png" alt="20220221111146"><br>然后点击下方的confirm确定</p>
+</li>
+<li><p>等待MetaMask把交易发送到区块链，等待区块链确认同步<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220221111243.png" alt="20220221111243"></p>
+</li>
+<li><p>mint之后自己的角色如下，并给我分配了大boss  elon。。。。<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220221111615.png" alt="20220221111615"></p>
+</li>
+</ul>
+<h1 id="玩游戏"><a href="#玩游戏" class="headerlink" title="玩游戏"></a>玩游戏</h1><p>点击攻击elon，图片晃动，这里本来期望，会弹出MetaMask，让把这次攻击的结果提交区块链，或者区块链随机决定胜负的。看来这个游戏还不够完善。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220221111729.png" alt="20220221111729"></p>
+<p>无论如何，大致的区块链游戏也就这样，最简单的。但是也可以通过这个流程大致体会一下，目前区块链游戏发展阶段。正所谓：不完善的地方机会才多。目前区块链游戏大抵如此。更多的是偏向金融属性。例如，我们一开始游戏的时候，就需要mint一个角色，这个角色其实就是一个nft，非同质化代币。在一些游戏中，这些角色是可以买卖的。还有一些游戏中，这些nft，例如装备，角色，宝石，等是可以跨越游戏使用和转移的。这也是和传统游戏区别比较大的地方。</p>
+<h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1><p>体验到此结束，只能用一句话形容目前游戏的现状。现实很骨感，理想很丰满。相信未来的人，前仆后继；</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-分享20220212"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/02/12/%E5%88%86%E4%BA%AB20220212/"
+    >分享20220212</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/02/12/%E5%88%86%E4%BA%AB20220212/" class="article-date">
+  <time datetime="2022-02-12T13:54:09.000Z" itemprop="datePublished">2022-02-12</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%88%86%E4%BA%AB-%E8%B5%84%E6%BA%90%E6%90%9C%E9%9B%86/">分享 - 资源搜集</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <ul>
+<li><p>超级好用的免费开源文件同步工具：Syncthing；作为一款P2P性质的文件同步工具，Syncthing在Github上广受欢迎，已经收获了42k的Star！<br>Syncthing有五大特点：<br>1、避免数据丢失<br>2、安全防范攻击者<br>3、便捷使用<br>4、自动化运行<br>5、高兼容性<br>详情： <a target="_blank" rel="noopener" href="https://blog.didispace.com/tj-opensource-syncthing/">https://blog.didispace.com/tj-opensource-syncthing/</a></p>
+</li>
+<li><p>最优停止理论与导师选择<br><a target="_blank" rel="noopener" href="https://blog.eastonman.com/blog/2021/12/optimal-stop/">https://blog.eastonman.com/blog/2021/12/optimal-stop/</a></p>
+</li>
+<li><p>a16z NFT 学习清单：社交代币、DAO、创作者经济<br><a target="_blank" rel="noopener" href="https://imzl.com/a16z-nft-canon.html">https://imzl.com/a16z-nft-canon.html</a></p>
+</li>
+<li><p>后记：菠菜站点的攻克之旅；一个黑人网站的记录，挺有意思<br><a target="_blank" rel="noopener" href="https://knightyun.github.io/2021/12/06/exploit-penetrate-bocai-website">https://knightyun.github.io/2021/12/06/exploit-penetrate-bocai-website</a></p>
+</li>
+<li><p>一个windows平台的沙盒软件，可以对程序从下到上进行全方面的隔离，最近的更新增加了中文支持。<br>比起windows自带的沙盒来说性能更高，交互更方便，毕竟win自带的本质上就是虚拟机，而这个可能是内核hook实现的吧，非常推荐，尤其是对付国内这些流氓软件<br><a target="_blank" rel="noopener" href="https://sandboxie-plus.com/">https://sandboxie-plus.com/</a></p>
+</li>
+<li><p>承认自己的平庸，人生才会更幸福<br><a target="_blank" rel="noopener" href="https://xqrp.com/660350.html">https://xqrp.com/660350.html</a></p>
+</li>
+<li><p>我理解的长期主义 （推荐阅读）<br><a target="_blank" rel="noopener" href="https://imzhanghao.com/2021/10/26/long-termism/">https://imzhanghao.com/2021/10/26/long-termism/</a></p>
+</li>
+<li><p>一个15岁的小孩的博客，会的还挺多<br><a target="_blank" rel="noopener" href="https://blog.baoshuo.ren/about/">https://blog.baoshuo.ren/about/</a></p>
+</li>
+<li><p>Google Adsense 收款流程（失败案例）<br><a target="_blank" rel="noopener" href="https://5ime.cn/adsense.html">https://5ime.cn/adsense.html</a></p>
+</li>
+<li><p>读叔本华《人生的智慧》（美貌是一封公开的公开信）<br><a target="_blank" rel="noopener" href="https://mazhuang.org/2021/10/25/the-wisdom-of-life/">https://mazhuang.org/2021/10/25/the-wisdom-of-life/</a></p>
+</li>
+<li><p>一个GA替代方案，就是今天加进站点的Umami，精简，漂亮，支持中文界面，还支持共享站点统计数据。<br>这篇文章说明了推荐理由。<br><a target="_blank" rel="noopener" href="https://mantyke.icu/2021/umami-build/">https://mantyke.icu/2021/umami-build/</a></p>
+</li>
+<li><p>国内厂商应用商店跳转链接<br><a target="_blank" rel="noopener" href="http://www.linchangyu.com/web/2021/10/21/Chinese_Android_Market_Schema.html">http://www.linchangyu.com/web/2021/10/21/Chinese_Android_Market_Schema.html</a></p>
+</li>
+<li><p>微软联合 Yandex 推出了 IndexNow，它提供了一种快速的方法让网站站长可以第一时间通知所有接入 IndexNow 的搜索引擎网站的内容发生了变化<br><a target="_blank" rel="noopener" href="https://baiyun.me/using-indexnow">https://baiyun.me/using-indexnow</a></p>
+</li>
+<li><p>「内容农场」属实在玷污 Google 搜索结果（一群人靠拉低别人的体验赚钱）<br><a target="_blank" rel="noopener" href="https://blog.ichr.me/post/evil-content-farm/">https://blog.ichr.me/post/evil-content-farm/</a></p>
+</li>
+<li><p>2020年我设定了两条交易纪律：<br>纪律一，每月仅在发工资的当日处理和投资相关的事情。<br>纪律二: 绝不主动向别人推荐 ETF 和股票<br>他们运行的非常良好，帮我节省了大量的时间和精力。<br><a target="_blank" rel="noopener" href="http://mednoter.com/principles-by-ryan-lyu.html">http://mednoter.com/principles-by-ryan-lyu.html</a></p>
+</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NFT/" rel="tag">NFT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dao/" rel="tag">dao</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/google/" rel="tag">google</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E4%BA%AB/" rel="tag">分享</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-flutter中布局类widget组件"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/02/11/flutter%E4%B8%AD%E5%B8%83%E5%B1%80%E7%B1%BBwidget%E7%BB%84%E4%BB%B6/"
+    >flutter中布局类widget组件</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/02/11/flutter%E4%B8%AD%E5%B8%83%E5%B1%80%E7%B1%BBwidget%E7%BB%84%E4%BB%B6/" class="article-date">
+  <time datetime="2022-02-11T06:46:28.000Z" itemprop="datePublished">2022-02-11</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%A0%94%E5%8F%91/">技术生活 - 编程技术 - 移动端研发</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="widget布局组件原理"><a href="#widget布局组件原理" class="headerlink" title="widget布局组件原理"></a>widget布局组件原理</h1><p>flutter中布局从布局树的角度来说，大致分为三类：完全没有子节点，有且只有一个子节点的widget ，可以有多个子节点的widget。只有后两者才能成为布局widget。下班是这三类的说明和举例。</p>
+<table>
+<thead>
+<tr>
+<th align="left">widget名称</th>
+<th align="left">说明</th>
+<th align="left">举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">LeafRenderObjectWidget</td>
+<td align="left">非容器类组件通常继承自这个</td>
+<td align="left">Widget树的叶子节点，用于没有子节点的widget，通常基础组件都属于这一类，如Image。</td>
+</tr>
+<tr>
+<td align="left">SingleChildRenderObjectWidget</td>
+<td align="left">只能容纳单个组件的widget的基类</td>
+<td align="left">只能有一个child Widget，如：ConstrainedBox、DecoratedBox等 MultiChildRenderObjectWidget</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>所有的widget都继承自 RenderObjectWidget，这个类中定义了创建、更新RenderObject的方法，子类必须实现他们，它是最终布局、渲染UI界面的对象的方法，其布局算法都是通过对应的RenderObject对象来实现的。</p>
+</blockquote>
+<h1 id="widget布局组件的两个形式"><a href="#widget布局组件的两个形式" class="headerlink" title="widget布局组件的两个形式"></a>widget布局组件的两个形式</h1><p>Flutter 中的整体渲染流程是 Widget -&gt; Element -&gt; RenderObejct -&gt; Layer 这样的过程，而 「Flutter 里的布局和绘制逻辑都在 RenderObejct」,而其中的布局，就是这里要说的。<Br><br>Flutter 中有两种布局模型：</p>
+<ul>
+<li>基于 RenderBox 的盒模型布局。</li>
+<li>基于 Sliver ( RenderSliver ) 按需加载列表布局。<br>两种布局方式在细节上略有差异，但大体流程相同，布局流程如下：</li>
+</ul>
+<ol>
+<li>上层组件向下层组件传递约束（constraints）条件。</li>
+<li>下层组件确定自己的大小，然后告诉上层组件。注意下层组件的大小必须符合父组件的约束。</li>
+<li>上层组件确定下层组件相对于自身的偏移和确定自身的大小（大多数情况下会根据子组件的大小来确定自身的大小）。</li>
+</ol>
+<h2 id="盒模型布局组件"><a href="#盒模型布局组件" class="headerlink" title="盒模型布局组件"></a>盒模型布局组件</h2><p>盒模型布局组件有两个特点：</p>
+<ol>
+<li>组件对应的渲染对象都继承自 RenderBox 类。</li>
+<li>在布局过程中父级传递给子级的Constraints（约束） BoxConstraints 描述。</li>
+</ol>
+<p>ConstrainedBox用于对子组件添加额外的约束。被ConstrainedBox约束的组件，子组件的宽高以ConstrainedBox中设置的为准<br>例如以下代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ConstrainedBox(</span><br><span class="line">              constraints:</span><br><span class="line">                  const BoxConstraints(maxWidth: 300, minHeight: 40),</span><br><span class="line">              child: Container(</span><br><span class="line">                height: 1,</span><br><span class="line">                decoration: const BoxDecoration(color: Colors.red),</span><br><span class="line">              )),</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220211234015.png" alt="20220211234015"></p>
+<p>container的高度设置为1实际绘制的高度是40；设置height为100 ，绘制高度也是100 </p>
+<p>SizedBox用于给子元素指定固定的宽高。</p>
+<h3 id="Row和Column"><a href="#Row和Column" class="headerlink" title="Row和Column"></a>Row和Column</h3><p>这两个组件比较简单，可以类比安卓开发的时候有一个线性布局。<br>构造方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Row(&#123;</span><br><span class="line">  ...  </span><br><span class="line">  TextDirection textDirection,    </span><br><span class="line">  MainAxisSize mainAxisSize = MainAxisSize.max,    </span><br><span class="line">  MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,</span><br><span class="line">  VerticalDirection verticalDirection = VerticalDirection.down,  </span><br><span class="line">  CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,</span><br><span class="line">  List&lt;Widget&gt; children = const &lt;Widget&gt;[],</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>TextDirection 组件排列方向</li>
+<li>mainAxisSize 子元素的尺寸。mainAxisSize.max 尽可能的暂用空间。mainAxisSize.min尽可能的小的去占用。</li>
+<li>mainAxisAlignment ：水平空间的对齐方式。MainAxisAlignment.start表示沿textDirection的初始方向对齐，如textDirection取值为TextDirection.ltr时，则MainAxisAlignment.start表示左对齐，textDirection取值为TextDirection.rtl时表示从右对齐。而MainAxisAlignment.end和MainAxisAlignment.start正好相反；MainAxisAlignment.center表示居中对齐。读者可以这么理解：textDirection是mainAxisAlignment的参考系。</li>
+<li>verticalDirection：表示Row纵轴（垂直）的对齐方向，默认是VerticalDirection.down，表示从上到下。</li>
+<li>crossAxisAlignment：表示子组件在纵轴方向的对齐方式，Row的高度等于子组件中最高的子元素高度，它的取值和MainAxisAlignment一样(包含start、end、 center三个值)，不同的是crossAxisAlignment的参考系是verticalDirection，即verticalDirection值为VerticalDirection.down时crossAxisAlignment.start指顶部对齐，verticalDirection值为VerticalDirection.up时，crossAxisAlignment.start指底部对齐；而crossAxisAlignment.end和crossAxisAlignment.start正好相反；</li>
+</ul>
+<h3 id="柔性布局Flex"><a href="#柔性布局Flex" class="headerlink" title="柔性布局Flex"></a>柔性布局Flex</h3><p>柔性布局和Expand结合可以把元素按照比例分割布局。</p>
+<h3 id="流式布局"><a href="#流式布局" class="headerlink" title="流式布局"></a>流式布局</h3><p>超出屏幕显示范围会自动折行的布局称为流式布局。Flutter中通过Wrap和Flow来支持流式布局<br>wrap组件重要的属性</p>
+<ul>
+<li>spacing：主轴方向子widget的间距</li>
+<li>runSpacing：次轴方向的间距</li>
+<li>runAlignment：次轴方向的对齐方式</li>
+</ul>
+<h3 id="绝对布局Stack和Positioned"><a href="#绝对布局Stack和Positioned" class="headerlink" title="绝对布局Stack和Positioned"></a>绝对布局Stack和Positioned</h3><p>绝对布局、Android 中的 Frame 布局是相似的。子组件可以根据距父容器四个角的位置来确定自身的位置。Stack允许子组件堆叠，而Positioned用于根据Stack的四个角来确定子组件的位置。</p>
+<p>stack重要属性</p>
+<ul>
+<li>alignment:Alignment.center , &#x2F;&#x2F;指定未定位或部分定位widget的对齐方式；这个决定原点</li>
+<li>fit: StackFit.expand, &#x2F;&#x2F;未定位widget占满Stack整个空间</li>
+</ul>
+<p>Positioned构造函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const Positioned(&#123;</span><br><span class="line">  Key? key,</span><br><span class="line">  this.left, </span><br><span class="line">  this.top,</span><br><span class="line">  this.right,</span><br><span class="line">  this.bottom,</span><br><span class="line">  this.width,</span><br><span class="line">  this.height,</span><br><span class="line">  required Widget child,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>left、top 、right、 bottom分别代表离Stack左、上、右、底四边的距离。width和height用于指定需要定位元素的宽度和高度。</p>
+<h2 id="容器类组件"><a href="#容器类组件" class="headerlink" title="容器类组件"></a>容器类组件</h2><p>Padding<br>可以给其子节点添加填充（留白），和边距效果类似。<br>EdgeInsets<br><strong>EdgeInsets提供的api</strong> </p>
+<ul>
+<li>fromLTRB(double left, double top, double right, double bottom)：分别指定四个方向的填充。</li>
+<li>all(double value) : 所有方向均使用相同数值的填充。</li>
+<li>only({left, top, right ,bottom })：可以设置具体某个方向的填充(可以同时指定多个方向)。</li>
+<li>symmetric({ vertical, horizontal })：用于设置对称方向的填充，vertical指top和bottom，horizontal指left和right。</li>
+</ul>
+<h3 id="DecoratedBox"><a href="#DecoratedBox" class="headerlink" title="DecoratedBox"></a>DecoratedBox</h3><p>可以在其子组件绘制前(或后)绘制一些装饰（Decoration），如背景、边框、渐变等。</p>
+<h3 id="Container"><a href="#Container" class="headerlink" title="Container"></a>Container</h3><p>Container是一个组合类容器，它本身不对应具体的RenderObject，它是DecoratedBox、ConstrainedBox、Transform、Padding、Align等组件组合的一个多功能容器，所以我们只需通过一个Container组件可以实现同时需要装饰、变换、限制的场景。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Container(&#123;</span><br><span class="line">  this.alignment,</span><br><span class="line">  this.padding, //容器内补白，属于decoration的装饰范围</span><br><span class="line">  Color color, // 背景色</span><br><span class="line">  Decoration decoration, // 背景装饰</span><br><span class="line">  Decoration foregroundDecoration, //前景装饰</span><br><span class="line">  double width,//容器的宽度</span><br><span class="line">  double height, //容器的高度</span><br><span class="line">  BoxConstraints constraints, //容器大小的限制条件</span><br><span class="line">  this.margin,//容器外补白，不属于decoration的装饰范围</span><br><span class="line">  this.transform, //变换</span><br><span class="line">  this.child,</span><br><span class="line">  ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h2 id="Sliver-薄片布局"><a href="#Sliver-薄片布局" class="headerlink" title="Sliver(薄片布局)"></a>Sliver(薄片布局)</h2><p>通常可滚动组件子组件比较多，如果一次性渲染和加载所有组件，需要消耗比较大的系统资源，严重影响系统性能。并且随着手势滑动的时候，需要不停的计算。Flutter中提出一个Sliver（中文为“薄片”的意思）概念，Sliver 可以包含一个或多个子组件。Sliver 的主要作用是配合：加载子组件并确定每一个子组件的布局和绘制信息，如果 Sliver 可以包含多个子组件时，通常会实现按需加载模型。<br><br>通过这个机制，只有当 Sliver 出现在视口中时才会去构建它，这种模型也称为“基于Sliver的列表按需加载模型”。可滚动组件中有很多都支持基于Sliver的按需加载模型，如ListView、GridView，但是也有不支持该模型的，如SingleChildScrollView。</p>
+<blockquote>
+<p>Flutter 中的可滚动主要由三个角色组成：Scrollable、Viewport 和 Sliver：</p>
+<ol>
+<li>Scrollable ：用于处理滑动手势，确定滑动偏移，滑动偏移变化时构建 Viewport 。</li>
+<li>Viewport：显示的视窗，即列表的可视区域；</li>
+<li>Sliver：视窗里显示的元素。</li>
+</ol>
+</blockquote>
+<p>这几个的关系大致如下<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220211162027.png" alt="20220211162027"><br>说明：<br></p>
+<ol>
+<li>Scrollable 、 Viewport 和 Sliver 所占用的空间都是白色区域，也就是说，这部分是重合的。</li>
+<li>从上到下的层级关系是scrollview ，viewPort  ，silver </li>
+<li>按需加载需要最下层的silver来实现</li>
+<li>图中的cacheExtent区域是为了让滑动更丝滑而存在的，这部分不显示在可见区域，只是在即将出现在可见区域的提前绘制。默认值是250大小。可以被改变</li>
+</ol>
+<p>绘制过程<br>具体布局过程：</p>
+<ol>
+<li>Scrollable 监听到用户滑动行为后，根据最新的滑动偏移构建 Viewport 。</li>
+<li>Viewport 将当前视口信息和配置信息通过 SliverConstraints 传递给 Sliver。</li>
+<li>Sliver 中对子组件（RenderBox）按需进行构建和布局，然后确认自身的位置、绘制等信息，保存在 geometry 中（一个 SliverGeometry 类型的对象）。<h3 id="SingleChildScrollView"><a href="#SingleChildScrollView" class="headerlink" title="SingleChildScrollView"></a>SingleChildScrollView</h3>SingleChildScrollView类似安卓的ScrollView ，只有一个子组件。需要注意的是SingleChildScrollView不支持silver的按需加载。如果有比较多的待滑动内容的时候，不要使用这个组件。</li>
+</ol>
+<h1 id="滑动组件"><a href="#滑动组件" class="headerlink" title="滑动组件"></a>滑动组件</h1><h2 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h2><h3 id="ListView是一个列表展示组件。它的构造方法可以传入一组widget"><a href="#ListView是一个列表展示组件。它的构造方法可以传入一组widget" class="headerlink" title="ListView是一个列表展示组件。它的构造方法可以传入一组widget"></a>ListView是一个列表展示组件。它的构造方法可以传入一组widget</h3><p>如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ListView(</span><br><span class="line">                  shrinkWrap: true,</span><br><span class="line">                  padding: const EdgeInsets.all(10),</span><br><span class="line">                  children: const [</span><br><span class="line">                    Text(&quot;data1&quot;),</span><br><span class="line">                    Text(&quot;data2&quot;),</span><br><span class="line">                    Text(&quot;data3&quot;),</span><br><span class="line">                    Text(&quot;data4&quot;),</span><br><span class="line">                    Text(&quot;data5&quot;),</span><br><span class="line">                    Text(&quot;data6&quot;),</span><br><span class="line">                    Text(&quot;data7&quot;),</span><br><span class="line">                    Text(&quot;data8&quot;),</span><br><span class="line">                    Text(&quot;data9&quot;),</span><br><span class="line">                    Text(&quot;data10&quot;),</span><br><span class="line">                  ])</span><br><span class="line">            ]),</span><br></pre></td></tr></table></figure>
+<p>通常如果列表数量比较少，可以这么样做。如果列表数量比较多，这样就会消耗性能。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220211170603.png" alt="20220211170603"></p>
+<h3 id="ListView-builder适合批量创建列表元素"><a href="#ListView-builder适合批量创建列表元素" class="headerlink" title="ListView.builder适合批量创建列表元素"></a>ListView.builder适合批量创建列表元素</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Expanded(</span><br><span class="line">                  child: ListView.builder(</span><br><span class="line">                      itemCount: 100,</span><br><span class="line">                      itemExtent: 60,</span><br><span class="line">                      itemBuilder: (BuildContext context, int index) &#123;</span><br><span class="line">                        return ListTile(title: Text(&quot;ListViwe $index&quot;));</span><br><span class="line">                      &#125;))</span><br></pre></td></tr></table></figure>
+<p> <img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220211171356.png" alt="20220211171356">                     </p>
+<h3 id="ListView-separated"><a href="#ListView-separated" class="headerlink" title="ListView.separated"></a>ListView.separated</h3><p>ListView.separated可以在生成的列表项之间添加一个分割组件，它比ListView.builder多了一个separatorBuilder参数，该参数是一个分割组件生成器。使用场景，例如需要在每一个item之间添加分隔条的时候。</p>
+<h3 id="ListVIew的性能"><a href="#ListVIew的性能" class="headerlink" title="ListVIew的性能"></a>ListVIew的性能</h3><ol>
+<li>如果列表数据多，尽量使用listVIew.build或者listVIew.separated来构建列表。</li>
+<li>尽量给列表指定 itemExtent 或 prototypeItem ，这样会减少引擎的计算时间</li>
+</ol>
+<h2 id="GridVIew"><a href="#GridVIew" class="headerlink" title="GridVIew"></a>GridVIew</h2><p>GridView 有着非常有用的应用场景。如下<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220211174838.png" alt="20220211174838"></p>
+<p>GridView构造方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">GridView(&#123;</span><br><span class="line">  Key key,</span><br><span class="line">  Axis scrollDirection = Axis.vertical,</span><br><span class="line">  bool reverse = false,</span><br><span class="line">  ScrollController controller,</span><br><span class="line">  ScrollPhysics physics,</span><br><span class="line">  bool shrinkWrap = false,</span><br><span class="line">  EdgeInsetsGeometry padding,</span><br><span class="line">  @required this.gridDelegate,</span><br><span class="line">  double cacheExtent,</span><br><span class="line">  List&lt;Widget&gt; children = const &lt;Widget&gt;[],</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这么多参数中，重点需要关注的是gridDelegate这个参数。它其实是GridView组件如何控制排列子元素的一个委托<br>他的的类型是SliverGridDelegate。fultter中主要由两个实现类：</p>
+<ol>
+<li>SliverGridDelegateWithFixedCrossAxisCount：用于固定列数的场景；</li>
+<li>SliverGridDelegateWithMaxCrossAxisExtent：用于子元素有最大宽度限制的场景；</li>
+</ol>
+<h3 id="SliverGridDelegateWithFixedCrossAxisCount"><a href="#SliverGridDelegateWithFixedCrossAxisCount" class="headerlink" title="SliverGridDelegateWithFixedCrossAxisCount"></a>SliverGridDelegateWithFixedCrossAxisCount</h3><p>主要用于横轴方向有固定元素的场景，构造方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SliverGridDelegateWithFixedCrossAxisCount(&#123;</span><br><span class="line">  @required this.crossAxisCount,</span><br><span class="line">  this.mainAxisSpacing = 0.0,</span><br><span class="line">  this.crossAxisSpacing = 0.0,</span><br><span class="line">  this.childAspectRatio = 1.0,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>参数解释</p>
+<ul>
+<li>crossAxisCount：列数，即一行有几个子元素；</li>
+<li>mainAxisSpacing：主轴方向上的空隙间距；这里主轴是x轴</li>
+<li>crossAxisSpacing：次轴方向上的空隙间距；这里次轴是y轴</li>
+<li>childAspectRatio：子元素的宽高比例。</li>
+</ul>
+<p>下图说的比较清楚<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220211175521.png" alt="20220211175521"></p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>GridView使用方法主要有以下几种</p>
+<ul>
+<li>GridView默认构造函数可以类比于ListView默认构造函数，适用于有限个数子元素的场景，因为GridView组件会一次性全部渲染children中的子元素组件；</li>
+<li>GridView.builder构造函数可以类比于ListView.builder构造函数，适用于长列表的场景，因为GridView组件会根据子元素是否出现在屏幕内而动态创建销毁，减少内存消耗，更高效渲染；</li>
+<li>GridView.count构造函数是GrdiView使用SliverGridDelegateWithFixedCrossAxisCount的简写（语法糖），效果完全一致；</li>
+<li>GridView.extent构造函数式GridView使用SliverGridDelegateWithMaxCrossAxisExtent的简写（语法糖），效果完全一致。</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flutter/" rel="tag">flutter</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/widget/" rel="tag">widget</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B8%83%E5%B1%80/" rel="tag">布局</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
   id="post-flutter组件widget系列-基础组件"
   class="article article-type-post"
   itemscope
@@ -580,131 +1079,13 @@
 </article>
 
     
-    <article
-  id="post-travel"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/01/27/travel/"
-    >春节越南行</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/01/27/travel/" class="article-date">
-  <time datetime="2022-01-27T01:11:01.000Z" itemprop="datePublished">2022-01-27</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB-%E6%97%85%E6%B8%B8/">生活 - 旅游</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="我的所爱，在海云之间。"><a href="#我的所爱，在海云之间。" class="headerlink" title="我的所爱，在海云之间。"></a>我的所爱，在海云之间。</h2><blockquote>
-<p>最喜欢骑着摩托在海云岭上拉到最大马力的感觉~</p>
-</blockquote>
-<p>刚开始想去越南只是听朋友说物价便宜，人美景也美，尤其是有海滩，决定下来之后就开始查很多网友的攻略，后来发现看攻略根本记不住啥，说来说去都是这么几个注意点。上班的时候就没啥心思了，很期待这场旅行，本来假期就不多，春节正好可以躲避寒冬，于是约了个好友一起去，人均花费在4000左右吧，要是平时去估计能便宜一半。我选择了在年三十就出发，即使是这样，我们真正玩的时间也只有三天，有大半时间都浪费在了路上，不过这一路上的经历回想起来也挺有意思的。在此还是强烈推荐平时淡季去，春节机票贵，火车票又一票难求，如果是淡季去的话直飞是最爽快的了。</p> 
-      <a class="article-more-link" href="/2022/01/27/travel/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%85%E6%B8%B8/" rel="tag">旅游</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-about"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2021/11/11/about/"
-    >关于我</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2021/11/11/about/" class="article-date">
-  <time datetime="2021-11-11T07:26:21.000Z" itemprop="datePublished">2021-11-11</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h1><blockquote>
-<p>一个刚跌倒的孩子，大彻大悟之后，决定重新来一回。这里会说一些废话，发一些牢骚，记录一些成长经历。期待和每一位有趣的人成为朋友。</p>
-</blockquote>
-<h1 id="经历"><a href="#经历" class="headerlink" title="经历"></a>经历</h1><p>工作多载，未有惊天动地之成就;愧。主要从事编程行业。曾经在几千人的公司呆过，也在几十个人的小团队做技术总监。努力过，奋斗过，也摸过鱼。项目经验有APP 研发，电商，java 后端，探针技术，游戏，区块链等。编程语言java  go  php  JavaScript dart</p>
-<h1 id="以后"><a href="#以后" class="headerlink" title="以后"></a>以后</h1><p>看过网上的一篇文章，大概讲的是杠杆的原理。其实人生无非就是人力杠杆，经济杠杆，学历杠杆。合理利用好这些杠杆，能让自己活的更轻松。后边，技术上继续专研，会更加重视一些短平快项目的实践；生活上，会多走走，乐游和体验生活，多和家人亲戚沟通。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aobut/" rel="tag">aobut</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
   </nav>
   
 </section>

