@@ -6,7 +6,7 @@
   <link href="https://www.memestarter.top/atom.xml" rel="self"/>
   
   <link href="https://www.memestarter.top/"/>
-  <updated>2022-04-07T14:15:57.487Z</updated>
+  <updated>2022-04-19T12:42:08.197Z</updated>
   <id>https://www.memestarter.top/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>fix-mac-rabbitmq-issue</title>
+    <link href="https://www.memestarter.top/2022/04/19/fix-mac-rabbitmq-issue/"/>
+    <id>https://www.memestarter.top/2022/04/19/fix-mac-rabbitmq-issue/</id>
+    <published>2022-04-19T12:27:21.000Z</published>
+    <updated>2022-04-19T12:42:08.197Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>今天在mac 下面配置 rabbitmq的环境，按照官方文档 brew install rabbitmq 竟然报错了，如下。<br>核心错误 *** No formulae found in taps *** </p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">yyy@xxx-MacBook-Pro ~ % brew install rabbitmq</span><br><span class="line"></span><br><span class="line">Running `brew update --preinstall`...</span><br><span class="line">fatal: Could not resolve HEAD to a revision</span><br><span class="line">==&gt; Tapping homebrew/cask</span><br><span class="line">Cloning into &#x27;/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask&#x27;...</span><br><span class="line">remote: Enumerating objects: 633392, done.</span><br><span class="line">remote: Counting objects: 100% (14/14), done.</span><br><span class="line">remote: Compressing objects: 100% (14/14), done.</span><br><span class="line">remote: Total 633392 (delta 6), reused 2 (delta 0), pack-reused 633378</span><br><span class="line">Receiving objects: 100% (633392/633392), 298.02 MiB | 9.22 MiB/s, done.</span><br><span class="line">Resolving deltas: 100% (448299/448299), done.</span><br><span class="line">Updating files: 100% (4055/4055), done.</span><br><span class="line">Tapped 3996 casks (4,066 files, 318.3MB).</span><br><span class="line">Warning: No available formula with the name &quot;rabbitmq&quot;.</span><br><span class="line">==&gt; Searching for similarly named formulae...</span><br><span class="line">Error: No similarly named formulae found.</span><br><span class="line">==&gt; Searching for a previously deleted formula (in the last month)...</span><br><span class="line">Error: No previously deleted formula found.</span><br><span class="line">==&gt; Searching taps on GitHub...</span><br><span class="line">Error: No formulae found in taps.</span><br><span class="line">jim@zhangs-MacBook-Pro ~ % brew install rabbitmq</span><br><span class="line"></span><br><span class="line">Running `brew update --preinstall`...</span><br><span class="line">fatal: Could not resolve HEAD to a revision</span><br><span class="line">Warning: No available formula with the name &quot;rabbitmq&quot;.</span><br><span class="line">==&gt; Searching for similarly named formulae...</span><br><span class="line">Error: No similarly named formulae found.</span><br><span class="line">==&gt; Searching for a previously deleted formula (in the last month)...</span><br><span class="line">Error: No previously deleted formula found.</span><br><span class="line">==&gt; Searching taps on GitHub...</span><br><span class="line">Error: No formulae found in taps.</span><br></pre></td></tr></table></figure><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>经过一番思考和查阅发现可以这样解决</p><ul><li>定位到homebrew目录<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/Homebrew/Library/Taps/homebrew/</span><br></pre></td></tr></table></figure></li><li>然后rm -rf homebrew-core</li><li>重新git clone <a href="https://github.com/Homebrew/homebrew-core.git">https://github.com/Homebrew/homebrew-core.git</a></li><li>最后重新执行brew install</li></ul><h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>可能是安装brew的过程中由于网络原因或者其他原因导致homebrew安装出现问题</p><h2 id="rabbitmq-其他"><a href="#rabbitmq-其他" class="headerlink" title="rabbitmq 其他"></a>rabbitmq 其他</h2><ul><li>rabbitmq常用命令：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">brew services info   rabbitmq</span><br><span class="line">brew services stop   rabbitmq</span><br><span class="line">brew services restart   rabbitmq</span><br><span class="line">brew services kill   rabbitmq</span><br></pre></td></tr></table></figure></li><li>Web界面管理RabbitMQ<br>默认是可以本地登录localhost:15672，用户名：guest；密码：guest；端口默认15672</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h2&gt;&lt;p&gt;今天在mac 下面配置 rabbitmq的环境，按照官方文档 brew install rabbitmq 竟然报错了，如下。</summary>
+      
+    
+    
+    
+    <category term="技术生活 - 编程技术 - 后端技术" scheme="https://www.memestarter.top/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="rabbmitmq" scheme="https://www.memestarter.top/tags/rabbmitmq/"/>
+    
+  </entry>
   
   <entry>
     <title>区块链骗局之夹子机器人</title>
@@ -503,38 +527,6 @@
     <category term="分享" scheme="https://www.memestarter.top/tags/%E5%88%86%E4%BA%AB/"/>
     
     <category term="合约" scheme="https://www.memestarter.top/tags/%E5%90%88%E7%BA%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>springboot-2.x-log-system</title>
-    <link href="https://www.memestarter.top/2022/03/03/springboot-2-x-log-system/"/>
-    <id>https://www.memestarter.top/2022/03/03/springboot-2-x-log-system/</id>
-    <published>2022-03-03T05:06:58.000Z</published>
-    <updated>2022-03-03T05:29:08.601Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="springboot日志系统的理解"><a href="#springboot日志系统的理解" class="headerlink" title="springboot日志系统的理解"></a>springboot日志系统的理解</h1><h2 id="日志归一系统"><a href="#日志归一系统" class="headerlink" title="日志归一系统"></a>日志归一系统</h2><p>写代码的时候突然对log感兴趣，想到了springboot之前了解的时候是依赖于sl4j实现的统一api，在编译的时候在决定用哪一个日志框架。但是翻了一下网上的文章。得出了<strong>Spring Boot 可以自动的适配日志框架，而且底层使用 SLF4 + LogBack</strong>的结论。<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220303131251.png" alt="20220303131251"></p><p>从图中可以看出几点</p><ol><li>所有其他日志系统例如，jul ，log4j ，logback 都是实现了和sl4j的桥接。</li><li>其中只有logback实现了sl4j，这个也是得出默认springboot支持logback的原因。</li></ol><h2 id="在springboot中，各个日志框架究竟是如何和平相处，并且相安无事的"><a href="#在springboot中，各个日志框架究竟是如何和平相处，并且相安无事的" class="headerlink" title="在springboot中，各个日志框架究竟是如何和平相处，并且相安无事的"></a>在springboot中，各个日志框架究竟是如何和平相处，并且相安无事的</h2><p>我们写代码，免不了使用第三方的库，假设第三方库没有实现sl4j的api，那么这个日志岂不是不受到springboot的统一管理了？？？不是这样的，就类似上面的spring-logging 这个库，一些第三方的流行的库，会有一些工具包来替换接管这些第三方系统的日志。<br>大致原理，如下，下面是一个sl4j官方的一个图。<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220303132843.png" alt="20220303132843"></p><h1 id="如何替换默认的logback的实现"><a href="#如何替换默认的logback的实现" class="headerlink" title="如何替换默认的logback的实现"></a>如何替换默认的logback的实现</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;    </span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;    </span><br><span class="line">    &lt;exclusions&gt;           </span><br><span class="line">        &lt;exclusion&gt;            </span><br><span class="line">           &lt;artifactId&gt;spring-boot-starter-logging&lt;/artifactId&gt;                </span><br><span class="line">           &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;        </span><br><span class="line">        &lt;/exclusion&gt;   </span><br><span class="line">    &lt;/exclusions&gt; </span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;    </span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    </span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-log4j2&lt;/artifactId&gt; </span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;springboot日志系统的理解&quot;&gt;&lt;a href=&quot;#springboot日志系统的理解&quot; class=&quot;headerlink&quot; title=&quot;springboot日志系统的理解&quot;&gt;&lt;/a&gt;springboot日志系统的理解&lt;/h1&gt;&lt;h2 id=&quot;日志归一系</summary>
-      
-    
-    
-    
-    <category term="技术生活 - 编程技术 - 后端技术" scheme="https://www.memestarter.top/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="springboot" scheme="https://www.memestarter.top/tags/springboot/"/>
-    
-    <category term="log" scheme="https://www.memestarter.top/tags/log/"/>
-    
-    <category term="log4j" scheme="https://www.memestarter.top/tags/log4j/"/>
-    
-    <category term="sl4j" scheme="https://www.memestarter.top/tags/sl4j/"/>
-    
-    <category term="日志" scheme="https://www.memestarter.top/tags/%E6%97%A5%E5%BF%97/"/>
     
   </entry>
   
