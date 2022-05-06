@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>fix-mac-rabbitmq-issue |  张智进的博客</title>
+      <title>椭圆曲线签名之区块链签名验证 |  张智进的博客</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -57,7 +57,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-fix-mac-rabbitmq-issue"
+  id="post-椭圆曲线签名之区块链签名验证"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -68,7 +68,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  fix-mac-rabbitmq-issue
+  椭圆曲线签名之区块链签名验证
 </h1>
  
 
@@ -76,11 +76,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/04/19/fix-mac-rabbitmq-issue/" class="article-date">
-  <time datetime="2022-04-19T12:27:21.000Z" itemprop="datePublished">2022-04-19</time>
+      <a href="/2022/04/26/%E6%A4%AD%E5%9C%86%E6%9B%B2%E7%BA%BF%E7%AD%BE%E5%90%8D%E4%B9%8B%E5%8C%BA%E5%9D%97%E9%93%BE%E7%AD%BE%E5%90%8D%E9%AA%8C%E8%AF%81/" class="article-date">
+  <time datetime="2022-04-26T03:12:04.000Z" itemprop="datePublished">2022-04-26</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/">技术生活 - 编程技术 - 后端技术</a>
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E5%8C%BA%E5%9D%97%E9%93%BE/">技术生活 - 编程技术 - 区块链</a>
   </div>
   
 <div class="word_count">
@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">394</span>
+            <span class="post-count">663</span>
         </span>
     </span>
 
@@ -112,22 +112,18 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>今天在mac 下面配置 rabbitmq的环境，按照官方文档 brew install rabbitmq 竟然报错了，如下。<br>核心错误 *** No formulae found in taps *** </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">yyy@xxx-MacBook-Pro ~ % brew install rabbitmq</span><br><span class="line"></span><br><span class="line">Running `brew update --preinstall`...</span><br><span class="line">fatal: Could not resolve HEAD to a revision</span><br><span class="line">==&gt; Tapping homebrew/cask</span><br><span class="line">Cloning into &#x27;/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask&#x27;...</span><br><span class="line">remote: Enumerating objects: 633392, done.</span><br><span class="line">remote: Counting objects: 100% (14/14), done.</span><br><span class="line">remote: Compressing objects: 100% (14/14), done.</span><br><span class="line">remote: Total 633392 (delta 6), reused 2 (delta 0), pack-reused 633378</span><br><span class="line">Receiving objects: 100% (633392/633392), 298.02 MiB | 9.22 MiB/s, done.</span><br><span class="line">Resolving deltas: 100% (448299/448299), done.</span><br><span class="line">Updating files: 100% (4055/4055), done.</span><br><span class="line">Tapped 3996 casks (4,066 files, 318.3MB).</span><br><span class="line">Warning: No available formula with the name &quot;rabbitmq&quot;.</span><br><span class="line">==&gt; Searching for similarly named formulae...</span><br><span class="line">Error: No similarly named formulae found.</span><br><span class="line">==&gt; Searching for a previously deleted formula (in the last month)...</span><br><span class="line">Error: No previously deleted formula found.</span><br><span class="line">==&gt; Searching taps on GitHub...</span><br><span class="line">Error: No formulae found in taps.</span><br><span class="line">jim@zhangs-MacBook-Pro ~ % brew install rabbitmq</span><br><span class="line"></span><br><span class="line">Running `brew update --preinstall`...</span><br><span class="line">fatal: Could not resolve HEAD to a revision</span><br><span class="line">Warning: No available formula with the name &quot;rabbitmq&quot;.</span><br><span class="line">==&gt; Searching for similarly named formulae...</span><br><span class="line">Error: No similarly named formulae found.</span><br><span class="line">==&gt; Searching for a previously deleted formula (in the last month)...</span><br><span class="line">Error: No previously deleted formula found.</span><br><span class="line">==&gt; Searching taps on GitHub...</span><br><span class="line">Error: No formulae found in taps.</span><br></pre></td></tr></table></figure>
-
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>经过一番思考和查阅发现可以这样解决</p>
-<ul>
-<li>定位到homebrew目录<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/Homebrew/Library/Taps/homebrew/</span><br></pre></td></tr></table></figure></li>
-<li>然后rm -rf homebrew-core</li>
-<li>重新git clone <a target="_blank" rel="noopener" href="https://github.com/Homebrew/homebrew-core.git">https://github.com/Homebrew/homebrew-core.git</a></li>
-<li>最后重新执行brew install</li>
-</ul>
-<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>可能是安装brew的过程中由于网络原因或者其他原因导致homebrew安装出现问题</p>
-<h2 id="rabbitmq-其他"><a href="#rabbitmq-其他" class="headerlink" title="rabbitmq 其他"></a>rabbitmq 其他</h2><ul>
-<li>rabbitmq常用命令：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">brew services info   rabbitmq</span><br><span class="line">brew services stop   rabbitmq</span><br><span class="line">brew services restart   rabbitmq</span><br><span class="line">brew services kill   rabbitmq</span><br></pre></td></tr></table></figure></li>
-<li>Web界面管理RabbitMQ<br>默认是可以本地登录localhost:15672，用户名：guest；密码：guest；端口默认15672</li>
-</ul>
- 
+  <h1 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h1><p>学过计算机的人都知道知名度rsa加密算法。它使用了两个数字相乘很容易，但是把一个大数字分解为素数却很难的这个原理，来实现对称加密。但是随着计算机的发展rsa的安全性越来越受到挑战。于是在bitcoin中一个叫做椭圆曲线算法的对称加密算法被使用，并且在长期实践中证明了其安全性。</p>
+<h1 id="椭圆曲线算法"><a href="#椭圆曲线算法" class="headerlink" title="椭圆曲线算法"></a>椭圆曲线算法</h1><p>椭圆曲线密码术是一种基于离散对数问题的非对称或公钥密码体系，如椭圆曲线上的加法和乘法运算。作为一种对称加密算法，椭圆曲线算法比ras算法用更小的公钥，实现更高的效率，实现了更高的安全性。</p>
+<p>数字签名在比特币中有三种用途。</p>
+<ol>
+<li>签名证明私钥的所有者，即资金所有者，已经授权支出这些资金。</li>
+<li>授权证明是不可否认的 （不可否认性）</li>
+<li>签名证明交易（或交易的具体部分）在签字之后没有也不能被任何人修改</li>
+</ol>
+<h2 id="算法介绍"><a href="#算法介绍" class="headerlink" title="算法介绍"></a>算法介绍</h2><p>这部分可以参考：精通以太坊 （中文版）：<a target="_blank" rel="noopener" href="https://www.bookstack.cn/read/ethereum_book-zh/spilt.6.4e6f5cb249c84882.md">https://www.bookstack.cn/read/ethereum_book-zh/spilt.6.4e6f5cb249c84882.md</a></p>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h2 id="椭圆曲线算法实现"><a href="#椭圆曲线算法实现" class="headerlink" title="椭圆曲线算法实现"></a>椭圆曲线算法实现</h2><p>总的来说，首先要生成一个随机数根据K&#x3D;k*P ，来确定私钥。<br>具体的在数字签名的时候，区块链使用的算法和正规的椭圆曲线算法有一定的差异。经过签名的消息是可以被分解为 r ，s的。只靠rs所反解的public key会有四组，不过实际上最常见的是2组，因为另外两种出现的概率很低很低。这篇文章有具体的说明：<a target="_blank" rel="noopener" href="https://bitcoin.stackexchange.com/questions/38351/ecdsa-v-r-s-what-is-v">https://bitcoin.stackexchange.com/questions/38351/ecdsa-v-r-s-what-is-v</a> 。 </p>
+<h2 id="椭圆曲线算法签名实现"><a href="#椭圆曲线算法签名实现" class="headerlink" title="椭圆曲线算法签名实现"></a>椭圆曲线算法签名实现</h2><p>下面是代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class Sign &#123;</span><br><span class="line"></span><br><span class="line">    public static final String PERSONAL_MESSAGE_PREFIX = &quot;\u0019Ethereum Signed Message:\n&quot;;</span><br><span class="line"></span><br><span class="line">    public static void RecoverAddress) &#123;</span><br><span class="line"></span><br><span class="line">        String signature = &quot;xxxx&quot;;</span><br><span class="line"></span><br><span class="line">        String address = &quot;yyyy&quot;;</span><br><span class="line">        String message = &quot;msg&quot;;</span><br><span class="line"></span><br><span class="line">        String prefix = PERSONAL_MESSAGE_PREFIX + message.length();</span><br><span class="line">        byte[] msgHash = Hash.sha3((prefix + message).getBytes());</span><br><span class="line"></span><br><span class="line">        byte[] signatureBytes = Numeric.hexStringToByteArray(signature);</span><br><span class="line">        byte v = signatureBytes[64];</span><br><span class="line">        if (v &lt; 27) &#123;</span><br><span class="line">            v += 27;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        SignatureData sd =</span><br><span class="line">                new SignatureData(</span><br><span class="line">                        v,</span><br><span class="line">                        (byte[]) Arrays.copyOfRange(signatureBytes, 0, 32),</span><br><span class="line">                        (byte[]) Arrays.copyOfRange(signatureBytes, 32, 64)</span><br><span class="line">                );</span><br><span class="line"></span><br><span class="line">        String addressRecovered = null;</span><br><span class="line">        boolean match = false;</span><br><span class="line"></span><br><span class="line">        // Iterate for each possible key to recover</span><br><span class="line">        for (int i = 0; i &lt; 4; i++) &#123;</span><br><span class="line">            BigInteger publicKey =</span><br><span class="line">                    Sign.recoverFromSignature(</span><br><span class="line">                            (byte) i,</span><br><span class="line">                            new ECDSASignature(</span><br><span class="line">                                    new BigInteger(1, sd.getR()), new BigInteger(1, sd.getS())),</span><br><span class="line">                            msgHash);</span><br><span class="line"></span><br><span class="line">            if (publicKey != null) &#123;</span><br><span class="line">                addressRecovered = &quot;0x&quot; + Keys.getAddress(publicKey);</span><br><span class="line"></span><br><span class="line">                if (addressRecovered.equals(address)) &#123;</span><br><span class="line">                    match = true;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (addressRecovered.equals(address)) &#123;</span><br><span class="line">            System.out.println(&quot; recovered ... &quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (match) &#123;</span><br><span class="line">            System.out.println(&quot; match ... &quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
     </div>
@@ -191,12 +187,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.memestarter.top/2022/04/19/fix-mac-rabbitmq-issue/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.memestarter.top/2022/04/26/%E6%A4%AD%E5%9C%86%E6%9B%B2%E7%BA%BF%E7%AD%BE%E5%90%8D%E4%B9%8B%E5%8C%BA%E5%9D%97%E9%93%BE%E7%AD%BE%E5%90%8D%E9%AA%8C%E8%AF%81/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbmitmq/" rel="tag">rabbmitmq</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">区块链</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D/" rel="tag">数字签名</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
 
     </footer>
   </div>
@@ -204,19 +200,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/04/26/%E9%98%B2%E6%B2%89%E8%BF%B7app-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%931/" class="article-nav-link">
+      <a href="/2022/04/30/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E5%99%A8remix-ide/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            防沉迷app-项目总结1
+            区块链代码编辑器remix-ide
           
         </div>
       </a>
     
     
-      <a href="/2022/04/07/%E5%8C%BA%E5%9D%97%E9%93%BE%E9%AA%97%E5%B1%80%E4%B9%8B%E5%A4%B9%E5%AD%90%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="article-nav-link">
+      <a href="/2022/04/26/%E9%98%B2%E6%B2%89%E8%BF%B7app-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%932/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">区块链骗局之夹子机器人</div>
+        <div class="article-nav-title">防沉迷app-项目总结2</div>
       </a>
     
   </nav>

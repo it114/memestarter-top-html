@@ -130,6 +130,376 @@
     
     
     <article
+  id="post-区块链合约之30天学会solidity第二节"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/04/30/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%90%88%E7%BA%A6%E4%B9%8B30%E5%A4%A9%E5%AD%A6%E4%BC%9Asolidity%E7%AC%AC%E4%BA%8C%E8%8A%82/"
+    >区块链合约之30天学会solidity第二节</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/30/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%90%88%E7%BA%A6%E4%B9%8B30%E5%A4%A9%E5%AD%A6%E4%BC%9Asolidity%E7%AC%AC%E4%BA%8C%E8%8A%82/" class="article-date">
+  <time datetime="2022-04-30T10:44:32.000Z" itemprop="datePublished">2022-04-30</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+   
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-post"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/04/30/post/"
+    >post</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/30/post/" class="article-date">
+  <time datetime="2022-04-30T10:43:55.000Z" itemprop="datePublished">2022-04-30</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+   
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-区块链代码编辑器remix-ide"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/04/30/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E5%99%A8remix-ide/"
+    >区块链代码编辑器remix-ide</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/30/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E5%99%A8remix-ide/" class="article-date">
+  <time datetime="2022-04-30T10:09:37.000Z" itemprop="datePublished">2022-04-30</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E5%8C%BA%E5%9D%97%E9%93%BE/">技术生活 - 编程技术 - 区块链</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>学solidity已经2年了，平日除了偶尔写一点点合约喝读一点合约之外，几乎没有用武之地（工作中也用不到）。导致目前渐渐的有些生疏了。现在捡起来，希望有人一起再次一起学习。学习学习，有输入和输出才能学的更好。所以，我计划，没两天更新一波学习记录。我会把学习记录写成系列文章，把代码放到github，期待一起进步。也请大家到我的GitHub 给我star呀！也欢迎给我留言加个好友啥的。如果给我star的，联系我我会拉个共同学习的群v（jingyiwei）。<br>GitHub：<a href="mailto:&#x67;&#105;&#116;&#x40;&#103;&#105;&#x74;&#x68;&#117;&#x62;&#x2e;&#x63;&#111;&#109;">&#x67;&#105;&#116;&#x40;&#103;&#105;&#x74;&#x68;&#117;&#x62;&#x2e;&#x63;&#111;&#109;</a>:it114&#x2F;learn-solidity-30day.git<br>本文原文发表在张智进博客：<a href="https://www.memestarter.top/">https://www.memestarter.top/</a></p>
+<h1 id="合约ide"><a href="#合约ide" class="headerlink" title="合约ide"></a>合约ide</h1><p>和很多编程语言一样，当你问学过的人该用什么ide来开发。清高的人活着xx的人会告诉你：记事本也可以。对于新手来说，一款好的编译器能帮助初学者少走弯路，建立信心。回忆起我的初学之后，从最初的vs code 到 <a target="_blank" rel="noopener" href="https://remix.ethereum.org/">https://remix.ethereum.org/</a> 在线ide，再到remix 桌面ide，最后还是觉得桌面ide要要用一些。说一下优缺点吧 </p>
+<ul>
+<li>VS code<br>需要安装插件，而且这个插件还有不同的开发者开发的插件，初学者要去选择。代码变现到编译到部署，中间要用到几个插件，都需要要初学者去探索。</li>
+<li>remix 在线ide<br>打开网址就能编写代码，同一个ide，几乎啥都不配置，可以执行编写，编译和部署等诸多步骤。上手快，无需下载，用完即走</li>
+<li>remix 桌面ide<br>和在线的remix一样，不一样的是可以打开本地workspace还有一些高级功能待探索。</li>
+</ul>
+<h1 id="remix"><a href="#remix" class="headerlink" title="remix"></a>remix</h1><h2 id="认识工作区"><a href="#认识工作区" class="headerlink" title="认识工作区"></a>认识工作区</h2><p>工作区大致如下，各个区域的功能<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220430183656.png" alt="20220430183656"></p>
+<p>在编译页面，重要的配置项<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220430183827.png" alt="20220430183827"></p>
+<p>部署页面重要配置项<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220430184102.png" alt="20220430184102"></p>
+<p>第一段就到这了，需要多练多写</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ide/" rel="tag">ide</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/solidity%E6%95%99%E7%A8%8B/" rel="tag">solidity教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">区块链</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-椭圆曲线签名之区块链签名验证"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/04/26/%E6%A4%AD%E5%9C%86%E6%9B%B2%E7%BA%BF%E7%AD%BE%E5%90%8D%E4%B9%8B%E5%8C%BA%E5%9D%97%E9%93%BE%E7%AD%BE%E5%90%8D%E9%AA%8C%E8%AF%81/"
+    >椭圆曲线签名之区块链签名验证</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/26/%E6%A4%AD%E5%9C%86%E6%9B%B2%E7%BA%BF%E7%AD%BE%E5%90%8D%E4%B9%8B%E5%8C%BA%E5%9D%97%E9%93%BE%E7%AD%BE%E5%90%8D%E9%AA%8C%E8%AF%81/" class="article-date">
+  <time datetime="2022-04-26T03:12:04.000Z" itemprop="datePublished">2022-04-26</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E5%8C%BA%E5%9D%97%E9%93%BE/">技术生活 - 编程技术 - 区块链</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h1><p>学过计算机的人都知道知名度rsa加密算法。它使用了两个数字相乘很容易，但是把一个大数字分解为素数却很难的这个原理，来实现对称加密。但是随着计算机的发展rsa的安全性越来越受到挑战。于是在bitcoin中一个叫做椭圆曲线算法的对称加密算法被使用，并且在长期实践中证明了其安全性。</p>
+<h1 id="椭圆曲线算法"><a href="#椭圆曲线算法" class="headerlink" title="椭圆曲线算法"></a>椭圆曲线算法</h1><p>椭圆曲线密码术是一种基于离散对数问题的非对称或公钥密码体系，如椭圆曲线上的加法和乘法运算。作为一种对称加密算法，椭圆曲线算法比ras算法用更小的公钥，实现更高的效率，实现了更高的安全性。</p>
+<p>数字签名在比特币中有三种用途。</p>
+<ol>
+<li>签名证明私钥的所有者，即资金所有者，已经授权支出这些资金。</li>
+<li>授权证明是不可否认的 （不可否认性）</li>
+<li>签名证明交易（或交易的具体部分）在签字之后没有也不能被任何人修改</li>
+</ol>
+<h2 id="算法介绍"><a href="#算法介绍" class="headerlink" title="算法介绍"></a>算法介绍</h2><p>这部分可以参考：精通以太坊 （中文版）：<a target="_blank" rel="noopener" href="https://www.bookstack.cn/read/ethereum_book-zh/spilt.6.4e6f5cb249c84882.md">https://www.bookstack.cn/read/ethereum_book-zh/spilt.6.4e6f5cb249c84882.md</a></p>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h2 id="椭圆曲线算法实现"><a href="#椭圆曲线算法实现" class="headerlink" title="椭圆曲线算法实现"></a>椭圆曲线算法实现</h2><p>总的来说，首先要生成一个随机数根据K&#x3D;k*P ，来确定私钥。<br>具体的在数字签名的时候，区块链使用的算法和正规的椭圆曲线算法有一定的差异。经过签名的消息是可以被分解为 r ，s的。只靠rs所反解的public key会有四组，不过实际上最常见的是2组，因为另外两种出现的概率很低很低。这篇文章有具体的说明：<a target="_blank" rel="noopener" href="https://bitcoin.stackexchange.com/questions/38351/ecdsa-v-r-s-what-is-v">https://bitcoin.stackexchange.com/questions/38351/ecdsa-v-r-s-what-is-v</a> 。 </p>
+<h2 id="椭圆曲线算法签名实现"><a href="#椭圆曲线算法签名实现" class="headerlink" title="椭圆曲线算法签名实现"></a>椭圆曲线算法签名实现</h2><p>下面是代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class Sign &#123;</span><br><span class="line"></span><br><span class="line">    public static final String PERSONAL_MESSAGE_PREFIX = &quot;\u0019Ethereum Signed Message:\n&quot;;</span><br><span class="line"></span><br><span class="line">    public static void RecoverAddress) &#123;</span><br><span class="line"></span><br><span class="line">        String signature = &quot;xxxx&quot;;</span><br><span class="line"></span><br><span class="line">        String address = &quot;yyyy&quot;;</span><br><span class="line">        String message = &quot;msg&quot;;</span><br><span class="line"></span><br><span class="line">        String prefix = PERSONAL_MESSAGE_PREFIX + message.length();</span><br><span class="line">        byte[] msgHash = Hash.sha3((prefix + message).getBytes());</span><br><span class="line"></span><br><span class="line">        byte[] signatureBytes = Numeric.hexStringToByteArray(signature);</span><br><span class="line">        byte v = signatureBytes[64];</span><br><span class="line">        if (v &lt; 27) &#123;</span><br><span class="line">            v += 27;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        SignatureData sd =</span><br><span class="line">                new SignatureData(</span><br><span class="line">                        v,</span><br><span class="line">                        (byte[]) Arrays.copyOfRange(signatureBytes, 0, 32),</span><br><span class="line">                        (byte[]) Arrays.copyOfRange(signatureBytes, 32, 64)</span><br><span class="line">                );</span><br><span class="line"></span><br><span class="line">        String addressRecovered = null;</span><br><span class="line">        boolean match = false;</span><br><span class="line"></span><br><span class="line">        // Iterate for each possible key to recover</span><br><span class="line">        for (int i = 0; i &lt; 4; i++) &#123;</span><br><span class="line">            BigInteger publicKey =</span><br><span class="line">                    Sign.recoverFromSignature(</span><br><span class="line">                            (byte) i,</span><br><span class="line">                            new ECDSASignature(</span><br><span class="line">                                    new BigInteger(1, sd.getR()), new BigInteger(1, sd.getS())),</span><br><span class="line">                            msgHash);</span><br><span class="line"></span><br><span class="line">            if (publicKey != null) &#123;</span><br><span class="line">                addressRecovered = &quot;0x&quot; + Keys.getAddress(publicKey);</span><br><span class="line"></span><br><span class="line">                if (addressRecovered.equals(address)) &#123;</span><br><span class="line">                    match = true;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (addressRecovered.equals(address)) &#123;</span><br><span class="line">            System.out.println(&quot; recovered ... &quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (match) &#123;</span><br><span class="line">            System.out.println(&quot; match ... &quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">区块链</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D/" rel="tag">数字签名</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-防沉迷app-项目总结2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/04/26/%E9%98%B2%E6%B2%89%E8%BF%B7app-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%932/"
+    >防沉迷app-项目总结2</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/26/%E9%98%B2%E6%B2%89%E8%BF%B7app-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%932/" class="article-date">
+  <time datetime="2022-04-26T02:50:08.000Z" itemprop="datePublished">2022-04-26</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">技术生活 - 编程技术 - 项目总结</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="防沉迷项目总结（2）"><a href="#防沉迷项目总结（2）" class="headerlink" title="防沉迷项目总结（2）"></a>防沉迷项目总结（2）</h1><h2 id="软件开发的需求变动问题"><a href="#软件开发的需求变动问题" class="headerlink" title="软件开发的需求变动问题"></a>软件开发的需求变动问题</h2><p>作为开发者，最不喜欢的场景是需求朝令夕改。频繁的需求改动对开发者的耐性和信心是极大的打击。</p>
+<ol>
+<li>心情：这个就不用多说了，开发是很枯燥的。让程序员重复做一个事情，不停的重复更枯燥。</li>
+<li>设计问题：最初a需求的技术方案，开发者设计好了，需求变了之后，技术方案都有可能会受到影响。</li>
+</ol>
+<p>对于这个问题，目前是无解。市场是对的，老板也是对的，需求没错。所以就需要开发者提高自身素质，对潜在的需求变动要有前瞻性。在技术设计方面<br>对于可能的变动预留足够的弹性空间。</p>
+<h3 id="一个被需求折磨的例子"><a href="#一个被需求折磨的例子" class="headerlink" title="一个被需求折磨的例子"></a>一个被需求折磨的例子</h3><p>需求a：桌面app只需要显示和隐藏<br>a基础上改动后的需求b：要初始化显示系统app，同时行列也要变化。</p>
+<p>这块改动比较大，改动之前的就不贴代码了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br></pre></td><td class="code"><pre><span class="line"> package com.benny.openlauncher.util;</span><br><span class="line"></span><br><span class="line">import android.util.Log;</span><br><span class="line"></span><br><span class="line">import com.benny.openlauncher.AppObject;</span><br><span class="line">import com.benny.openlauncher.activity.HomeActivity;</span><br><span class="line">import com.benny.openlauncher.model.App;</span><br><span class="line">import com.benny.openlauncher.model.Item;</span><br><span class="line">import com.benny.openlauncher.widget.CellContainer;</span><br><span class="line">import com.benny.openlauncher.widget.Desktop;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">// 桌面app排列有关工具类</span><br><span class="line">public class DeskTopUtils &#123;</span><br><span class="line"></span><br><span class="line">    // 第一次初始化</span><br><span class="line">    public static void onCreate(List&lt;App&gt; apps) &#123;</span><br><span class="line">       // TODO </span><br><span class="line">    &#125;</span><br><span class="line">    // 添加到hide，并从数据库移除</span><br><span class="line">    public static void removeFromDesk(String pkg) &#123;</span><br><span class="line">        Log.d(&quot;DeskTopUtils&quot;,&quot;remove local app from desk pkg:&quot;+ pkg);</span><br><span class="line">        // hide 更新</span><br><span class="line">        ArrayList&lt;String&gt; hiddenList = AppSettings.get().getHiddenAppsList();</span><br><span class="line">        if(HomeActivity._db == null )return;</span><br><span class="line"></span><br><span class="line">        // 根据pkg找到app</span><br><span class="line">        List&lt;App&gt;  apps =  AppManager.getInstance(AppObject.get()).getNonFilteredApps();</span><br><span class="line">        App findApp = null;</span><br><span class="line">        for (App app : apps) &#123;</span><br><span class="line">            if (app.getComponentName().contains(pkg)) &#123;</span><br><span class="line">                findApp = app;</span><br><span class="line">                // 构造Intent string</span><br><span class="line">                HomeActivity._db.deleteItemByIntent(Tool.getIntentAsString(Tool.getIntentFromApp(findApp)));</span><br><span class="line">                Log.d(&quot;DeskTopUtils&quot;,&quot;remove find match local app &quot;+ findApp.getComponentName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if( findApp == null ) &#123;</span><br><span class="line">            Log.d(&quot;DeskTopUtils&quot;,&quot;removeFromDesk can&#x27;t find match local app &quot;+ pkg);</span><br><span class="line">            return;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            Log.d(&quot;DeskTopUtils&quot;,&quot;removeFromDesk find match local app &quot;+ findApp.getComponentName());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 生成坐标</span><br><span class="line">    private static String genCoordinate(List&lt;List&lt;Item&gt;&gt; itemLists )&#123;</span><br><span class="line">        String coordinateStr =  &quot;&quot;;</span><br><span class="line">        for (int pageCount = 0; pageCount &lt; itemLists.size(); pageCount++) &#123;</span><br><span class="line">            List&lt;Item&gt; page = itemLists.get(pageCount);</span><br><span class="line">            for (int j = 0; j &lt; page.size(); j++) &#123;</span><br><span class="line">                coordinateStr += &quot;(&quot;+pageCount +&quot;,&quot; + page.get(j)._x+&quot;,&quot;+page.get(j)._y+&quot;);&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return coordinateStr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 从hide移除，并从desktop中选择合适位置，添加进去</span><br><span class="line">    public static void addToDesk(String pkg) &#123;</span><br><span class="line">        // hide 更新</span><br><span class="line">        ArrayList&lt;String&gt; hiddenList = AppSettings.get().getHiddenAppsList();</span><br><span class="line">        if(HomeActivity._db == null )return;</span><br><span class="line"></span><br><span class="line">        // 根据pkg找到app</span><br><span class="line">        List&lt;App&gt;  apps =  AppManager.getInstance(AppObject.get()).getNonFilteredApps();</span><br><span class="line">        App findApp = null;</span><br><span class="line">        for (App app : apps) &#123;</span><br><span class="line">            if (app.getComponentName().contains(pkg)) &#123;</span><br><span class="line">                findApp = app;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if( findApp == null ) &#123;</span><br><span class="line">            Log.d(&quot;DeskTopUtils&quot;,&quot;addToDesk can&#x27;t find match local app &quot;+ pkg);</span><br><span class="line">            return;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            Log.d(&quot;DeskTopUtils&quot;,&quot;addToDesk find match local app &quot;+ findApp.getComponentName());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 数据库更新</span><br><span class="line">        List&lt;CellContainer&gt; _pages = new ArrayList&lt;&gt;();</span><br><span class="line">        List&lt;List&lt;Item&gt;&gt; desktopItems = HomeActivity._db.getDesktop();</span><br><span class="line"></span><br><span class="line">        String deskGrid = genCoordinate(desktopItems);</span><br><span class="line">        int row = AppSettings.get().getDesktopRowCount();</span><br><span class="line">        int col = AppSettings.get().getDesktopColumnCount();</span><br><span class="line"></span><br><span class="line">        // 查找每一个page中的合适位置</span><br><span class="line">        String t_point = &quot;&quot;;</span><br><span class="line">        int find_x = 0;</span><br><span class="line">        int find_y = 0;</span><br><span class="line">        boolean find = false;</span><br><span class="line"></span><br><span class="line">        // 倒序，刚容易找到位置，先这样</span><br><span class="line">        for (int pageCount = 0; pageCount &lt; desktopItems.size(); pageCount++) &#123;</span><br><span class="line">            List&lt;Item&gt; page = desktopItems.get(pageCount);</span><br><span class="line">            // 如果倒序，刚容易找到位置，先这样;取舍：这样可以在添加的时候，优先使用最前面的空缺位置</span><br><span class="line">            for( int j=0;j&lt;page.size();j++) &#123;</span><br><span class="line">                //尝试在每一个元素周边寻找区域</span><br><span class="line">                Item t_item = page.get(j);</span><br><span class="line">                int t_x = t_item._x;</span><br><span class="line">                int t_y = t_item._y;</span><br><span class="line">                // 右边</span><br><span class="line">                int tx_top = t_x-1;</span><br><span class="line">                if( tx_top &gt;=0 ) &#123;</span><br><span class="line">                    t_point = &quot;(&quot; +pageCount+&quot;,&quot;+tx_top+&quot;,&quot;+t_y+&quot;)&quot;;</span><br><span class="line">                    if( !deskGrid.contains( t_point ) ) &#123;</span><br><span class="line">                        find_x = tx_top;</span><br><span class="line">                        find_y = t_y;</span><br><span class="line">                        find = true;</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                // 左边</span><br><span class="line">                tx_top = t_x +1;</span><br><span class="line">                if( tx_top &gt;=0 &amp;&amp; tx_top &lt; col )&#123;</span><br><span class="line">                    t_point = &quot;(&quot;+pageCount+&quot;,&quot;+tx_top+&quot;,&quot;+t_y+&quot;)&quot;;</span><br><span class="line">                    if( !deskGrid.contains( t_point ) ) &#123;</span><br><span class="line">                        find_x = tx_top;</span><br><span class="line">                        find_y = t_y;</span><br><span class="line">                        find = true;</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                // 上边</span><br><span class="line">                int ty_top = t_y -1;</span><br><span class="line">                if( ty_top &gt;=0 )&#123;</span><br><span class="line">                    t_point = &quot;(&quot;+pageCount+&quot;,&quot;+t_x+&quot;,&quot;+ty_top+&quot;)&quot;;</span><br><span class="line">                    if( !deskGrid.contains( t_point ) ) &#123;</span><br><span class="line">                        find_x  = t_x;</span><br><span class="line">                        find_y = ty_top;</span><br><span class="line">                        find = true;</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                // 下边</span><br><span class="line">                ty_top = t_y + 1;</span><br><span class="line">                if( ty_top &gt;=0 &amp;&amp; ty_top &lt; row)&#123;</span><br><span class="line">                    t_point = &quot;(&quot;+pageCount+&quot;,&quot;+t_x+&quot;,&quot;+ty_top+&quot;)&quot;;</span><br><span class="line">                    if( !deskGrid.contains( t_point ) ) &#123;</span><br><span class="line">                        find_x  = t_x;</span><br><span class="line">                        find_y = ty_top;</span><br><span class="line">                        find = true;</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            Item newItem = Item.newAppItem(findApp);</span><br><span class="line">            newItem._spanY = 1;</span><br><span class="line">            newItem._spanX = 1;</span><br><span class="line">            if( find ) &#123;</span><br><span class="line">                newItem._x = find_x;</span><br><span class="line">                newItem._y = find_y;</span><br><span class="line">                HomeActivity._db.saveItem(newItem, pageCount, Definitions.ItemPosition.Desktop);</span><br><span class="line">                Log.d(&quot;DeskTopUtils&quot;,&quot;addToDesk find location to locate app  page,x,y=&quot;+pageCount +&quot;,&quot; +find_x+&quot;,&quot;+ find_y +&quot;，package=&quot;+Tool.getIntentAsString(newItem._intent));</span><br><span class="line">                break;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                // 新建一个页面，放置app</span><br><span class="line">                if ( pageCount == desktopItems.size()-1 ) &#123;</span><br><span class="line">                    int newPage = pageCount + 1;</span><br><span class="line">                    newItem._x = 0;</span><br><span class="line">                    newItem._y = 0;</span><br><span class="line">                    HomeActivity._db.saveItem(newItem, newPage, Definitions.ItemPosition.Desktop);</span><br><span class="line">                    Log.d(&quot;DeskTopUtils&quot;, &quot;addToDesk no location , new page ,  page,x,y=&quot; + newPage + &quot;,&quot; + find_x + &quot;,&quot; + find_y + &quot;，package=&quot; + Tool.getIntentAsString(newItem._intent));</span><br><span class="line">                    break;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    Log.d(&quot;DeskTopUtils&quot;, &quot;addToDesk no location , query new page try&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/" rel="tag">项目总结</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-防沉迷app-项目总结1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/04/26/%E9%98%B2%E6%B2%89%E8%BF%B7app-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%931/"
+    >防沉迷app-项目总结1</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/26/%E9%98%B2%E6%B2%89%E8%BF%B7app-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%931/" class="article-date">
+  <time datetime="2022-04-26T02:10:04.000Z" itemprop="datePublished">2022-04-26</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">技术生活 - 编程技术 - 项目总结</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="防沉迷项目总结（1）"><a href="#防沉迷项目总结（1）" class="headerlink" title="防沉迷项目总结（1）"></a>防沉迷项目总结（1）</h1><h2 id="防沉迷介绍"><a href="#防沉迷介绍" class="headerlink" title="防沉迷介绍"></a>防沉迷介绍</h2><p>现代社会，手机成了个人的计算中心，各种人与人、人与物的连接，都通过手机连接到每一个个体，极大的方便了人们的生活、学习、工作和娱乐。然而正是这样的便捷性，高度依赖性，使人们越来越离不开手机，很多人深陷其中，不能自拔，甚至严重影响正常的休息、生活、学习、工作和交流，越来越考验人的自律能力。因此很多人需要适当的提醒、干预或者强制的方式来摆脱这种状况。“防沉迷APP”的想法被创业者发现并实施。</p>
+<p>作为一款手机防沉迷软件，该软件在解救两亿手机控、低头族，让她成为学生、考生、家长、低头族、手机控、战拖们的必备应用。</p>
+<p>目前知名的国内防沉迷app有：格雷盒子，青柠守护，阳光守护等</p>
+<h2 id="防沉迷技术难点"><a href="#防沉迷技术难点" class="headerlink" title="防沉迷技术难点"></a>防沉迷技术难点</h2><h3 id="设置默认桌面"><a href="#设置默认桌面" class="headerlink" title="设置默认桌面"></a>设置默认桌面</h3><p>目前已知问题，小米桌面如果没有经过官方的认证，就不让设置其他第三方桌面（launcher）设置为默认桌面。小米这么做也有道理。因为第三方桌面有可能会做一些伤害用户体验的行为。有官方的背书，能在一定程度上避免这个问题。同样的问题还在华为手机上出现。华为手机直接是不让设置默认桌面，根本没有这个选项。</p>
+<h3 id="开机自启动"><a href="#开机自启动" class="headerlink" title="开机自启动"></a>开机自启动</h3><p>防沉迷，最重要的是让用户在使用手机的时候，只能操作某一类或者某一些app。这里问题就来了，怎么做到呢？第一想到的就是设置默认桌面，同时隐藏设置桌面的配置。但是上面说了，目前主流手机厂商对这方面有着自己的顾虑和思考。<br>那没有没有可能在不支持的手机上支持用户app开机启动，同时只允许打开自己的app，不允许切换到其他app，达到类似launcher（桌面）的效果呢？<br>答案是肯定的。</p>
+<h3 id="手机兼容性"><a href="#手机兼容性" class="headerlink" title="手机兼容性"></a>手机兼容性</h3><p>安卓手机厂商众多，各种改。而防沉迷用到的api又比较底层，兼容性是一个让开发者头疼的问题。</p>
+<h3 id="屏蔽其他app"><a href="#屏蔽其他app" class="headerlink" title="屏蔽其他app"></a>屏蔽其他app</h3><p>屏蔽有2个思路</p>
+<ol>
+<li>控制launcher，隐藏app的icon图标。这个没啥好说的</li>
+<li>类似如下这个效果。只要用户点击任何其他app都提示，app被禁止</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220426102755.png" alt="20220426102755"></p>
+<h3 id="权限自动点击"><a href="#权限自动点击" class="headerlink" title="权限自动点击"></a>权限自动点击</h3><p>由于需要比较多的权限，不同手机的设置路径也不尽相同。如果能实现自动点击，自动选择，无疑会给用户很大的帮助。</p>
+<h3 id="手机远程控制"><a href="#手机远程控制" class="headerlink" title="手机远程控制"></a>手机远程控制</h3><h4 id="远程获取通讯录"><a href="#远程获取通讯录" class="headerlink" title="远程获取通讯录"></a>远程获取通讯录</h4><h4 id="远程读取用户手机短信"><a href="#远程读取用户手机短信" class="headerlink" title="远程读取用户手机短信"></a>远程读取用户手机短信</h4><h4 id="远程读取用户通话记录"><a href="#远程读取用户通话记录" class="headerlink" title="远程读取用户通话记录"></a>远程读取用户通话记录</h4><h4 id="远程获取用户手机截屏"><a href="#远程获取用户手机截屏" class="headerlink" title="远程获取用户手机截屏"></a>远程获取用户手机截屏</h4><h4 id="远程录制用户手机屏幕"><a href="#远程录制用户手机屏幕" class="headerlink" title="远程录制用户手机屏幕"></a>远程录制用户手机屏幕</h4><h4 id="远程锁定被控制手机"><a href="#远程锁定被控制手机" class="headerlink" title="远程锁定被控制手机"></a>远程锁定被控制手机</h4><h4 id="远程控制被控手机app删除或者增加"><a href="#远程控制被控手机app删除或者增加" class="headerlink" title="远程控制被控手机app删除或者增加"></a>远程控制被控手机app删除或者增加</h4><h4 id="远程控制被控手机app打开或者关闭"><a href="#远程控制被控手机app打开或者关闭" class="headerlink" title="远程控制被控手机app打开或者关闭"></a>远程控制被控手机app打开或者关闭</h4><h4 id="远程控制被控手机录音"><a href="#远程控制被控手机录音" class="headerlink" title="远程控制被控手机录音"></a>远程控制被控手机录音</h4><h4 id="远程控制被控手机活动范围，设定电子围栏，超出范围提醒"><a href="#远程控制被控手机活动范围，设定电子围栏，超出范围提醒" class="headerlink" title="远程控制被控手机活动范围，设定电子围栏，超出范围提醒"></a>远程控制被控手机活动范围，设定电子围栏，超出范围提醒</h4><h2 id="防沉迷app思考和拓展"><a href="#防沉迷app思考和拓展" class="headerlink" title="防沉迷app思考和拓展"></a>防沉迷app思考和拓展</h2><p>后话：做防沉迷这段时间，确实发现这个市场还挺大的。我们做的方向是，类似阳光守护那种。有两个端：家长端和孩子端。<br>家长端：可以控制孩子的手机，包括获取孩子手机app，远程截屏，远程锁屏等。<br>孩子端：只可以打开被家长允许的app，只能在规定时间玩手机等</p>
+<p>其实,有了这个技术，应用场景是很多的。从控制端和被控端来思考</p>
+<ol>
+<li><p>假设只有一个端</p>
+<ul>
+<li>可以做成一个防沉迷app单机版，解决学生等老离不开手机的问题，帮自己改掉习惯，投入学习</li>
+<li>可以做成一个习惯训练app，设置一个社区，社区的人打卡比赛，谁能养成习惯给予奖励。</li>
+</ul>
+</li>
+<li><p>有一个控制端和一个被控端</p>
+<ul>
+<li>家长控制孩子</li>
+<li>老师控制学生</li>
+<li>孩子给上了年纪的父母远程协助</li>
+<li>其他场景</li>
+</ul>
+</li>
+</ol>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>做了这么多，还有一些没解决问题。有意者可以联系 Q:2169564366 （备注：防沉迷）技术交流。一起成长</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/" rel="tag">项目总结</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
   id="post-fix-mac-rabbitmq-issue"
   class="article article-type-post"
   itemscope
@@ -418,519 +788,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8/" rel="tag">股票</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-股票-20220406"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/04/06/%E8%82%A1%E7%A5%A8-20220406/"
-    >股票-20220406</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/04/06/%E8%82%A1%E7%A5%A8-20220406/" class="article-date">
-  <time datetime="2022-04-06T00:51:11.000Z" itemprop="datePublished">2022-04-06</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%95%E8%B5%84-%E8%82%A1%E7%A5%A8/">投资 - 股票</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="题材"><a href="#题材" class="headerlink" title="题材"></a>题材</h2><h3 id="中药"><a href="#中药" class="headerlink" title="中药"></a>中药</h3><p>《“十四五”中医药发展规划》助推中药振兴，“新冠防控+服务出口+消费升级”有望打开行业增量，分析师称政策扶植带来的重大利好尚未充分体现<br>2022-03-31 18:02 星期四<br>中药（康缘药业、昆药集团、浙江震元）：<br>①国务院办公厅近日印发《“十四五”中医药发展规划》，提出推动中医药参与新冠防控国际合作，高质量建设国家中医药服务出口基地等，这是首次以国办名义印发的医药细分子行业的五年规划；<br>②中信证券陈竹认为，中药板块作为低估值以及政策避风港板块，本轮行情具有中长期可持续性，截至2022年3月25日，目前中药板块平均PE为33倍，部分核心龙头OTC企业估值只有15-20倍，政策扶植和市场扩容带来的重大利好还未充分体现；<br>③中药医保支付新政策重大利好，纳入医保支付的同时暂不纳入DRG付费，药厂在医保支付范围内获得了更灵活的定价空间，对整个中药行业带来比较显著的影响；<br>④陈竹重点看好业绩增长的持续性与估值相匹配、中药创新药增量逻辑、中医服务提供商等核心细分领域；<br>⑤风险提示：政策落地不及预期、中成药集采降价超预期、OTC和配方颗粒竞争超预期等。<br>主题一<br>《“十四五”中医药发展规划》助推中药振兴，“新冠防控+服务出口+消费升级”有望打开行业增量，分析师称政策扶植带来的重大利好尚未充分体现国务院办公厅近日印发《“十四五”中医药发展规划》，提出到2025年，中医药健康服务能力明显增强，中医药高质量发展政策和体系进一步完善，并推动中医药参与新冠防控国际合作，高质量建设国家中医药服务出口基地等。值得注意的是，这是首次以国办名义印发的医药细分子行业的五年规划。中信证券陈竹认为，中药板块作为低估值以及政策避风港板块，本轮行情具有中长期可持续性，短期可关注结构性机会，中长期关注受益于政策推动、创新研发以及消费升级的标的企业。截至2022年3月25日，目前中药板块平均PE为33倍，仅高于器械和商业流通板块，部分核心龙头OTC企业估值只有15-20倍，政策扶植和市场扩容带来的重大利好还未充分体现，2022年将是中医药板块投资的关键一年。<br>陈竹梳理出三条主线：<br>①业绩增长的持续性与估值相匹配：华润三九、红日药业、羚锐制药、太极集团、昆药集团；<br>②中药创新药增量逻辑：以岭药业、康缘药业；<br>③中医服务提供商：新中医诊疗龙头，OMO模式全国布局持续推进的 浙江震元。<br>近期中药行情波动的底层逻辑<br>（1）中药创新研发迅速崛起，注册审批加快：2017年-2021年，国家药监局共计20个新药获批上市，其中2021年共计12个新药获批上市，是近5年来获批中药新药最多的一年；<br>（2）政策利好：国家中医药管理局和国家医保局联合发布了《关于医保支持中医药传承创新发展的指导意见》，首次从支付端出台了中药扶持政策，对整个中药行业带来比较显著的影响；<br>（3）集采政策的温和预期和医保免疫的大健康消费属性：根据湖北省联盟集采结果看中成药降价幅度低于化学药，政策预期温和可控。</p>
-<p>中药绝大部分为OTC药物，具有消费品和保健品属性，属于医保免疫区。行业中期受益于政策带来的格局优化<br>（1）中药医保支付新政策重大利好。纳入医保支付的同时暂不纳入DRG付费，药厂在医保支付范围内获得了更灵活的定价空间。<br>（2）2022年是中成药集采元年，湖北省联合19省联盟组织的中成药集采显示，本次集采有157家企业的182个产品参与报价，其中97家企业、111个产品中选，中选率达62%，拟中选价格平均降幅42.27%。相较前几轮的化药集采、医保谈判，湖北中成药集采降价幅度较为温和。<br>（3）中药配方颗粒市场空间打开和竞争格局优化有利于龙头企业。目前我国中药饮片市场规模在2000亿左右，中药配方颗粒占饮片市场份额约20%，预计中药配方颗粒市场规模可达500亿元，远期市场规模可达1000亿元。陈竹认为，未来中药发展必然是以品牌+大健康为主的发展战略，一部分有保密配方高护城河的中药瑰宝类药物，高端的定价和部分特殊的中药材种类，使得部分产品具有奢侈品属性，成为保值、增值的奢侈品，重点企业包括片仔癀、同仁堂。 </p>
-<h3 id="数字人民币"><a href="#数字人民币" class="headerlink" title="数字人民币"></a>数字人民币</h3><p>占“半壁江山”！建行数字人民币累计交易额达435亿元，这家公司与其共同研发数字人民币智慧设备<br>2022-03-31 14:02 星期四</p>
-<p>建行年报数据显示，截至2021年末，建行数字人民币累计交易笔数8475万余笔，累计交易金额435亿元。这一数字约占全国数字人民币总交易额近五成。</p>
-<p>央行数据显示，截至2021年12月31日，全国数字人民币试点场景已超过808.51万个，累计开立个人钱包2.61亿个，交易金额875.65亿元。 行业动态</p>
-<p>数字人民币先后经历两轮试点，当前发展进入快车道从试点城市来看，2019年末央行在深圳、苏州、雄安、成都及2022北京冬奥会场景开展数字人民币第一批试点测试。2020年11月开始，增加上海、海南、长沙、西安、青岛、大连6个新的试点地区。第三批试点区域即将落地。</p>
-<p>目前，两轮共10个试点城市和1个试点场景已经运行接近2年，应用场景也已经涵盖了生活缴费、餐饮服务、交通出行、购物消费、政务服务等领域。</p>
-<pre><code>券商观点
-</code></pre>
-<p>安信证券夏瀛韬研报认为，考虑到第19届亚运会将于2022年9月在浙江杭州举办（宁波、温州、金华、绍兴、湖州协办），杭州亚运会有望成为继北京冬奥会后，数字人民币又一对外展示的重要窗口。</p>
-<p>华安证券尹沿技认为，数字人民币的推广将为相关生态产业带来长期、可持续的投资机遇。看好商业银行侧投资机遇，银行软件系统需要对接央行发行库，柜台机、ATM机等金融机具需要开通相关功能以支持数字人民币的兑换、流通和回笼。</p>
-<pre><code>产业链相关公司
-
-广电运通 携手建行打造的数字人民币智慧柜员机正式试点上线，数字人民币智慧柜员机广泛应用于2022年北京冬奥会机场、海关等多个场景，为科技冬奥打造便捷支付环境。
-
-创识科技 关于数字人民币方面，公司目前已经与农行、建行、中行、邮储银行和交通银行等展开合作。
-</code></pre>
-<h3 id="三农-化肥"><a href="#三农-化肥" class="headerlink" title="三农-化肥"></a>三农-化肥</h3><p>解决好“三农”问题重中之重，该行业有望先乘农化大周期之势延续高景气，再切入新能源提升业绩弹性<br>2022-04-01 13:32<br>农化大周期下，全球粮价高企且化肥库存低位，行业高景气有望至少持续1-2年，目前磷化工的头部企业基本已完成上游资源的整合，切入新能源进一步提升业绩弹性，分析师看好行业利润更加偏向上游的同时，竞争格局也将得到持续优化。<br>磷化工（川金诺、湖北宜化、云天化）精要：</p>
-<p>①当前粮价高企+磷肥库存低位，西部证券杨晖看好农化大周期下化肥高景气有望至少持续1-2年，并且行业景气或随出口限制放松得到延续；</p>
-<p>②中长期看，磷酸铁锂的需求爆发直接带动“磷矿石-黄磷-磷酸-磷酸铁”景气度，2022年磷酸铁供应缺口犹存，磷化工资源属性凸显；</p>
-<p>③杨晖认为目前磷化工的头部企业基本已完成上游资源的整合，切入新能源进一步提升业绩弹性，行业利润更加偏向上游的同时，行业竞争格局也将得到持续优化；</p>
-<p>④风险因素：安全事故影响开工、环保政策变化、技术路线快速迭代更新等。</p>
-<p>解决好“三农”问题重中之重，该行业有望先乘农化大周期之势延续高景气，再切入新能源提升业绩弹性</p>
-<p>事件：《求是》杂志发表中共中央总书记、国家主席、中央军委主席习近平的重要文章《坚持把解决好“三农”问题作为全党工作重中之重，举全党全社会之力推动乡村振兴》。</p>
-<p>农化大周期之下，本栏目于3月28日《强资源属性+海外套利窗口打开+全球刚需，通胀主线不能忽视这个品种，A股这些公司具备核心保供能力》一文中引用分析师观点，认为当前全球通胀要买上游资源，衰退要买必选消费，化肥兼具两者逻辑，攻守兼备。</p>
-<p>今日，西部证券杨晖专题覆盖磷化工行业，认为当前粮价高企+磷肥库存低位，看好农化大周期下化肥高景气有望至少持续1-2年，并且行业景气或随出口限制放松得到延续。</p>
-<p>中长期看，磷酸铁锂的需求爆发直接带动“磷矿石-黄磷-磷酸-磷酸铁”景气度，2022年磷酸铁供应缺口犹存，磷化工资源属性凸显。</p>
-<p>杨晖认为目前磷化工的头部企业基本已完成上游资源的整合，切入新能源进一步提升业绩弹性，重点公司包括：云天化、湖北宜化、兴发集团、新洋丰、云图控股、川发龙蟒、川恒股份、中毅达、川金诺、金诚信等。</p>
-<p>粮价高企+库存低位，农化大周期下化肥高景气有望持续</p>
-<p>当前粮价维持高位将驱动化肥行业需求提升，据Mosaic预测2022年我国磷肥需求增长幅度将在3.5%至6.4%之间。</p>
-<p>受粮价高位、原材料价格支撑和下游需求拉动，当前化肥价格坚挺，且有望在春耕旺季来临之际迎来价格再度上行。</p>
-<p>短期来看，全球及国内磷肥库存处于低位，此波农化大周期下化肥的高景气有望至少持续1-2年。</p>
-<p>中长期来看，此前的出口禁令带来的国际磷肥价格与国内价格形成3500元&#x2F;吨以上的较大价差，市场预期国家可能在春耕之后放开化肥的出口限制。</p>
-<p>磷化工企业切入新能源提升业绩弹性，磷酸铁2022年供应缺口犹存</p>
-<p>当前国内磷酸铁总产能为64.5万吨，磷酸铁锂总产能为77.6万吨，磷酸铁处于供不应求状态。</p>
-<p>从扩产计划看，磷化工企业为未来磷酸铁扩产的主力，占到总扩产计划的55%，且从扩产节奏看，预计2022年全年磷酸铁仍将处于供需错配的状态。</p>
-<p>从实际进度看，磷酸铁的扩产将受到环评、能评、工艺等各项限制，同时下游产品验证周期可能导致产能释放低于预期，杨晖看好供需错配格局下磷酸铁景气的延续。</p>
-<p>中长期磷化工资源属性凸显，供给侧改革持续优化行业竞争格局</p>
-<p>当前国内磷矿石资源面临短缺压力，同时随着碳中和、能耗双控、产能指标等各种供给端控制措施的联合限制，一些资源禀赋布局领先的企业将展现出更强的竞争力。</p>
-<p>杨晖认为行业利润更加偏向上游的同时，行业竞争格局也将得到持续优化。</p>
-<p>目前磷化工的头部企业基本已完成上游资源的整合，产业链一体化完善，具备充足的资源、成本、能耗指标等优势。</p>
-<h2 id="个股"><a href="#个股" class="headerlink" title="个股"></a>个股</h2><h3 id="翠微股份（消费，购物，数字货币，芯片）"><a href="#翠微股份（消费，购物，数字货币，芯片）" class="headerlink" title="翠微股份（消费，购物，数字货币，芯片）"></a>翠微股份（消费，购物，数字货币，芯片）</h3><p>子公司海科融通从事第三方支付业务，拥有全国范围的从业资质。已经与多家银行在数字人民币线下收单领域达成合作。具备数字人民币跨行收单能力。目前旗下所有商场均可使用 数字人民币 购物。公司参股了北京核芯达科技有限公司，专注于面向L4级自动驾驶处理器和车载智能语音芯片的研发。为国内车企关键芯片领域提供一流解决方案。首款智能语音芯片已经与 2021 年上半年流片并与全球第二大天窗厂商 英纳法在车顶多音区领域 展开独家合作。</p>
-<h3 id="莱茵生物（工业大麻）"><a href="#莱茵生物（工业大麻）" class="headerlink" title="莱茵生物（工业大麻）"></a>莱茵生物（工业大麻）</h3><p>4月1日，美国众议院以220票对204票第二次通过联邦医用大麻合法化法案（MORE Act）；同时参议院联邦合法化法案《大麻管理与机会法案》（CAOA）预计将于4月提交，联邦层面医用大麻合法化加速推进。随着美国工业大麻法规政策持续向好，市场有望快速扩容，利好产业链相关布局企业，尤其是具备规模化生产能力的代工厂以及品牌企业或将迎来快速发展机遇。莱茵生物于2019年正式布局工业大麻，截至2021Q3已累计投资8000万美元在美建立全球最大工业大麻提取工厂，被印第安纳州政府列为示范项目，预计该项目将于2022年6月30日前达成正式量产，年处理原料5000吨，项目毛利率可达50%，同时已与一家全球工业大麻主流企业签订《受托加工意向协议》，后续预计还有更多订单意向。从技术角度来看，莱茵生物目前走得偏趋势而非连板，以5日线为趋势，每一次回落都得到了支撑，那么周五莱茵生物的断板可能会带来低吸机会。</p>
-<h3 id="盛航股份（航运）"><a href="#盛航股份（航运）" class="headerlink" title="盛航股份（航运）"></a>盛航股份（航运）</h3><p>目前次新股出现了一个空窗期，上交所在4月20日之前没有新股上市，另外每当巨无霸上市，次新都有提前造势的案例，比如三峡能源对应顺控发展，中国电信对应华菱线缆，中国移动对应三羊马，那么中海油上市前次新大概率也会有妖股的出现。目前连板的盛航股份就是妖股的潜在备选标的之一，从基本面来说，目前公司在行业紧平衡的情况下，上市后通过购买船舶提升市场份额，22年30艘，25年50艘，意味着公司市场份额有望得到快速提升，中期市场份额可接近20%。再加上疫情影响，运力紧张，而各大型炼化项目在“十四五”期间将会迎来密集投产期，极大推动相关石化产品的水上运输需求，公司市场份额的提升有望进一步加快。再从投机的角度思考，该股本身还叠加高送转，填权之后股价也比较低。</p>
-<h3 id="招商积余-（地产，物业）"><a href="#招商积余-（地产，物业）" class="headerlink" title="招商积余 （地产，物业）"></a>招商积余 （地产，物业）</h3><p>背靠央企的地产服务龙头，控股股东土储充足支撑中期扩张，有望受益此轮行业格局重构<br>2022-03-31 13:39<br>公司是招商局集团旗下的央企物管旗舰，控股股东招商蛇口实力雄厚，多维度支持业务发展，去年年度新签合同额30.5亿元，新增管理面积9013万平米，分析师看好公司大物业+大资管双轮驱动，有望受益行业格局重构。<br>招商积余（001914）精要：</p>
-<p>①公司为招商局集团旗下物业资产管理与服务平台，2021年末管理面积2.8亿平米，年度新签合同额30.5亿元，同比增长24%，新增管理面积9013万平米，处央企物管领先水平；</p>
-<p>②地方国资和央企优势在于融资能力和成本拥有银行支持，平安证券杨侃看好公司控股股东招商蛇口实力雄厚，多维度支持业务发展，实控人招商局集团生态资源丰富，利于在增值服务等业务层面形成协同；</p>
-<p>③公司2021年底摘牌上航物业100%股权、南航物业95%股权，增资扩股汇勤物业，2022年初确定转让深圳中航城、昆山中航、赣州九方三家公司股权，轻重分离积极推进，提质增效成果可期；</p>
-<p>④杨侃看好公司作为央企物管领先者，有望受益行业格局重构，预计2022-24年EPS分别为0.62元&#x2F;0.79元&#x2F;1元，对应PE分别为27.7&#x2F;21.8&#x2F;17.3倍；</p>
-<p>⑤风险因素：控股股东交付节奏不及预期风险、外拓进程不及预期风险。</p>
-<p>近期多地出台楼市新政稳定市场预期，当下市场，相对二线企业，地方国资和央企优势在于融资能力和成本拥有银行支持，地方政府保交付任务也会助力国资企业带来更大优势。</p>
-<p>今日，平安证券杨侃深度覆盖招商积余，公司为招商局集团旗下物业资产管理与服务平台，2019年重组上市，属A股物管稀缺标的。</p>
-<p>公司控股股东招商蛇口实力雄厚，资源禀赋优势突出，利于在增值服务等业务层面形成协同，全业态市场化能力显著。</p>
-<p>公司2022年初确定转让深圳中航城、昆山中航、赣州九方三家公司股权，轻重分离积极推进，提质增效成果可期。</p>
-<p>杨侃看好公司作为央企物管领先者，有望受益行业格局重构，预计2022-24年EPS分别为0.62元&#x2F;0.79元&#x2F;1元，对应PE分别为27.7&#x2F;21.8&#x2F;17.3倍。</p>
-<p>招商积余是央企物管领先者，大物业+大资管双轮驱动</p>
-<p>招商积余为招商局集团旗下物业资产管理与服务平台，目前发展物业管理、资产管理两项核心业务。</p>
-<p>公司2021年末管理面积2.8亿平米，年度新签合同额30.5亿元，同比增长24%，新增管理面积9013万平米，处央企物管领先水平。</p>
-<p>物业管理以“沃土云林”商业模式为依托，持续向好发展，2021年收入贡献93.6%，毛利润贡献77.7%。</p>
-<p>商业运营2021年末在管商业项目（含筹备）44个，初具规模，2021年收入贡献5.3%，毛利润贡献21.4%。</p>
-<p>招商积余控股股东资源禀赋优势突出，全业态市场化能力显著</p>
-<p>杨侃看好公司控股股东招商蛇口实力雄厚，多维度支持业务发展，包括积极销售保障短期交付，土储充足支撑中期扩张，持有物业“双百”战略推动资管业务持续突破。</p>
-<p>长远来看，招商蛇口有望受益房地产格局优化，为公司规模发展带来更大想象空间。实控人招商局集团生态资源丰富，利于在增值服务等业务层面形成协同。</p>
-<p>此外，公司具备较强市场化发展能力、全业态综合服务能力，行业竞争加剧下有助于强化综合实力、保障份额获取。</p>
-<p>2021年第三方管理面积占比67.7%，住宅、非住宅管理面积占比41%、59%；第三方管理面积1.9亿平米，处行业领先水平。</p>
-<p>招商积余轻重分离积极推进，提质增效成果可期</p>
-<p>公司2021年底摘牌上航物业100%股权、南航物业95%股权，增资扩股汇勤物业，实现重组上市以来收并购首次突破。</p>
-<p>公司2022年初确定转让深圳中航城、昆山中航、赣州九方三家公司股权，轻重资产分离迈出实质性步伐。</p>
-<p>目前，公司已落地100余项改善举措，杨侃看好伴随业务及管理能力提升，预计公司盈利能力、业务获取能力亦有望随之提振[图片]</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8/" rel="tag">股票</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-springboot加载静态资源的坑"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/04/04/springboot%E5%8A%A0%E8%BD%BD%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E7%9A%84%E5%9D%91/"
-    >springboot加载静态资源的坑</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/04/04/springboot%E5%8A%A0%E8%BD%BD%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E7%9A%84%E5%9D%91/" class="article-date">
-  <time datetime="2022-04-04T01:37:44.000Z" itemprop="datePublished">2022-04-04</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/">技术生活 - 编程技术 - 后端技术</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h2><p>我们知道springboot中，已经预定义了一些配置，这些配置，指定了静态资源的位置和url访问方式。即使不作任何设置，放在resources下面的public static 等文件夹的静态资源也可以被访问到。也可以在application.yml&#x2F;application.properties文件内更改配置。具体有两个配置项目。</p>
-<ul>
-<li>spring.mvc.static-path-pattern：根据官网的描述和实际效果，可以理解为静态文件URL匹配头，也就是静态文件的URL地址开头。Springboot默认为：&#x2F;**。</li>
-<li>spring.web.resources.static-locations：根据官网的描述和实际效果，可以理解为实际静态文件地址，也就是静态文件URL后，匹配的实际静态文件。Springboot默认为：classpath:&#x2F;META-INF&#x2F;resources&#x2F;,classpath:&#x2F;resources&#x2F;,classpath:&#x2F;static&#x2F;,classpath:&#x2F;public&#x2F;</li>
-</ul>
-<h2 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h2><p>我做的时候，给用成了spring.resources.static-locations，结果始终不生效！！！原来这个是老版本的配置。记录一下，高版本springboot用这个配置 <em><strong>spring.web.resources.static-locations</strong></em></p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" rel="tag">问题解决</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-thikphp-5-x-隐藏管理入口"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/03/25/thikphp-5-x-%E9%9A%90%E8%97%8F%E7%AE%A1%E7%90%86%E5%85%A5%E5%8F%A3/"
-    >thikphp-5.x-隐藏管理入口</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/03/25/thikphp-5-x-%E9%9A%90%E8%97%8F%E7%AE%A1%E7%90%86%E5%85%A5%E5%8F%A3/" class="article-date">
-  <time datetime="2022-03-25T02:37:23.000Z" itemprop="datePublished">2022-03-25</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-php/">技术生活 - 编程技术 - php</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="面临黑客的突然袭击"><a href="#面临黑客的突然袭击" class="headerlink" title="面临黑客的突然袭击"></a>面临黑客的突然袭击</h1><p>在后台看日志，发现有人不停的扫描服务器可用的url，如果一旦被发现admin这个后台管理入口，就后果很严重了。</p>
-<h1 id="应对策略"><a href="#应对策略" class="headerlink" title="应对策略"></a>应对策略</h1><p>隐藏后台服务器管理的 url 入口。</p>
-<h1 id="设置隐藏后台管理地址"><a href="#设置隐藏后台管理地址" class="headerlink" title="设置隐藏后台管理地址"></a>设置隐藏后台管理地址</h1><ul>
-<li><p>打开conig&#x2F;app.php,app.php中设置拒绝直接通过模块名访问模块</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x27;deny_module_list&#x27;       =&gt; [&#x27;common&#x27;, &#x27;admin&#x27;]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>新增后台入口文件，绑定模块</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Container::get(&#x27;app&#x27;)-&gt;bind(&#x27;admin&#x27;)-&gt;run()-&gt;send();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>public目录下新建一个入口文件</p>
-<blockquote>
-<p>入口文件内容和index.php内容一致即可。文件名字随便起，越奇怪越好。例如*** 0o98dfsd-fffP.php ***</p>
-</blockquote>
-</li>
-</ul>
-<p>OVER </p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/thinkphp/" rel="tag">thinkphp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" rel="tag">问题解决</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-股票-20220324"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/03/24/%E8%82%A1%E7%A5%A8-20220324/"
-    >股票-20220324</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/03/24/%E8%82%A1%E7%A5%A8-20220324/" class="article-date">
-  <time datetime="2022-03-24T00:46:47.000Z" itemprop="datePublished">2022-03-24</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%95%E8%B5%84-%E8%82%A1%E7%A5%A8/">投资 - 股票</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="题材"><a href="#题材" class="headerlink" title="题材"></a>题材</h2><h3 id="IPV6"><a href="#IPV6" class="headerlink" title="IPV6"></a>IPV6</h3><p>2022年1月，国务院印发《“十四五”数字经济发展规划》，规划中提出到2025年数字经济核心产业增加值占GDP比重达到10%，IPv6活跃用户数达到8亿。</p>
-<p>2021年11月，中央网信办等部门联合印发《关于开展IPv6技术创新和融合应用试点工作的通知》，明确到2023年底，IPv6技术创新和融合应用试点工作取得明显成效。</p>
-<p>2021年7月，发改委等部门印发《关于加快推进互联网协议第六版（IPv6）规模部署和应用工作的通知》，要求到2023年末，基本建成先进自主的IPv6技术、产业、设施、应用和安全体系。</p>
-<pre><code>券商观点
-</code></pre>
-<p>川财证券孙灿分析指出，IPv6市场具有良好的发展前景，其较于IPv4有着更多的优势，IPv6产业链市场规模快速扩大。从网络端到端IPv6渗透率看，运营商网络中无论是接入网、城域网和骨干网等领域，IPv6已经获得全面支持，我们认为后续运营商在IPv6改造方面投入景气度仍能维持，而第三方IDC、CDN及云计算基础设施IPv6改造仍有较大提升空间，看好商业企业路由器、交换机、负载均衡、防火墙等IT设备的持续更新换代需求。</p>
-<pre><code>数据解读
-</code></pre>
-<p>截至2021年底，我国移动网络IPv6流量占比从2020年底的17.21%提升至35.15%，固定网络IPv6流量占比从2020年底的4.3%提升至9.38%，均实现同比翻番增长。</p>
-<pre><code>产业链相关公司
-
-星网锐捷是国内主流网络及通信终端产品提供商，十万兆IPv6核心路由交换机、USB映射技术、终端管理软件、外设共享服务器等核心技术已与国际同步甚至位居国际前列。
-
-创维数字承担的国家发改委科技项目“基于IPv6的全媒体智能终端及服务系统产业化项目”获得了广东省科技进步二等奖。公司已在智能机顶盒、宽带网络通信接入网等产品上实现及运用IPv6技术。
-</code></pre>
-<h2 id="个股"><a href="#个股" class="headerlink" title="个股"></a>个股</h2><h3 id="氢能源-储气制气-风光储能，新天绿能"><a href="#氢能源-储气制气-风光储能，新天绿能" class="headerlink" title="氢能源+储气制气+风光储能，新天绿能"></a>氢能源+储气制气+风光储能，新天绿能</h3><p>“氢能源+储气制气+风光储能”，这家公司拟建成12座20万方LNG储罐辐射整个“京津冀”，加码新能源制氢为燃料电池车提供动能。<br>新天绿能（600956）：<br>①天风证券郭丽丽看好公司受益“天然气+风电”双轮驱动，公司累计拥有用户441284户，运营CNG母站7座、CNG子站6座、LNG加注站3座、L-CNG合建站2座，并新建唐山LNG项目，拟建成12座20万方LNG储罐，供应及调峰能力可辐射整个京津冀地区；<br>②公司全部控股风电项目覆盖省份达12个，装机容量达5656.45MW，2021年上半年公司风电可利用小时数为1433小时，高于全国平均可利用小时数221小时，同时积极储备光伏项目资源；<br>③公司加码氢能及储能赛道，未来天然气+风电（光伏）两大主营业务有望通过氢能产业链连接，其沽源风电制氢示范项目为当地冬奥会氢燃料电池汽车提供氢能源，并参与建设河北丰宁抽水蓄能电站项目；<br>④郭丽丽预计公司2021-2023年实现归母净利润21.8&#x2F;22.6&#x2F;29.4亿元，同比增长44.36%&#x2F;3.45%&#x2F;30.30%，对应PE为26&#x2F;25&#x2F;19倍；⑤风险提示：项目建设不及预期、能源政策变动等。</p>
-<p>“氢能源+储气制气+风光储能”，这家公司拟建成12座20万方LNG储罐辐射整个“京津冀”，加码新能源制氢为燃料电池车提供动能</p>
-<p>事件:《氢能产业发展中长期规划（2021-2035）》出炉，规划一方面明确氢能在能源转型中的重要作用，打开氢气下游应用空间，推动全产业链发展，另一方面，着重突出可再生能源制氢的重要地位，配合当前积极推动新能源装机的整体规划。天风证券郭丽丽挖出一家“天然气+风电”双轮驱动的清洁能源公司新天绿能，公司累计拥有用户441284户，运营CNG母站7座、CNG子站6座、LNG加注站3座、L-CNG合建站2座。在风电光伏领域，公司风电控股装机容量达5656.45MW，累计运营光伏项目规模达118.59MW，项目覆盖全国多个省份。同时，依托于全国多省份项目布局及项目所在地的优质风能资源，公司风电可利用小时数高于平均水平，发电水平维持高位。另外，公司加码氢能及储能赛道，未来天然气+风电（光伏）两大主营业务有望通过氢能产业链连接，叠加公司参股投资建设河北丰宁抽水蓄能电站项目，考虑到当前调峰、填谷等需求及储能领域发展态势，公司成长性有望进一步强化。郭丽丽预计公司2021-2023年实现归母净利润21.8&#x2F;22.6&#x2F;29.4亿元，同比增长44.36%&#x2F;3.45%&#x2F;30.30%，对应PE为26&#x2F;25&#x2F;19倍。天然气：管网工程助力市场拓展，唐山LNG项目战略性凸显公司积极响应国家天然气政策规划，持续推进基建工程建设，从而增强天然气供应保障能力，实现河北省内外互联互通。截至2021年6月30日，公司累计运营管线7087.99公里，同比增长34%，同时多个管道工程项目处于建设过程中，未来公司管网覆盖范围有望进一步扩大，“省内一张网”布局逐步成型。天然气发展对储气、调峰及应急等能力提出了更高的要求，而当前京津冀地区接收及储气能力偏弱，难以满足其天然气调峰需求，需要增加新的保供通路和资源。公司新建唐山LNG项目，拟建成12座20万方LNG储罐、1座8-26.6万方LNG船舶接卸泊位、1座1-26.6万方LNG船舶接卸泊位及相关配套设施，设计接卸能力达1000万吨&#x2F;年，其规模可观。另一方面，该项目位于中心地带，并配备外输管线，供应及调峰能力可辐射整个京津冀地区。可再生能源：风电领跑，多类型新能源项目布局</p>
-<p>（1）风电公司全部控股风电项目覆盖省份达12个，全部核准计划项目覆盖省份达16个，全部协议容量分布省份达23个。2021年上半年公司控股风电场可利用小时数为1433小时，高于河北省平均利用小时数196小时，高于全国平均可利用小时数221小时，公司风力发电水平维持高位。<br>（2）光伏同时公司仍在积极储备光伏项目资源，2021年上半年公司新增光伏协议容量2600MW，累计光伏协议容量达9949MW，未来光伏发电业务规模有望持续增长。公司依托于新能源发电业务基础，积极布局新能源制氢项目。其沽源风电制氢示范项目为当地冬奥会氢燃料电池汽车提供氢能源。同时，公司与国家电网等共同投资建设河北丰宁抽水蓄能电站项目。 </p>
-<h3 id="中国建筑（601668）"><a href="#中国建筑（601668）" class="headerlink" title="中国建筑（601668）"></a>中国建筑（601668）</h3><p>①国务院金融稳定发展委员会召开专题会议后，房地产政策预期逐步转暖，行业估值有提升空间；<br>②作为行业内全球最高信用评级的央企，公司房建业务毛利润占比41.8%，旗下拥有中海地产和中建地产两大房地产品牌，其中中海地产品牌价值始终处于中国房地产行业领先地位，属于“绿档”企业，负债水平保持在行业最低区间；<br>③当前公司地产销售规模略低于万科和保利发展，大于招商蛇口和金地集团，但估值层面2022年中国建筑预估PE为3.75倍，远低于万保招金地产的6.55倍；<br>④国泰君安韩其成预计公司2021-23年EPS为1.23&#x2F;1.35&#x2F;1.48元增15&#x2F;10&#x2F;10%，给予7.33元目标价；<br>⑤风险提示：经济过热通胀超预期政策紧缩，疫情反复等。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8/" rel="tag">股票</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-股票-20220323"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/03/23/%E8%82%A1%E7%A5%A8-20220323/"
-    >股票-20220323</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/03/23/%E8%82%A1%E7%A5%A8-20220323/" class="article-date">
-  <time datetime="2022-03-23T00:15:28.000Z" itemprop="datePublished">2022-03-23</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%95%E8%B5%84-%E8%82%A1%E7%A5%A8/">投资 - 股票</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="题材"><a href="#题材" class="headerlink" title="题材"></a>题材</h2><h3 id="BIPV成为光伏"><a href="#BIPV成为光伏" class="headerlink" title="BIPV成为光伏"></a>BIPV成为光伏</h3><p>中信证券：BIPV成为光伏节能建筑新形态，龙头企业抢占先发优势 </p>
-<p>【本文来自持牌证券机构，不代表平台观点，请独立判断和决策。】</p>
-<p>中信证券指出，BIPV全生命周期经济性凸显，在平价时代成为更具竞争力的光伏建筑解决方案。“双碳”目标驱动之下，建筑行业转型需求迫切，政策支持力度有望提升，“十四五”期间或迎爆发式增长，潜在市场规模可达千亿级别。</p>
-<p>1）BIPV解锁光伏建筑应用新场景</p>
-<p>光伏建筑一体化（Building Integrated Photovoltaic, BIPV）是分布式光伏发电系统的一种应用形式，实现了光伏发电产品和建筑的有机结合，兼具发电功能和建材属性，针对传统屋顶加装的光伏系统存在的一系列问题提供了解决方案。</p>
-<p>从国内市场来看，工业厂房、商业建筑、公共建筑屋顶和外立墙面可安装面积大，在晶硅组件成本不断下降、效率持续提升的情况下，已初具经济性，成为BIPV最具潜力和可行性的应用场景。</p>
-<p>在全球范围内，BIPV尚处于起步阶段，2020年安装规模约1GW，占全球新增光伏装机规模约1%。BIPV的发展前期主要依赖政策支持，而随着经济性的不断提升，对政策的依赖度也在减弱，预计将在光伏平价时代迎来发展契机。</p>
-<p>作为建筑行业实现“双碳”目标的重要路径，光伏建筑持续获政策支持，“十四五”期间有望加速铺开。</p>
-<p>建筑行业减碳压力倒逼下，BIPV将迎爆发式增长。中信基于建筑面积的测算，预计“十四五”末国内BIPV市场规模或可达千亿级别，发展前景广阔。</p>
-<p>2）发展路径探索期，龙头抢占先发优势</p>
-<p>BIPV产业链下游的产品与服务集成环节处于发展初期，格局未定，吸引来自光伏和建筑两个行业的玩家纷纷入局。</p>
-<p>虽然多方努力下标准体系日臻完善，但推广落地仍存在诸多难点：1）行业融合难，建筑与光伏互相割裂；2）运营期维保缺位，无法满足维修与升级需求；3）项目全周期涉及多方利益主体，责任与收益划分不明确，成熟的商业模式有待探索。随着政策的出台，各方的积极探索，上述问题有望逐步得到解决。</p>
-<p>预计2022年将是BIPV行业政策和项目加快落地的一年，在双碳“1+N”政策体系中，BIPV是实现建筑节能的有效方案之一；在市场发展中，各方主体都在积极推动规模化项目的落地。</p>
-<p>从已有项目经验来看，BIPV各环节玩家均有望开拓市场突破口，其中推进速度较快的是组件企业和建筑建材企业。</p>
-<p>同时，基于BIPV“光伏+建筑”的双重属性，光伏企业与建筑企业联合发展的模式应运而生，通过强强联合，先发领跑优势明显。BIPV相较于常规光伏系统有更多样化的组件产品，更好的封装材料，更薄的玻璃，低压电流的解决方案等；光伏产品和建筑结合的部分需要更坚固的结构件，更好的防水材料等。BIPV行业的发展将给产业链带来明显的变化。</p>
-<p>推荐积极合作前瞻布局的企业：隆基股份，福斯特，森特股份，东方雨虹，亚玛顿</p>
-<h3 id="风电"><a href="#风电" class="headerlink" title="风电"></a>风电</h3><p>民生证券：十四五”能源规划发布，加快推动能源绿色低碳转型，风光装机有望迎来加速</p>
-<p>【本文来自持牌证券机构，不代表平台观点，请独立判断和决策。】</p>
-<p>《“十四五”现代能源体系规划》日前正式印发。民生证券点评称，《规划》提出“全面推进风电和太阳能发电大规模开发和高质量发展，风光装机有望迎来加速。此外，加强电力输送通道建设、氢能关键技术攻关等都有所涉及。</p>
-<p>事件：</p>
-<p>3月22日，国家发改委、国家能源局正式印发《“十四五”现代能源体系规划》。</p>
-<p>点评：</p>
-<p>1）安全稳定优先</p>
-<p>增强能源供应链稳定性和安全性。在推动能源革命的同时也要确保能源供应安全，我国“富煤贫油少气”的资源禀赋，决定了能源低碳转型过程难以一蹴而就，需要通盘谋划。</p>
-<p>《规划》提出“发挥煤电支撑性调节性作用，统筹电力保供和减污降碳，根据发展需要合理建设先进煤电”。现阶段高参数、大容量煤电仍是煤炭清洁高效利用的不二之选，也是能源供应的压舱石和稳定器。</p>
-<p>《规划》同时提出“全面加强核电安全管理，实行最严格的安全标准和最严格的监管”、“在确保安全的前提下，积极有序推动沿海核电项目建设，保持平稳建设节奏”，在前期三门2号、台山1号问题的处理上，绝对安全始终放在首位，包括国产第三代核电“华龙一号” 首批4台示范机组的投产进度也有所放缓。虽然《规划》提出“到2025 年核电运行装机容量达到7000万千瓦左右”，但截至目前国内51台在运机组合计装机容量5331万千瓦，在建机组中规划在2025年及以前投产的有12台、合计装机1294万千瓦；如果将规划在2026年投产的6台机组进度提前，并不符合“绝对安全”的宗旨，因此我们维持2025年66GW在运核电的装机目标不变。</p>
-<p>2）兼顾绿色低碳</p>
-<p>加快推动能源绿色低碳转型。《规划》提出“全面推进风电和太阳能发电大规模开发和高质量发展，优先就地就近开发利用”、“积极推进水电基地建设，推动金沙江上游、雅砻江中游、黄河上游等河段水电项目开工建设，实施雅鲁藏布江下游水电开发等重大工程”、“推动西南地区水电与风电、太阳能发电协同互补”。大型水电工程的巨大库容和机组快速启停能力，使其具备良好的调节性能，适合与风、光联合开发、运营，打造清洁能源外送基地。</p>
-<p>3）《规划》同时提出“稳步发展城镇生活垃圾焚烧发电，有序发展农林生物质发电和沼气发电”，结合新型城镇化和城乡融合发展工作的要求，垃圾发电行业将稳中有进。</p>
-<p>《规划》的成文日期在1月29日，主要内容基本延续了前期各项相关政策。</p>
-<p>3）氢能关注度也持续提升</p>
-<p>此外，国盛证券也点评指出，氢能关注度也持续提升，顶层设计即将出台，氢能产业有望开启发展新阶段。发改委将于3月23日（星期三）上午10:00召开发布会，介绍氢能产业发展中长期规划（2021—2035年）有关情况。</p>
-<p>本次规划或将提出加快推动氢能关键技术的攻关，适度超前部署一批氢能项目，着力攻克可再生能源制氢和氢能储运、应用及燃料电池等核心技术，氢能作为能源转型过程中实现工业、交通等领域脱碳的重要方式，当前关注度得到快速提升。</p>
-<p>2021年我国燃料电池汽车示范工作正式启动，入围城市群均已推出相关补贴&#x2F;扶持政策，从应用端推动氢能产业发展；此外在供给端，内蒙古等新能源装机大省“十四五”期间将着力推动绿氢发展，部分化工企业也在大力布局工业副产氢、煤制氢等灰氢&#x2F;蓝氢的生产。随着《氢能产业发展中长期规划（2021-2035年）》即将于3月23日发布，顶层规划正式落地，氢能产业有望开启商业化发展新阶段 。</p>
-<p>推荐绿色低碳方向，水电推荐：长江电力，火电推荐  申能股份 核电推荐 中国核电   风电运营 推荐 三峡能源</p>
-<h3 id="猪肉"><a href="#猪肉" class="headerlink" title="猪肉"></a>猪肉</h3><p>国海证券：供给过剩、需求不足和成本持续高企加速产能去化，生猪行业目前既具安全边际、又有向上弹性<br>【本文来自持牌证券机构，不代表平台观点，请独立判断和决策。】</p>
-<p>国海证券认为，生猪养殖行业近期持续亏损，产能加速出清，猪价年中有望触底反转。当前生猪板块仍处在重要布局窗口期，既具安全边际，又有向上弹性。</p>
-<p>1）生猪数据跟踪</p>
-<p>本周生猪均价11.78元&#x2F;公斤，环比-0.24元；15公斤仔猪价格403元&#x2F;头，环比+3元；50公斤二元母猪价格为1632元&#x2F;头，环比持平；本周前三等级白条均价15.48元&#x2F;公斤，环比-0.24元；商品猪出栏均重117.58公斤，环比-0.18公斤。</p>
-<p>2）既具安全边际，又有向上弹性</p>
-<p>本周猪价继续下行，基本面维持疲弱的趋势，据农业农村部信息，截至2月末全国能繁母猪存栏量4268万头，环比下降0.5%，为连续八个月下滑，单从数据上看比1月份去化幅度有所下降，但考虑到春节等因素，这次能繁母猪下滑仍处在合理范围。且与历次周期不同，在这轮下行周期里，能繁母猪始终保持着月度下降，可见能繁处于高强度去化当中。生猪行业当前情况下，供给过剩、需求不足和成本持续高企等多重因素堆积，将带来产能去化加速。</p>
-<p>3）当前生猪板块仍处在重要布局窗口期</p>
-<p>①产能持续去化，从去年7月份以来连续八个月环比下降，产能下行保持着高强度，去化方向保持着高稳定性，且在供需和成本等多重因素之下有望加速；</p>
-<p>②猪价处在底部区域，且往下空间非常小，处在极其有利于产能去化的环境下；</p>
-<p>③估值仍处于底部区域，尤其头部企业对应2022年估值处在底部，具备了足够的防御性，也为猪价上行期带来了较大的弹性。</p>
-<p>因此，当前仍处在非常好的配置时点。  关注：养殖成本领先的 牧原股份 。成本下降的 温氏股份，新希望；周期反转带动优异业绩弹性的 傲农生物；间距养殖成本和资金优势的 巨星农牧  </p>
-<h2 id="个股"><a href="#个股" class="headerlink" title="个股"></a>个股</h2><h3 id="数据港"><a href="#数据港" class="headerlink" title="数据港"></a>数据港</h3><p>“数字经济+东数西算+5G”已在酝酿新一轮需求浪潮，这家公司新增8个数据中心扩张20000个机柜，同时卡位“北上广+内蒙古”核心资源。<br>数据港（603881）：<br>①长江证券于海宁看好公司2021年新增8个数据中心，其中公司IT负载合计达到约352.72兆瓦（MW），折算成5千瓦（KW）标准机柜约70,544个，大幅扩张约2万个机柜，预计未来伴随项目上架率提升，将逐步实现收入和利润；<br>②伴随着“东数西算”政策落地以及数字经济持续推进，叠加“能耗双控”或将推动数据中心迎来供给侧改革，公司作为批发型IDC头部厂商有望受益，公司数据中心占据杭州、上海等核心区域，并陆续新增河北张北、北京房山、江苏南通、广东河源、内蒙古乌兰察布等数据中心；<br>③5G大规模商用给数据中心带来的下一轮需求增长已在酝酿，根据GSMA智库数据，2025年中国将以6亿用户数成为全球最大的5G市场，占全球比重40%；<br>④于海宁预计公司2022-2024年净利润为1.65&#x2F;2.58&#x2F;3.51亿元，同比增长48.6%&#x2F;56.4%&#x2F;36.0%，对应PE为82&#x2F;53&#x2F;39倍；<br>⑤风险提示：公司多元化拓展不及预期、行业竞争持续加剧等。</p>
-<p>“数字经济+东数西算+5G”已在酝酿新一轮需求浪潮，这家公司新增8个数据中心扩张20000个机柜，同时卡位“北上广+内蒙古”核心资源事件：数据港发布2021年年报，报告期内公司实现营收12.06亿元，同比增长32.55%；实现归母净利润1.11亿元，同比下滑18.59%；实现扣非净利润0.99亿元，同比下滑22.16%；实现EBITDA8.16亿元，同比增长50.83%。长江证券于海宁认为，2021年大量项目交付带来的折旧成本的增加对公司盈利能力有所承压，预计未来伴随项目上架率提升，将逐步实现收入和利润。公司机柜规模仍高速扩张，项目储备丰富，后续扩张确定性强。截至2021年底，公司累计已建成及已运营数据中心33个，较2020年底新增8个数据中心；其中公司IT负载合计达到约352.72兆瓦（MW），折算成5千瓦（KW）标准机柜约70,544个，较2020年底的50,060个机柜大幅扩张约2万个机柜。伴随着“东数西算”政策落地以及数字经济持续推进，叠加“能耗双控”或将推动数据中心迎来供给侧改革，公司作为批发型IDC头部厂商，有望持续受益。于海宁预计公司2022-2024年净利润为1.65&#x2F;2.58&#x2F;3.51亿元，同比增长48.6%&#x2F;56.4%&#x2F;36.0%，对应PE为82&#x2F;53&#x2F;39倍。四季度营收环比增幅较快，机柜规模高速扩张2021年四季度，公司实现营收3.51亿元，同比增长36.12%，环比增长15.10%，主要系四季度机柜上架率的稳步抬升带来收入的提升。公司在2021年大量的项目交付之后，折旧等运维成本大幅增加，其中电费、房屋设备租赁及折旧成本大幅上升，成本占比达到90%，分别同比增长36%和71%，折旧费用暂时拖累业绩。<br>目前，公司在建工程达到3.34亿元，较去年年末减少15.70亿元，公司在2021年在建工程转固项目较多。展望2022年，于海宁认为新投入运营的数据中心项目将随终端客户的上架进度逐步实现收入和利润。“东数西算”政策落地大背景下，存量热门区域的IDC资源稀缺性或将进一步提升由于数据中心属于高能耗行业，对土地资源、电力资源等有较高需求，同时鉴于大型IDC客户集中于北上广深等一线城市，长期来看在一线城市IDC资源仍然会呈现供应紧缺的情况。此时具备完善的包括能评在内的审批手续的专业第三方IDC运营商将具备显著优势。公司的数据中心占据杭州、上海等核心区域，并在原有数据中心的基础上，又陆续新增河北张北、北京房山、江苏南通、广东河源、内蒙古乌兰察布等数据中心。展望2022年及未来，公司将紧跟国家“东数西算”的数据中心布局规划指引，持续拓展与积累核心城市数据中心资源，快速拓展业务规模及挖掘潜在客户，有望在政策推动下持续受益。此外，5G大规模商用给数据中心带来的下一轮需求增长已在酝酿。根据GSMA智库数据，到2025年，全球411家运营商将会在119个国家&#x2F;地区商用5G网络，全球5G用户数将超过16亿，中国将以6亿用户数成为全球最大的5G市场，占比40%。</p>
-<h3 id="天马科技"><a href="#天马科技" class="headerlink" title="天马科技"></a>天马科技</h3><p>这家特种水产饲料巨头获机构关注，公司打造鳗鲡全产业链，高品质鳗鲡饲料产销量稳居全球首位，国内市场占有率25%；</p>
-<p>天马科技于3月21日接待机构调研时表示，公司2021年实现营业总收入54.86亿元，同比增长50.73%；实现营业利润15,746.82万元，同比增长23.97%；实现利润总额15,480.73万元，同比增长22.24%；实现归属于上市公司股东的净利润8,321.49万元，同比增长20.70%。报告期内，公司取得了营收和利润双增长的成绩，实现了企业持续、稳定和较快发展。</p>
-<p>报告期内，公司全产业链布局初步到位，特种水产饲料和畜禽饲料产销量均创历史新高；公司鳗鲡绿色生态智慧养殖项目顺利推进，鳗鲡养殖效果良好，在2021年第四季度已开始第一批出鱼，为公司带来新的利润增长点；在食品端，公司启动线上化与地域化战略，在稳固出口渠道的同时积极拓展国内线上及线下渠道，营业收入稳步增长。</p>
-<p>公司上市时以特种水产饲料为主营业务，特种水产配合饲料产品主要应用于鳗鲡、石斑鱼、大黄鱼、鲆鲽鳎、海参、鲍等特种水产动物从种苗期至养成期的养殖全过程，其中公司的鳗鲡配合饲料产销量多年来稳居全球首位。</p>
-<p>公司目前已成功打造了鳗鲡全产业链，高品质鳗鲡饲料产销量多年来稳居全球首位，目前国内市场占有率在25%左右。</p>
-<p>A股相关上市公司中，<em><strong>粤海饲料</strong></em> 主要从事水产饲料研发、生产及销售，并以虾料、海水鱼料等特种水产饲料为主，覆盖水产动物的不同生长阶段。</p>
-<h3 id="金通灵"><a href="#金通灵" class="headerlink" title="金通灵"></a>金通灵</h3><p>机构密集调研这家流体机械小龙头，公司氢燃料电池空气压缩机下半年投产，目标拿下氢能源车相关产品10%的市场份额；金通灵于3月7-8日接待三批机构调研，截止2025年，氢燃料电池汽车保有量为10万辆，中国氢燃料电池空气压缩机市场规模预测为60亿元。公司目标是该类产品在“十四五”末占氢能源车相关产品市场份额的10%左右。</p>
-<p>调研过程中，公司透露，氢燃料电池空气压缩机的生产线建设将于今年上半年竣工，下半年正式试生产。后续将根据市场需求和客户反馈，持续优化技术参数和质量水平。通过未来两到三年的努力，争取实现销售量达到设计的产能。</p>
-<p>除氢燃料电池空气压缩机外，公司在氢能领域还布局了生物质制氢，同时，公司在氢能领域与北京汉氢科氢能技有限公司进行了合作。</p>
-<p>A股相关上市公司中，致远新能参股企业江苏申氢宸主要产品为燃料电池阳极端核心部件，业务正逐步进入量产阶段，主要客户为中弗新能源、东方电气和捷氢能源等。厚普股份在氢能基础设施中的业务为氢能加注设备及核心零部件的研发、生产和集成，多项核心零部件拥有自主知识产权。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8/" rel="tag">股票</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-springboot中的属性文件总结"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/03/22/springboot%E4%B8%AD%E7%9A%84%E5%B1%9E%E6%80%A7%E6%96%87%E4%BB%B6%E6%80%BB%E7%BB%93/"
-    >springboot中的属性文件总结</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/03/22/springboot%E4%B8%AD%E7%9A%84%E5%B1%9E%E6%80%A7%E6%96%87%E4%BB%B6%E6%80%BB%E7%BB%93/" class="article-date">
-  <time datetime="2022-03-22T14:14:35.000Z" itemprop="datePublished">2022-03-22</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/">技术生活 - 编程技术 - 后端技术</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="属性文件放在哪里"><a href="#属性文件放在哪里" class="headerlink" title="属性文件放在哪里"></a>属性文件放在哪里</h2><p>我们知道springboot的属性文件一般是以.properties结尾或者以ymal结尾。至于这两种配置方式的优劣，仁者见仁智者见智了。但是，他们在某些场景的特点还是要注意以下的。那就是yaml中配置的属性是有顺序的，properties中配置的文件是没有顺序的，这个时候如果您的应用程序对属性的加载顺序有要求，这个时候使用yaml配置文件为佳。</p>
-<p>一般情况下，大概有4个地方可以放置属性文件。</p>
-<ol>
-<li>项目根目录下的 config 目录下</li>
-<li>项目的根目录下的application.properties文件</li>
-<li>项目src下面的 resources 目录下的 config 目录下</li>
-<li>项目src下面的 resources 目录下的application.properties文件</li>
-</ol>
-<h2 id="属性文件的优先级"><a href="#属性文件的优先级" class="headerlink" title="属性文件的优先级"></a>属性文件的优先级</h2><p>如下图，这几个位置的优先级，1&gt;2&gt;3&gt;4 ，所以，如果您有属性需要全局覆盖，就可以在项目根目录下面的 config文件夹下面设置<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220322222034.png" alt="20220322222034"></p>
-<h2 id="属性文件的依赖注入"><a href="#属性文件的依赖注入" class="headerlink" title="属性文件的依赖注入"></a>属性文件的依赖注入</h2><p>由于springboot 包含了spring的特性。回顾一下，spring中怎么注入属性的。假设我们有一个server.properties的配置文件需要配置到项目的中。<br>属性文件server.properties</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">site.name=测试站点</span><br><span class="line">site.url=http://localhost/</span><br></pre></td></tr></table></figure>
-
-<p>java接受属性文件的bean</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">@PropertySource(&quot;classpath:site.properties&quot;)</span><br><span class="line">class Site &#123;</span><br><span class="line">    @Value(&quot;$&#123;site.name&#125;&quot;)</span><br><span class="line">    String name;</span><br><span class="line">    @Value(&quot;$&#123;site.url&#125;&quot;)</span><br><span class="line">    String url;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意：这里</p>
-<ol>
-<li>Site类使用了 Component注解，这个代表这个类要交个容器托管，这样，属性才可以注入。</li>
-<li>使用了@Value注解，使用了 server.properties 中的字段的全拼去引用 属性</li>
-<li>使用了PropertySource引用自己定义的属性名字的属性文件。</li>
-</ol>
-<p>没问题，启动springboot在别的地方调用site即可获取属性</p>
-<h2 id="属性文件的安全性"><a href="#属性文件的安全性" class="headerlink" title="属性文件的安全性"></a>属性文件的安全性</h2><p>上面的例子中，每个属性都要调用全拼属性的名字来引用，如果有非常多的属性怎么办？？？？？别着急springboot也想到了</p>
-<p>&#96;&#96;&#96;&#96;<br>@Component<br>@PropertySource(“classpath:site.properties”)<br>@ConfigurationProperties(prefix &#x3D; “site”)<br>class Site {<br>    String name;<br>    String url;<br>}</p>
-<p>&#96;&#96;&#96;</p>
-<p>这里和上面的例子比起来，没有使用@Value注解来获取属性，极大降低了工作量和出错的概率。而这一期都是 @ConfigurationProperties的 功劳。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BC%98%E5%85%88%E7%BA%A7/" rel="tag">优先级</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
 
     </footer>
   </div>

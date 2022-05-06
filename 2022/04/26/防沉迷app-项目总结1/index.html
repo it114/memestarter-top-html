@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>fix-mac-rabbitmq-issue |  张智进的博客</title>
+      <title>防沉迷app-项目总结1 |  张智进的博客</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -57,7 +57,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-fix-mac-rabbitmq-issue"
+  id="post-防沉迷app-项目总结1"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -68,7 +68,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  fix-mac-rabbitmq-issue
+  防沉迷app-项目总结1
 </h1>
  
 
@@ -76,11 +76,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/04/19/fix-mac-rabbitmq-issue/" class="article-date">
-  <time datetime="2022-04-19T12:27:21.000Z" itemprop="datePublished">2022-04-19</time>
+      <a href="/2022/04/26/%E9%98%B2%E6%B2%89%E8%BF%B7app-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%931/" class="article-date">
+  <time datetime="2022-04-26T02:10:04.000Z" itemprop="datePublished">2022-04-26</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/">技术生活 - 编程技术 - 后端技术</a>
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">技术生活 - 编程技术 - 项目总结</a>
   </div>
   
 <div class="word_count">
@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">394</span>
+            <span class="post-count">1.1k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
@@ -112,21 +112,38 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>今天在mac 下面配置 rabbitmq的环境，按照官方文档 brew install rabbitmq 竟然报错了，如下。<br>核心错误 *** No formulae found in taps *** </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">yyy@xxx-MacBook-Pro ~ % brew install rabbitmq</span><br><span class="line"></span><br><span class="line">Running `brew update --preinstall`...</span><br><span class="line">fatal: Could not resolve HEAD to a revision</span><br><span class="line">==&gt; Tapping homebrew/cask</span><br><span class="line">Cloning into &#x27;/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask&#x27;...</span><br><span class="line">remote: Enumerating objects: 633392, done.</span><br><span class="line">remote: Counting objects: 100% (14/14), done.</span><br><span class="line">remote: Compressing objects: 100% (14/14), done.</span><br><span class="line">remote: Total 633392 (delta 6), reused 2 (delta 0), pack-reused 633378</span><br><span class="line">Receiving objects: 100% (633392/633392), 298.02 MiB | 9.22 MiB/s, done.</span><br><span class="line">Resolving deltas: 100% (448299/448299), done.</span><br><span class="line">Updating files: 100% (4055/4055), done.</span><br><span class="line">Tapped 3996 casks (4,066 files, 318.3MB).</span><br><span class="line">Warning: No available formula with the name &quot;rabbitmq&quot;.</span><br><span class="line">==&gt; Searching for similarly named formulae...</span><br><span class="line">Error: No similarly named formulae found.</span><br><span class="line">==&gt; Searching for a previously deleted formula (in the last month)...</span><br><span class="line">Error: No previously deleted formula found.</span><br><span class="line">==&gt; Searching taps on GitHub...</span><br><span class="line">Error: No formulae found in taps.</span><br><span class="line">jim@zhangs-MacBook-Pro ~ % brew install rabbitmq</span><br><span class="line"></span><br><span class="line">Running `brew update --preinstall`...</span><br><span class="line">fatal: Could not resolve HEAD to a revision</span><br><span class="line">Warning: No available formula with the name &quot;rabbitmq&quot;.</span><br><span class="line">==&gt; Searching for similarly named formulae...</span><br><span class="line">Error: No similarly named formulae found.</span><br><span class="line">==&gt; Searching for a previously deleted formula (in the last month)...</span><br><span class="line">Error: No previously deleted formula found.</span><br><span class="line">==&gt; Searching taps on GitHub...</span><br><span class="line">Error: No formulae found in taps.</span><br></pre></td></tr></table></figure>
-
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>经过一番思考和查阅发现可以这样解决</p>
+  <h1 id="防沉迷项目总结（1）"><a href="#防沉迷项目总结（1）" class="headerlink" title="防沉迷项目总结（1）"></a>防沉迷项目总结（1）</h1><h2 id="防沉迷介绍"><a href="#防沉迷介绍" class="headerlink" title="防沉迷介绍"></a>防沉迷介绍</h2><p>现代社会，手机成了个人的计算中心，各种人与人、人与物的连接，都通过手机连接到每一个个体，极大的方便了人们的生活、学习、工作和娱乐。然而正是这样的便捷性，高度依赖性，使人们越来越离不开手机，很多人深陷其中，不能自拔，甚至严重影响正常的休息、生活、学习、工作和交流，越来越考验人的自律能力。因此很多人需要适当的提醒、干预或者强制的方式来摆脱这种状况。“防沉迷APP”的想法被创业者发现并实施。</p>
+<p>作为一款手机防沉迷软件，该软件在解救两亿手机控、低头族，让她成为学生、考生、家长、低头族、手机控、战拖们的必备应用。</p>
+<p>目前知名的国内防沉迷app有：格雷盒子，青柠守护，阳光守护等</p>
+<h2 id="防沉迷技术难点"><a href="#防沉迷技术难点" class="headerlink" title="防沉迷技术难点"></a>防沉迷技术难点</h2><h3 id="设置默认桌面"><a href="#设置默认桌面" class="headerlink" title="设置默认桌面"></a>设置默认桌面</h3><p>目前已知问题，小米桌面如果没有经过官方的认证，就不让设置其他第三方桌面（launcher）设置为默认桌面。小米这么做也有道理。因为第三方桌面有可能会做一些伤害用户体验的行为。有官方的背书，能在一定程度上避免这个问题。同样的问题还在华为手机上出现。华为手机直接是不让设置默认桌面，根本没有这个选项。</p>
+<h3 id="开机自启动"><a href="#开机自启动" class="headerlink" title="开机自启动"></a>开机自启动</h3><p>防沉迷，最重要的是让用户在使用手机的时候，只能操作某一类或者某一些app。这里问题就来了，怎么做到呢？第一想到的就是设置默认桌面，同时隐藏设置桌面的配置。但是上面说了，目前主流手机厂商对这方面有着自己的顾虑和思考。<br>那没有没有可能在不支持的手机上支持用户app开机启动，同时只允许打开自己的app，不允许切换到其他app，达到类似launcher（桌面）的效果呢？<br>答案是肯定的。</p>
+<h3 id="手机兼容性"><a href="#手机兼容性" class="headerlink" title="手机兼容性"></a>手机兼容性</h3><p>安卓手机厂商众多，各种改。而防沉迷用到的api又比较底层，兼容性是一个让开发者头疼的问题。</p>
+<h3 id="屏蔽其他app"><a href="#屏蔽其他app" class="headerlink" title="屏蔽其他app"></a>屏蔽其他app</h3><p>屏蔽有2个思路</p>
+<ol>
+<li>控制launcher，隐藏app的icon图标。这个没啥好说的</li>
+<li>类似如下这个效果。只要用户点击任何其他app都提示，app被禁止</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220426102755.png" alt="20220426102755"></p>
+<h3 id="权限自动点击"><a href="#权限自动点击" class="headerlink" title="权限自动点击"></a>权限自动点击</h3><p>由于需要比较多的权限，不同手机的设置路径也不尽相同。如果能实现自动点击，自动选择，无疑会给用户很大的帮助。</p>
+<h3 id="手机远程控制"><a href="#手机远程控制" class="headerlink" title="手机远程控制"></a>手机远程控制</h3><h4 id="远程获取通讯录"><a href="#远程获取通讯录" class="headerlink" title="远程获取通讯录"></a>远程获取通讯录</h4><h4 id="远程读取用户手机短信"><a href="#远程读取用户手机短信" class="headerlink" title="远程读取用户手机短信"></a>远程读取用户手机短信</h4><h4 id="远程读取用户通话记录"><a href="#远程读取用户通话记录" class="headerlink" title="远程读取用户通话记录"></a>远程读取用户通话记录</h4><h4 id="远程获取用户手机截屏"><a href="#远程获取用户手机截屏" class="headerlink" title="远程获取用户手机截屏"></a>远程获取用户手机截屏</h4><h4 id="远程录制用户手机屏幕"><a href="#远程录制用户手机屏幕" class="headerlink" title="远程录制用户手机屏幕"></a>远程录制用户手机屏幕</h4><h4 id="远程锁定被控制手机"><a href="#远程锁定被控制手机" class="headerlink" title="远程锁定被控制手机"></a>远程锁定被控制手机</h4><h4 id="远程控制被控手机app删除或者增加"><a href="#远程控制被控手机app删除或者增加" class="headerlink" title="远程控制被控手机app删除或者增加"></a>远程控制被控手机app删除或者增加</h4><h4 id="远程控制被控手机app打开或者关闭"><a href="#远程控制被控手机app打开或者关闭" class="headerlink" title="远程控制被控手机app打开或者关闭"></a>远程控制被控手机app打开或者关闭</h4><h4 id="远程控制被控手机录音"><a href="#远程控制被控手机录音" class="headerlink" title="远程控制被控手机录音"></a>远程控制被控手机录音</h4><h4 id="远程控制被控手机活动范围，设定电子围栏，超出范围提醒"><a href="#远程控制被控手机活动范围，设定电子围栏，超出范围提醒" class="headerlink" title="远程控制被控手机活动范围，设定电子围栏，超出范围提醒"></a>远程控制被控手机活动范围，设定电子围栏，超出范围提醒</h4><h2 id="防沉迷app思考和拓展"><a href="#防沉迷app思考和拓展" class="headerlink" title="防沉迷app思考和拓展"></a>防沉迷app思考和拓展</h2><p>后话：做防沉迷这段时间，确实发现这个市场还挺大的。我们做的方向是，类似阳光守护那种。有两个端：家长端和孩子端。<br>家长端：可以控制孩子的手机，包括获取孩子手机app，远程截屏，远程锁屏等。<br>孩子端：只可以打开被家长允许的app，只能在规定时间玩手机等</p>
+<p>其实,有了这个技术，应用场景是很多的。从控制端和被控端来思考</p>
+<ol>
+<li><p>假设只有一个端</p>
 <ul>
-<li>定位到homebrew目录<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/Homebrew/Library/Taps/homebrew/</span><br></pre></td></tr></table></figure></li>
-<li>然后rm -rf homebrew-core</li>
-<li>重新git clone <a target="_blank" rel="noopener" href="https://github.com/Homebrew/homebrew-core.git">https://github.com/Homebrew/homebrew-core.git</a></li>
-<li>最后重新执行brew install</li>
+<li>可以做成一个防沉迷app单机版，解决学生等老离不开手机的问题，帮自己改掉习惯，投入学习</li>
+<li>可以做成一个习惯训练app，设置一个社区，社区的人打卡比赛，谁能养成习惯给予奖励。</li>
 </ul>
-<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>可能是安装brew的过程中由于网络原因或者其他原因导致homebrew安装出现问题</p>
-<h2 id="rabbitmq-其他"><a href="#rabbitmq-其他" class="headerlink" title="rabbitmq 其他"></a>rabbitmq 其他</h2><ul>
-<li>rabbitmq常用命令：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">brew services info   rabbitmq</span><br><span class="line">brew services stop   rabbitmq</span><br><span class="line">brew services restart   rabbitmq</span><br><span class="line">brew services kill   rabbitmq</span><br></pre></td></tr></table></figure></li>
-<li>Web界面管理RabbitMQ<br>默认是可以本地登录localhost:15672，用户名：guest；密码：guest；端口默认15672</li>
+</li>
+<li><p>有一个控制端和一个被控端</p>
+<ul>
+<li>家长控制孩子</li>
+<li>老师控制学生</li>
+<li>孩子给上了年纪的父母远程协助</li>
+<li>其他场景</li>
 </ul>
+</li>
+</ol>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>做了这么多，还有一些没解决问题。有意者可以联系 Q:2169564366 （备注：防沉迷）技术交流。一起成长</p>
  
       <!-- reward -->
       
@@ -191,12 +208,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.memestarter.top/2022/04/19/fix-mac-rabbitmq-issue/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.memestarter.top/2022/04/26/%E9%98%B2%E6%B2%89%E8%BF%B7app-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%931/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbmitmq/" rel="tag">rabbmitmq</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/" rel="tag">项目总结</a></li></ul>
 
     </footer>
   </div>
@@ -204,19 +221,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/04/26/%E9%98%B2%E6%B2%89%E8%BF%B7app-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%931/" class="article-nav-link">
+      <a href="/2022/04/26/%E9%98%B2%E6%B2%89%E8%BF%B7app-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%932/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            防沉迷app-项目总结1
+            防沉迷app-项目总结2
           
         </div>
       </a>
     
     
-      <a href="/2022/04/07/%E5%8C%BA%E5%9D%97%E9%93%BE%E9%AA%97%E5%B1%80%E4%B9%8B%E5%A4%B9%E5%AD%90%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="article-nav-link">
+      <a href="/2022/04/19/fix-mac-rabbitmq-issue/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">区块链骗局之夹子机器人</div>
+        <div class="article-nav-title">fix-mac-rabbitmq-issue</div>
       </a>
     
   </nav>
