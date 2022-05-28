@@ -130,6 +130,130 @@
     
     
     <article
+  id="post-springboot-2-x-log-system"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/03/03/springboot-2-x-log-system/"
+    >springboot-2.x-log-system</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/03/03/springboot-2-x-log-system/" class="article-date">
+  <time datetime="2022-03-03T05:06:58.000Z" itemprop="datePublished">2022-03-03</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/">技术生活 - 编程技术 - 后端技术</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="springboot日志系统的理解"><a href="#springboot日志系统的理解" class="headerlink" title="springboot日志系统的理解"></a>springboot日志系统的理解</h1><h2 id="日志归一系统"><a href="#日志归一系统" class="headerlink" title="日志归一系统"></a>日志归一系统</h2><p>写代码的时候突然对log感兴趣，想到了springboot之前了解的时候是依赖于sl4j实现的统一api，在编译的时候在决定用哪一个日志框架。但是翻了一下网上的文章。得出了<strong>Spring Boot 可以自动的适配日志框架，而且底层使用 SLF4 + LogBack</strong>的结论。<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220303131251.png" alt="20220303131251"></p>
+<p>从图中可以看出几点</p>
+<ol>
+<li>所有其他日志系统例如，jul ，log4j ，logback 都是实现了和sl4j的桥接。</li>
+<li>其中只有logback实现了sl4j，这个也是得出默认springboot支持logback的原因。</li>
+</ol>
+<h2 id="在springboot中，各个日志框架究竟是如何和平相处，并且相安无事的"><a href="#在springboot中，各个日志框架究竟是如何和平相处，并且相安无事的" class="headerlink" title="在springboot中，各个日志框架究竟是如何和平相处，并且相安无事的"></a>在springboot中，各个日志框架究竟是如何和平相处，并且相安无事的</h2><p>我们写代码，免不了使用第三方的库，假设第三方库没有实现sl4j的api，那么这个日志岂不是不受到springboot的统一管理了？？？不是这样的，就类似上面的spring-logging 这个库，一些第三方的流行的库，会有一些工具包来替换接管这些第三方系统的日志。<br>大致原理，如下，下面是一个sl4j官方的一个图。<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220303132843.png" alt="20220303132843"></p>
+<h1 id="如何替换默认的logback的实现"><a href="#如何替换默认的logback的实现" class="headerlink" title="如何替换默认的logback的实现"></a>如何替换默认的logback的实现</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;    </span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;    </span><br><span class="line">    &lt;exclusions&gt;           </span><br><span class="line">        &lt;exclusion&gt;            </span><br><span class="line">           &lt;artifactId&gt;spring-boot-starter-logging&lt;/artifactId&gt;            							    </span><br><span class="line">           &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;        </span><br><span class="line">        &lt;/exclusion&gt;   </span><br><span class="line">    &lt;/exclusions&gt; </span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;    </span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    </span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-log4j2&lt;/artifactId&gt; </span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/log/" rel="tag">log</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/log4j/" rel="tag">log4j</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sl4j/" rel="tag">sl4j</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%A5%E5%BF%97/" rel="tag">日志</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-fix-macos-big-sur-crash"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/03/02/fix-macos-big-sur-crash/"
+    >fix-macos-big-sur-crash</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/03/02/fix-macos-big-sur-crash/" class="article-date">
+  <time datetime="2022-03-02T13:03:20.000Z" itemprop="datePublished">2022-03-02</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-bug-fix/">技术生活 - 编程技术 - bug-fix</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>今天本来是用vscode写一个spring的小程序，编译的时候一直提示没有compile provider，百思不得其解。初步怀疑是maven和vscode的配置有关系。但是多番尝试依然无果。为了不浪费时间，还是决定intelj来开发，好久没有打开过intelj了，谁知道一打开就crash….今天真的是见了鬼。</p>
+<h1 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h1><pre><code>1. 一番观察进程之后，排除了我下载的破解插件的原因。
+2. 软件兼容性方面，电脑自从上次没有用idea 大概没有安装太多第三方软件，初步排除
+3. 查看是否是因为系统资源不够等原因的时候，查看到mac os 系统版本，最近曾经升级过....
+</code></pre>
+<p>茅塞顿开！！！</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>参考intelj 官方的答案：<a target="_blank" rel="noopener" href="https://www.jetbrains.com/help/idea/directories-used-by-the-ide-to-store-settings-caches-plugins-and-logs.html#config-directory">https://www.jetbrains.com/help/idea/directories-used-by-the-ide-to-store-settings-caches-plugins-and-logs.html#config-directory</a></p>
+<p>注意mac上如果直接删除参考如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -al ~/Library/Application\ Support/JetBrains   </span><br></pre></td></tr></table></figure>
+<p>先查看自己的版本，然后决定是否备份一下配置文件。之后执行删除 <strong>JetBrains</strong> 下面的相关所有文件即可</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/big-sur/" rel="tag">big sur</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/crash/" rel="tag">crash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/idea/" rel="tag">idea</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/intelj/" rel="tag">intelj</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maos/" rel="tag">maos</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
   id="post-chrome浏览器安装Metamask"
   class="article article-type-post"
   itemscope
@@ -943,129 +1067,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/" rel="tag">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flutter/" rel="tag">flutter</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/" rel="tag">mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/widget/" rel="tag">widget</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BB%84%E4%BB%B6/" rel="tag">组件</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-分享-20220204"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/02/05/%E5%88%86%E4%BA%AB-20220204/"
-    >分享-20220204</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/02/05/%E5%88%86%E4%BA%AB-20220204/" class="article-date">
-  <time datetime="2022-02-04T18:33:58.000Z" itemprop="datePublished">2022-02-05</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%88%86%E4%BA%AB-%E8%B5%84%E6%BA%90%E6%90%9C%E9%9B%86/">分享 - 资源搜集</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <ul>
-<li><p>竟然有人分享这个ust年化20%的东西，还是非币圈人。。。。。<br><a target="_blank" rel="noopener" href="https://www.hidandelion.com/anchor-protocol-earn-started-tutorial/">https://www.hidandelion.com/anchor-protocol-earn-started-tutorial/</a></p>
-</li>
-<li><p>2022 年要考虑的 7 种 Docker 替代方案<br><a target="_blank" rel="noopener" href="https://www.techug.com/post/seven-docker-alternatives-to-be-considered-in-2022.html">https://www.techug.com/post/seven-docker-alternatives-to-be-considered-in-2022.html</a></p>
-</li>
-<li><p>这个网站提供3500多部高质量纪录片免费在线观看，不过都是英文的。<br><a target="_blank" rel="noopener" href="https://ihavenotv.com/">https://ihavenotv.com/</a></p>
-</li>
-<li><p>How to Become a Blockchain Engineer（如何成为区块链工程师）<br><a target="_blank" rel="noopener" href="https://betterprogramming.pub/how-to-become-a-blockchain-engineer-fa4386a0504f">https://betterprogramming.pub/how-to-become-a-blockchain-engineer-fa4386a0504f</a></p>
-</li>
-</ul>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%8D%E8%B4%B9/" rel="tag">免费</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E4%BA%AB/" rel="tag">分享</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">区块链</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B8%81%E5%9C%88/" rel="tag">币圈</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BA%AA%E5%BD%95%E7%89%87/" rel="tag">纪录片</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-travel"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/01/27/travel/"
-    >春节越南行</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/01/27/travel/" class="article-date">
-  <time datetime="2022-01-27T01:11:01.000Z" itemprop="datePublished">2022-01-27</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB-%E6%97%85%E6%B8%B8/">生活 - 旅游</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="我的所爱，在海云之间。"><a href="#我的所爱，在海云之间。" class="headerlink" title="我的所爱，在海云之间。"></a>我的所爱，在海云之间。</h2><blockquote>
-<p>最喜欢骑着摩托在海云岭上拉到最大马力的感觉~</p>
-</blockquote>
-<p>刚开始想去越南只是听朋友说物价便宜，人美景也美，尤其是有海滩，决定下来之后就开始查很多网友的攻略，后来发现看攻略根本记不住啥，说来说去都是这么几个注意点。上班的时候就没啥心思了，很期待这场旅行，本来假期就不多，春节正好可以躲避寒冬，于是约了个好友一起去，人均花费在4000左右吧，要是平时去估计能便宜一半。我选择了在年三十就出发，即使是这样，我们真正玩的时间也只有三天，有大半时间都浪费在了路上，不过这一路上的经历回想起来也挺有意思的。在此还是强烈推荐平时淡季去，春节机票贵，火车票又一票难求，如果是淡季去的话直飞是最爽快的了。</p> 
-      <a class="article-more-link" href="/2022/01/27/travel/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%85%E6%B8%B8/" rel="tag">旅游</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li></ul>
 
     </footer>
   </div>

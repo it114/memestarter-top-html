@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>椭圆曲线签名之区块链签名验证 |  张智进的博客</title>
+      <title>一文理清过度授权的是是非非 |  张智进的博客</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -57,7 +57,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-椭圆曲线签名之区块链签名验证"
+  id="post-一文理清过度授权的是是非非"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -68,7 +68,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  椭圆曲线签名之区块链签名验证
+  一文理清过度授权的是是非非
 </h1>
  
 
@@ -76,8 +76,8 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/04/26/%E6%A4%AD%E5%9C%86%E6%9B%B2%E7%BA%BF%E7%AD%BE%E5%90%8D%E4%B9%8B%E5%8C%BA%E5%9D%97%E9%93%BE%E7%AD%BE%E5%90%8D%E9%AA%8C%E8%AF%81/" class="article-date">
-  <time datetime="2022-04-26T03:12:04.000Z" itemprop="datePublished">2022-04-26</time>
+      <a href="/2022/05/29/%E4%B8%80%E6%96%87%E7%90%86%E6%B8%85%E8%BF%87%E5%BA%A6%E6%8E%88%E6%9D%83%E7%9A%84%E6%98%AF%E6%98%AF%E9%9D%9E%E9%9D%9E/" class="article-date">
+  <time datetime="2022-05-28T17:06:17.000Z" itemprop="datePublished">2022-05-29</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E5%8C%BA%E5%9D%97%E9%93%BE/">技术生活 - 编程技术 - 区块链</a>
@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">663</span>
+            <span class="post-count">1.7k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2 分钟</span>
+            <span class="post-count">6 分钟</span>
         </span>
     </span>
 </div>
@@ -112,18 +112,56 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h1><p>学过计算机的人都知道知名度rsa加密算法。它使用了两个数字相乘很容易，但是把一个大数字分解为素数却很难的这个原理，来实现对称加密。但是随着计算机的发展rsa的安全性越来越受到挑战。于是在bitcoin中一个叫做椭圆曲线算法的对称加密算法被使用，并且在长期实践中证明了其安全性。</p>
-<h1 id="椭圆曲线算法"><a href="#椭圆曲线算法" class="headerlink" title="椭圆曲线算法"></a>椭圆曲线算法</h1><p>椭圆曲线密码术是一种基于离散对数问题的非对称或公钥密码体系，如椭圆曲线上的加法和乘法运算。作为一种对称加密算法，椭圆曲线算法比ras算法用更小的公钥，实现更高的效率，实现了更高的安全性。</p>
-<p>数字签名在比特币中有三种用途。</p>
+  <h1 id="什么是过度授权"><a href="#什么是过度授权" class="headerlink" title="什么是过度授权"></a>什么是过度授权</h1><p>忘记在哪里看过一个脑静急转弯了。大致内容：如果你的区块链硬件钱包有10万元，玩dapp你最多能亏多少钱？答案显而易见：10万。当然，这个10万有很大可能不是dapp内部逻辑导致的亏损，而是因为它的钱包授权给了恶意DAPP，这个恶意dapp盗走了他的10万元。</p>
+<p>这就是区块链世界的”黑暗森林“，大家都在猎杀金钱，活下去的的唯一途径就是别被第二者发现我们的低级错误。</p>
+<h2 id="过度授权的案例"><a href="#过度授权的案例" class="headerlink" title="过度授权的案例"></a>过度授权的案例</h2><p>案例1： 2021 年 2 月份 ，中心化金融协议 Primitive由于合约漏洞，攻击者利用过度授权机制盗走了一部分资金。 <a target="_blank" rel="noopener" href="https://cryptopotato.com/defi-protocol-primitive-finance-self-hacks-to-prevent-exploit/">https://cryptopotato.com/defi-protocol-primitive-finance-self-hacks-to-prevent-exploit/</a><br>案例2：2021 年 2 月份， <a target="_blank" rel="noopener" href="https://rekt.news/furucombo-rekt/">https://rekt.news/furucombo-rekt/</a><br>案例3：我身边的朋友，自己偶尔玩玩dapp，自己本身也是做技术的，还被过度授权盗走了1000多U<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220529004454.png" alt="20220529004454"><br>更多过度授权案例 百度搜索：过度授权 或者 infinite approval  </p>
+<h2 id="过度授权剖析"><a href="#过度授权剖析" class="headerlink" title="过度授权剖析"></a>过度授权剖析</h2><p>平时区块链转账，我们也没有使用过授权这个概念。授权这个概念大概是随着defi的兴起而火起来的，defi summber随便一个年化都很高，热钱涌动，进来了很多人。而这些defi大部分都是dapp，你需要授权给这些app使用你的资金，然后去赚钱。本质上，无论日常地址之间直接转账还是说dapp授权交易都是一个区块链的交易。怎么去区分和理解呢，如下图大致画 了一下我们平时转账交易和dapp授权的区别<br>日常转账交易（大致画了一下）<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220529005545.png" alt="20220529005545"><br>dapp授权交易<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220529010907.png" alt="20220529010907"></p>
+<p>一言以蔽之，正常交易转账是自己直接转给地方地址。dapp授权是给第三方一个使用自己资金的权限，授权的时候可以指定币种和金额。<br>大家使用比较多的小狐狸授权页面如下，一旦遇到类似的页面，不熟悉的一定不要授权或者读取清楚每一个字。<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220529011159.png" alt="20220529011159"></p>
+<h1 id="ERC20标准"><a href="#ERC20标准" class="headerlink" title="ERC20标准"></a>ERC20标准</h1><p>这个部分有一点偏技术，简单看一下，对于后边的内容会理解的更加深刻。ERC20标准大致是一个规定了以太坊区块链上的数字资产的生成，存储，转移等一系列操作的标准。有了这个标准之后，所有遵守ERC20协议的所有token之间既可以互操作了。</p>
+<p>正常的erc20合约标准，大致有如下接口</p>
+<p><a target="_blank" rel="noopener" href="https://eips.ethereum.org/EIPS/eip-20">https://eips.ethereum.org/EIPS/eip-20</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// https://github.com/ethereum/EIPs/issues/20</span><br><span class="line">  contract ERC20 &#123;</span><br><span class="line">      function totalSupply() constant returns (uint totalSupply);</span><br><span class="line">      function balanceOf(address _owner) constant returns (uint balance);</span><br><span class="line">      function transfer(address _to, uint _value) returns (bool success);</span><br><span class="line">      function transferFrom(address _from, address _to, uint _value) returns (bool success);</span><br><span class="line">      function approve(address _spender, uint _value) returns (bool success);</span><br><span class="line">      function allowance(address _owner, address _spender) constant returns (uint remaining);</span><br><span class="line">      event Transfer(address indexed _from, address indexed _to, uint _value);</span><br><span class="line">      event Approval(address indexed _owner, address indexed _spender, uint _value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>totalSupply token的总供应量</li>
+<li>balanceOf 查询某一个地址的token余额</li>
+<li>transfer 转移token从一个地址到另外一个地址</li>
+<li>transferFrom  第三方从一个地址Token转移到一个地址</li>
+<li>approve 给予其他地址授予token使用权限</li>
+<li>allowance 查询既定的地址授予了哪些全新</li>
+<li>Transfer 事件，token 发生转移就会有这个事件日志</li>
+<li>Approval 授权事件</li>
+</ul>
+<p>看到了吗？erc20标准就6个函数2个事件。让人失望的是，标准中没有我们期望看到的撤销授权的函数方法！！！ 具体啥原因我暂时没有想清楚</p>
+<h2 id="从代码角度看，我的钱是怎么被恶意dapp盗走的"><a href="#从代码角度看，我的钱是怎么被恶意dapp盗走的" class="headerlink" title="从代码角度看，我的钱是怎么被恶意dapp盗走的"></a>从代码角度看，我的钱是怎么被恶意dapp盗走的</h2><p>这里假设有两个用户A和B。用户A有100U 而且授权给了B使用这100U 。过程如下</p>
 <ol>
-<li>签名证明私钥的所有者，即资金所有者，已经授权支出这些资金。</li>
-<li>授权证明是不可否认的 （不可否认性）</li>
-<li>签名证明交易（或交易的具体部分）在签字之后没有也不能被任何人修改</li>
+<li>A调用 approve(address(B), 100)，授予B使用A的100Usdt的权限</li>
+<li>B使用的时候需要检查A到底给自己了多少usdt的使用额度：allowance(address(A), address(B))</li>
+<li>B知道了自己的使用额度之后调用转账transferFrom(address(A), address(B), 100) 把100U 从A转到B</li>
 </ol>
-<h2 id="算法介绍"><a href="#算法介绍" class="headerlink" title="算法介绍"></a>算法介绍</h2><p>这部分可以参考：精通以太坊 （中文版）：<a target="_blank" rel="noopener" href="https://www.bookstack.cn/read/ethereum_book-zh/spilt.6.4e6f5cb249c84882.md">https://www.bookstack.cn/read/ethereum_book-zh/spilt.6.4e6f5cb249c84882.md</a></p>
-<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h2 id="椭圆曲线算法实现"><a href="#椭圆曲线算法实现" class="headerlink" title="椭圆曲线算法实现"></a>椭圆曲线算法实现</h2><p>总的来说，首先要生成一个随机数根据K&#x3D;k*P ，来确定私钥。<br>具体的在数字签名的时候，区块链使用的算法和正规的椭圆曲线算法有一定的差异。经过签名的消息是可以被分解为 r ，s的。只靠rs所反解的public key会有四组，不过实际上最常见的是2组，因为另外两种出现的概率很低很低。这篇文章有具体的说明：<a target="_blank" rel="noopener" href="https://bitcoin.stackexchange.com/questions/38351/ecdsa-v-r-s-what-is-v">https://bitcoin.stackexchange.com/questions/38351/ecdsa-v-r-s-what-is-v</a> 。 </p>
-<h2 id="椭圆曲线算法签名实现"><a href="#椭圆曲线算法签名实现" class="headerlink" title="椭圆曲线算法签名实现"></a>椭圆曲线算法签名实现</h2><p>下面是代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class Sign &#123;</span><br><span class="line"></span><br><span class="line">    public static final String PERSONAL_MESSAGE_PREFIX = &quot;\u0019Ethereum Signed Message:\n&quot;;</span><br><span class="line"></span><br><span class="line">    public static void RecoverAddress) &#123;</span><br><span class="line"></span><br><span class="line">        String signature = &quot;xxxx&quot;;</span><br><span class="line"></span><br><span class="line">        String address = &quot;yyyy&quot;;</span><br><span class="line">        String message = &quot;msg&quot;;</span><br><span class="line"></span><br><span class="line">        String prefix = PERSONAL_MESSAGE_PREFIX + message.length();</span><br><span class="line">        byte[] msgHash = Hash.sha3((prefix + message).getBytes());</span><br><span class="line"></span><br><span class="line">        byte[] signatureBytes = Numeric.hexStringToByteArray(signature);</span><br><span class="line">        byte v = signatureBytes[64];</span><br><span class="line">        if (v &lt; 27) &#123;</span><br><span class="line">            v += 27;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        SignatureData sd =</span><br><span class="line">                new SignatureData(</span><br><span class="line">                        v,</span><br><span class="line">                        (byte[]) Arrays.copyOfRange(signatureBytes, 0, 32),</span><br><span class="line">                        (byte[]) Arrays.copyOfRange(signatureBytes, 32, 64)</span><br><span class="line">                );</span><br><span class="line"></span><br><span class="line">        String addressRecovered = null;</span><br><span class="line">        boolean match = false;</span><br><span class="line"></span><br><span class="line">        // Iterate for each possible key to recover</span><br><span class="line">        for (int i = 0; i &lt; 4; i++) &#123;</span><br><span class="line">            BigInteger publicKey =</span><br><span class="line">                    Sign.recoverFromSignature(</span><br><span class="line">                            (byte) i,</span><br><span class="line">                            new ECDSASignature(</span><br><span class="line">                                    new BigInteger(1, sd.getR()), new BigInteger(1, sd.getS())),</span><br><span class="line">                            msgHash);</span><br><span class="line"></span><br><span class="line">            if (publicKey != null) &#123;</span><br><span class="line">                addressRecovered = &quot;0x&quot; + Keys.getAddress(publicKey);</span><br><span class="line"></span><br><span class="line">                if (addressRecovered.equals(address)) &#123;</span><br><span class="line">                    match = true;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (addressRecovered.equals(address)) &#123;</span><br><span class="line">            System.out.println(&quot; recovered ... &quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (match) &#123;</span><br><span class="line">            System.out.println(&quot; match ... &quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure> 
+<p>过程就是这么的简单！！！！！</p>
+<p>虽然  transferFrom 函数被用来了盗用token，但是的设计目标是允许经过授权的地址使用我的token，在如下场景还是有不少用的</p>
+<ul>
+<li>让他人代付gas费用</li>
+<li>dapp中允许dapp支配自己的资金去赚取收益 </li>
+<li>订阅web3的一些服务，自动扣款等</li>
+</ul>
+<h1 id="如何防范过度授权威胁"><a href="#如何防范过度授权威胁" class="headerlink" title="如何防范过度授权威胁"></a>如何防范过度授权威胁</h1><ul>
+<li>不要使用来源不明或者自己不信任的dapp</li>
+<li>定期使用撤销授权工具清理授权</li>
+<li>养成良好的习惯，经常用来玩dapp的钱包别放太多资金。</li>
+</ul>
+<h2 id="如何手动撤销过度授权"><a href="#如何手动撤销过度授权" class="headerlink" title="如何手动撤销过度授权"></a>如何手动撤销过度授权</h2><ol>
+<li>一些钱包例如，tokenpocket ，imtoken  ，mathwallet 内部都内置了过度授权清理工具。</li>
+<li>一些第三方网站，例如<a target="_blank" rel="noopener" href="https://approved.zone/">https://approved.zone/</a> ，debank，cointool 也都提供了类似的工具（提示：别因为清理授权被钓鱼了）</li>
+<li>清理授权的过程是需要花费一定的gas 的 </li>
+<li></li>
+</ol>
+<h2 id="过度授权一定能撤销干净吗"><a href="#过度授权一定能撤销干净吗" class="headerlink" title="过度授权一定能撤销干净吗"></a>过度授权一定能撤销干净吗</h2><h1 id="一种猜想"><a href="#一种猜想" class="headerlink" title="一种猜想"></a>一种猜想</h1><p>既然过度授权危害这么大。我有一些解决类似问题的想法。<br>建立一个权威的公用合约A。这个合约由一个dao组织运行，dapp项目方需要提供合约地址给合约A，一旦加入到合约A的白名单，就代表被加入的合约在一定程度上做了背书。加入白名单的项目方要么提供实名信息要么提供一些token质押，防止作恶。</p>
+<p>在用户使用dapp的时候，不是直接授予权限给不受信任的dapp而是直接授权给dao运营的合约A。然后由合约A代理用户向目标合约做交互。</p>
+<p>等于说在用户和目标dapp之间做了一个隔离，这个在一定程度上能解决授权过渡问题。</p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>其实，这个话题展开的话，能说很多。包括从代码角度可以写一个demo来演示都是没问题的。只有真正的让用户看到了过度授权的危害才能真正的警醒用户授权的时候留一个心眼。而屡屡有用户因为过度授权上当受骗，大概是因为狼来了的故事挺多了，反正这事也不会发生在我身上。</p>
+<p>哎，这个话题又涉及到哲学高度了，涉及到了人类学了。也罢，到此为止。</p>
+ 
       <!-- reward -->
       
     </div>
@@ -187,12 +225,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.memestarter.top/2022/04/26/%E6%A4%AD%E5%9C%86%E6%9B%B2%E7%BA%BF%E7%AD%BE%E5%90%8D%E4%B9%8B%E5%8C%BA%E5%9D%97%E9%93%BE%E7%AD%BE%E5%90%8D%E9%AA%8C%E8%AF%81/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.memestarter.top/2022/05/29/%E4%B8%80%E6%96%87%E7%90%86%E6%B8%85%E8%BF%87%E5%BA%A6%E6%8E%88%E6%9D%83%E7%9A%84%E6%98%AF%E6%98%AF%E9%9D%9E%E9%9D%9E/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blockchain/" rel="tag">blockchain</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">区块链</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D/" rel="tag">数字签名</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blockchain/" rel="tag">blockchain</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/solidity/" rel="tag">solidity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">区块链</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%90%88%E7%BA%A6/" rel="tag">合约</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A7%91%E6%99%AE/" rel="tag">科普</a></li></ul>
 
     </footer>
   </div>
@@ -200,19 +238,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/04/28/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%90%88%E7%BA%A6%E4%B9%8B10%E5%A4%A9%E5%AD%A6%E4%BC%9Asolidity%E7%AC%AC%E4%B8%80%E8%8A%82-remix%20ide/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            区块链合约之10天学会solidity第一节-remix ide
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/04/26/%E9%98%B2%E6%B2%89%E8%BF%B7app-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%932/" class="article-nav-link">
+      <a href="/2022/05/23/react-native-environment/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">防沉迷app-项目总结2</div>
+        <div class="article-nav-title">react-native-environment</div>
       </a>
     
   </nav>

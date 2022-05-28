@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">847</span>
+            <span class="post-count">854</span>
         </span>
     </span>
 
@@ -153,7 +153,12 @@
 <li>查询一个用户<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const user =  prismaClient.user.findFirst();</span><br><span class="line">console.dir(user, &#123; depth: null &#125;) </span><br></pre></td></tr></table></figure></li>
 </ol>
 <p>完整代码</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import &#123;  PrismaClient &#125; from &#x27;@prisma/client&#x27;</span><br><span class="line">const prismaClient = new PrismaClient();</span><br><span class="line"></span><br><span class="line">async function main() &#123; </span><br><span class="line">    // create </span><br><span class="line">    const  c = await prismaClient.user.create(&#123;</span><br><span class="line">       data:&#123;</span><br><span class="line">           name:&#x27;xx&#x27;,</span><br><span class="line">           email:&#x27;123@qqq.com&#x27;,</span><br><span class="line">           profile:&#123;</span><br><span class="line">               create:&#123;bio:&#x27;im a girl&#x27;&#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">    console.log(&#x27;create user status = &#x27; + c );</span><br><span class="line">    const user =  prismaClient.user.findFirst();</span><br><span class="line">    console.dir(user, &#123; depth: null &#125;) </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">main()</span><br><span class="line">  .catch((e) =&gt; &#123;</span><br><span class="line">    throw e</span><br><span class="line">  &#125;).finally(async () =&gt; &#123;</span><br><span class="line">    await prismaClient.$disconnect()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import &#123;  PrismaClient &#125; from &#x27;@prisma/client&#x27;</span><br><span class="line">const prismaClient = new PrismaClient();</span><br><span class="line"></span><br><span class="line">async function main() &#123; </span><br><span class="line">    // create </span><br><span class="line">    const  c = await prismaClient.user.create(&#123;</span><br><span class="line">       data:&#123;</span><br><span class="line">           name:&#x27;xx&#x27;,</span><br><span class="line">           email:&#x27;123@qqq.com&#x27;,</span><br><span class="line">           profile:&#123;</span><br><span class="line">               create:&#123;bio:&#x27;im a girl&#x27;&#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">    console.log(&#x27;create user status = &#x27; + c );</span><br><span class="line">    const user =  prismaClient.user.findFirst();</span><br><span class="line">    console.dir(user, &#123; depth: null &#125;) </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">main()</span><br><span class="line">  .catch((e) =&gt; &#123;</span><br><span class="line">    throw e</span><br><span class="line">  &#125;).finally(async () =&gt; &#123;</span><br><span class="line">    await prismaClient.$disconnect()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npx ts-node index.ts </span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>数据库运行效果<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220516173323.png" alt="20220516173323"></p>
  
@@ -232,6 +237,15 @@
 
    
   <nav class="article-nav">
+    
+      <a href="/2022/05/23/react-native-environment/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            react-native-environment
+          
+        </div>
+      </a>
     
     
       <a href="/2022/05/01/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%90%88%E7%BA%A6%E4%B9%8B10%E5%A4%A9%E5%AD%A6%E4%BC%9Asolidity%E7%AC%AC%E5%9B%9B%E8%8A%82-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="article-nav-link">
