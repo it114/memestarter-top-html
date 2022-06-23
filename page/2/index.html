@@ -130,6 +130,154 @@
     
     
     <article
+  id="post-防沉迷app-项目总结2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/04/26/%E9%98%B2%E6%B2%89%E8%BF%B7app-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%932/"
+    >防沉迷app-项目总结2</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/26/%E9%98%B2%E6%B2%89%E8%BF%B7app-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%932/" class="article-date">
+  <time datetime="2022-04-26T02:50:08.000Z" itemprop="datePublished">2022-04-26</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">技术生活 - 编程技术 - 项目总结</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="防沉迷项目总结（2）"><a href="#防沉迷项目总结（2）" class="headerlink" title="防沉迷项目总结（2）"></a>防沉迷项目总结（2）</h1><h2 id="软件开发的需求变动问题"><a href="#软件开发的需求变动问题" class="headerlink" title="软件开发的需求变动问题"></a>软件开发的需求变动问题</h2><p>作为开发者，最不喜欢的场景是需求朝令夕改。频繁的需求改动对开发者的耐性和信心是极大的打击。</p>
+<ol>
+<li>心情：这个就不用多说了，开发是很枯燥的。让程序员重复做一个事情，不停的重复更枯燥。</li>
+<li>设计问题：最初a需求的技术方案，开发者设计好了，需求变了之后，技术方案都有可能会受到影响。</li>
+</ol>
+<p>对于这个问题，目前是无解。市场是对的，老板也是对的，需求没错。所以就需要开发者提高自身素质，对潜在的需求变动要有前瞻性。在技术设计方面<br>对于可能的变动预留足够的弹性空间。</p>
+<h3 id="一个被需求折磨的例子"><a href="#一个被需求折磨的例子" class="headerlink" title="一个被需求折磨的例子"></a>一个被需求折磨的例子</h3><p>需求a：桌面app只需要显示和隐藏<br>a基础上改动后的需求b：要初始化显示系统app，同时行列也要变化。</p>
+<p>这块改动比较大，改动之前的就不贴代码了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br></pre></td><td class="code"><pre><span class="line"> package com.benny.openlauncher.util;</span><br><span class="line"></span><br><span class="line">import android.util.Log;</span><br><span class="line"></span><br><span class="line">import com.benny.openlauncher.AppObject;</span><br><span class="line">import com.benny.openlauncher.activity.HomeActivity;</span><br><span class="line">import com.benny.openlauncher.model.App;</span><br><span class="line">import com.benny.openlauncher.model.Item;</span><br><span class="line">import com.benny.openlauncher.widget.CellContainer;</span><br><span class="line">import com.benny.openlauncher.widget.Desktop;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">// 桌面app排列有关工具类</span><br><span class="line">public class DeskTopUtils &#123;</span><br><span class="line"></span><br><span class="line">    // 第一次初始化</span><br><span class="line">    public static void onCreate(List&lt;App&gt; apps) &#123;</span><br><span class="line">       // TODO </span><br><span class="line">    &#125;</span><br><span class="line">    // 添加到hide，并从数据库移除</span><br><span class="line">    public static void removeFromDesk(String pkg) &#123;</span><br><span class="line">        Log.d(&quot;DeskTopUtils&quot;,&quot;remove local app from desk pkg:&quot;+ pkg);</span><br><span class="line">        // hide 更新</span><br><span class="line">        ArrayList&lt;String&gt; hiddenList = AppSettings.get().getHiddenAppsList();</span><br><span class="line">        if(HomeActivity._db == null )return;</span><br><span class="line"></span><br><span class="line">        // 根据pkg找到app</span><br><span class="line">        List&lt;App&gt;  apps =  AppManager.getInstance(AppObject.get()).getNonFilteredApps();</span><br><span class="line">        App findApp = null;</span><br><span class="line">        for (App app : apps) &#123;</span><br><span class="line">            if (app.getComponentName().contains(pkg)) &#123;</span><br><span class="line">                findApp = app;</span><br><span class="line">                // 构造Intent string</span><br><span class="line">                HomeActivity._db.deleteItemByIntent(Tool.getIntentAsString(Tool.getIntentFromApp(findApp)));</span><br><span class="line">                Log.d(&quot;DeskTopUtils&quot;,&quot;remove find match local app &quot;+ findApp.getComponentName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if( findApp == null ) &#123;</span><br><span class="line">            Log.d(&quot;DeskTopUtils&quot;,&quot;removeFromDesk can&#x27;t find match local app &quot;+ pkg);</span><br><span class="line">            return;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            Log.d(&quot;DeskTopUtils&quot;,&quot;removeFromDesk find match local app &quot;+ findApp.getComponentName());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 生成坐标</span><br><span class="line">    private static String genCoordinate(List&lt;List&lt;Item&gt;&gt; itemLists )&#123;</span><br><span class="line">        String coordinateStr =  &quot;&quot;;</span><br><span class="line">        for (int pageCount = 0; pageCount &lt; itemLists.size(); pageCount++) &#123;</span><br><span class="line">            List&lt;Item&gt; page = itemLists.get(pageCount);</span><br><span class="line">            for (int j = 0; j &lt; page.size(); j++) &#123;</span><br><span class="line">                coordinateStr += &quot;(&quot;+pageCount +&quot;,&quot; + page.get(j)._x+&quot;,&quot;+page.get(j)._y+&quot;);&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return coordinateStr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 从hide移除，并从desktop中选择合适位置，添加进去</span><br><span class="line">    public static void addToDesk(String pkg) &#123;</span><br><span class="line">        // hide 更新</span><br><span class="line">        ArrayList&lt;String&gt; hiddenList = AppSettings.get().getHiddenAppsList();</span><br><span class="line">        if(HomeActivity._db == null )return;</span><br><span class="line"></span><br><span class="line">        // 根据pkg找到app</span><br><span class="line">        List&lt;App&gt;  apps =  AppManager.getInstance(AppObject.get()).getNonFilteredApps();</span><br><span class="line">        App findApp = null;</span><br><span class="line">        for (App app : apps) &#123;</span><br><span class="line">            if (app.getComponentName().contains(pkg)) &#123;</span><br><span class="line">                findApp = app;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if( findApp == null ) &#123;</span><br><span class="line">            Log.d(&quot;DeskTopUtils&quot;,&quot;addToDesk can&#x27;t find match local app &quot;+ pkg);</span><br><span class="line">            return;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            Log.d(&quot;DeskTopUtils&quot;,&quot;addToDesk find match local app &quot;+ findApp.getComponentName());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 数据库更新</span><br><span class="line">        List&lt;CellContainer&gt; _pages = new ArrayList&lt;&gt;();</span><br><span class="line">        List&lt;List&lt;Item&gt;&gt; desktopItems = HomeActivity._db.getDesktop();</span><br><span class="line"></span><br><span class="line">        String deskGrid = genCoordinate(desktopItems);</span><br><span class="line">        int row = AppSettings.get().getDesktopRowCount();</span><br><span class="line">        int col = AppSettings.get().getDesktopColumnCount();</span><br><span class="line"></span><br><span class="line">        // 查找每一个page中的合适位置</span><br><span class="line">        String t_point = &quot;&quot;;</span><br><span class="line">        int find_x = 0;</span><br><span class="line">        int find_y = 0;</span><br><span class="line">        boolean find = false;</span><br><span class="line"></span><br><span class="line">        // 倒序，刚容易找到位置，先这样</span><br><span class="line">        for (int pageCount = 0; pageCount &lt; desktopItems.size(); pageCount++) &#123;</span><br><span class="line">            List&lt;Item&gt; page = desktopItems.get(pageCount);</span><br><span class="line">            // 如果倒序，刚容易找到位置，先这样;取舍：这样可以在添加的时候，优先使用最前面的空缺位置</span><br><span class="line">            for( int j=0;j&lt;page.size();j++) &#123;</span><br><span class="line">                //尝试在每一个元素周边寻找区域</span><br><span class="line">                Item t_item = page.get(j);</span><br><span class="line">                int t_x = t_item._x;</span><br><span class="line">                int t_y = t_item._y;</span><br><span class="line">                // 右边</span><br><span class="line">                int tx_top = t_x-1;</span><br><span class="line">                if( tx_top &gt;=0 ) &#123;</span><br><span class="line">                    t_point = &quot;(&quot; +pageCount+&quot;,&quot;+tx_top+&quot;,&quot;+t_y+&quot;)&quot;;</span><br><span class="line">                    if( !deskGrid.contains( t_point ) ) &#123;</span><br><span class="line">                        find_x = tx_top;</span><br><span class="line">                        find_y = t_y;</span><br><span class="line">                        find = true;</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                // 左边</span><br><span class="line">                tx_top = t_x +1;</span><br><span class="line">                if( tx_top &gt;=0 &amp;&amp; tx_top &lt; col )&#123;</span><br><span class="line">                    t_point = &quot;(&quot;+pageCount+&quot;,&quot;+tx_top+&quot;,&quot;+t_y+&quot;)&quot;;</span><br><span class="line">                    if( !deskGrid.contains( t_point ) ) &#123;</span><br><span class="line">                        find_x = tx_top;</span><br><span class="line">                        find_y = t_y;</span><br><span class="line">                        find = true;</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                // 上边</span><br><span class="line">                int ty_top = t_y -1;</span><br><span class="line">                if( ty_top &gt;=0 )&#123;</span><br><span class="line">                    t_point = &quot;(&quot;+pageCount+&quot;,&quot;+t_x+&quot;,&quot;+ty_top+&quot;)&quot;;</span><br><span class="line">                    if( !deskGrid.contains( t_point ) ) &#123;</span><br><span class="line">                        find_x  = t_x;</span><br><span class="line">                        find_y = ty_top;</span><br><span class="line">                        find = true;</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                // 下边</span><br><span class="line">                ty_top = t_y + 1;</span><br><span class="line">                if( ty_top &gt;=0 &amp;&amp; ty_top &lt; row)&#123;</span><br><span class="line">                    t_point = &quot;(&quot;+pageCount+&quot;,&quot;+t_x+&quot;,&quot;+ty_top+&quot;)&quot;;</span><br><span class="line">                    if( !deskGrid.contains( t_point ) ) &#123;</span><br><span class="line">                        find_x  = t_x;</span><br><span class="line">                        find_y = ty_top;</span><br><span class="line">                        find = true;</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            Item newItem = Item.newAppItem(findApp);</span><br><span class="line">            newItem._spanY = 1;</span><br><span class="line">            newItem._spanX = 1;</span><br><span class="line">            if( find ) &#123;</span><br><span class="line">                newItem._x = find_x;</span><br><span class="line">                newItem._y = find_y;</span><br><span class="line">                HomeActivity._db.saveItem(newItem, pageCount, Definitions.ItemPosition.Desktop);</span><br><span class="line">                Log.d(&quot;DeskTopUtils&quot;,&quot;addToDesk find location to locate app  page,x,y=&quot;+pageCount +&quot;,&quot; +find_x+&quot;,&quot;+ find_y +&quot;，package=&quot;+Tool.getIntentAsString(newItem._intent));</span><br><span class="line">                break;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                // 新建一个页面，放置app</span><br><span class="line">                if ( pageCount == desktopItems.size()-1 ) &#123;</span><br><span class="line">                    int newPage = pageCount + 1;</span><br><span class="line">                    newItem._x = 0;</span><br><span class="line">                    newItem._y = 0;</span><br><span class="line">                    HomeActivity._db.saveItem(newItem, newPage, Definitions.ItemPosition.Desktop);</span><br><span class="line">                    Log.d(&quot;DeskTopUtils&quot;, &quot;addToDesk no location , new page ,  page,x,y=&quot; + newPage + &quot;,&quot; + find_x + &quot;,&quot; + find_y + &quot;，package=&quot; + Tool.getIntentAsString(newItem._intent));</span><br><span class="line">                    break;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    Log.d(&quot;DeskTopUtils&quot;, &quot;addToDesk no location , query new page try&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/" rel="tag">项目总结</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-防沉迷app-项目总结1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/04/26/%E9%98%B2%E6%B2%89%E8%BF%B7app-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%931/"
+    >防沉迷app-项目总结1</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/26/%E9%98%B2%E6%B2%89%E8%BF%B7app-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%931/" class="article-date">
+  <time datetime="2022-04-26T02:10:04.000Z" itemprop="datePublished">2022-04-26</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">技术生活 - 编程技术 - 项目总结</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="防沉迷项目总结（1）"><a href="#防沉迷项目总结（1）" class="headerlink" title="防沉迷项目总结（1）"></a>防沉迷项目总结（1）</h1><h2 id="防沉迷介绍"><a href="#防沉迷介绍" class="headerlink" title="防沉迷介绍"></a>防沉迷介绍</h2><p>现代社会，手机成了个人的计算中心，各种人与人、人与物的连接，都通过手机连接到每一个个体，极大的方便了人们的生活、学习、工作和娱乐。然而正是这样的便捷性，高度依赖性，使人们越来越离不开手机，很多人深陷其中，不能自拔，甚至严重影响正常的休息、生活、学习、工作和交流，越来越考验人的自律能力。因此很多人需要适当的提醒、干预或者强制的方式来摆脱这种状况。“防沉迷APP”的想法被创业者发现并实施。</p>
+<p>作为一款手机防沉迷软件，该软件在解救两亿手机控、低头族，让她成为学生、考生、家长、低头族、手机控、战拖们的必备应用。</p>
+<p>目前知名的国内防沉迷app有：格雷盒子，青柠守护，阳光守护等</p>
+<h2 id="防沉迷技术难点"><a href="#防沉迷技术难点" class="headerlink" title="防沉迷技术难点"></a>防沉迷技术难点</h2><h3 id="设置默认桌面"><a href="#设置默认桌面" class="headerlink" title="设置默认桌面"></a>设置默认桌面</h3><p>目前已知问题，小米桌面如果没有经过官方的认证，就不让设置其他第三方桌面（launcher）设置为默认桌面。小米这么做也有道理。因为第三方桌面有可能会做一些伤害用户体验的行为。有官方的背书，能在一定程度上避免这个问题。同样的问题还在华为手机上出现。华为手机直接是不让设置默认桌面，根本没有这个选项。</p>
+<h3 id="开机自启动"><a href="#开机自启动" class="headerlink" title="开机自启动"></a>开机自启动</h3><p>防沉迷，最重要的是让用户在使用手机的时候，只能操作某一类或者某一些app。这里问题就来了，怎么做到呢？第一想到的就是设置默认桌面，同时隐藏设置桌面的配置。但是上面说了，目前主流手机厂商对这方面有着自己的顾虑和思考。<br>那没有没有可能在不支持的手机上支持用户app开机启动，同时只允许打开自己的app，不允许切换到其他app，达到类似launcher（桌面）的效果呢？<br>答案是肯定的。</p>
+<h3 id="手机兼容性"><a href="#手机兼容性" class="headerlink" title="手机兼容性"></a>手机兼容性</h3><p>安卓手机厂商众多，各种改。而防沉迷用到的api又比较底层，兼容性是一个让开发者头疼的问题。</p>
+<h3 id="屏蔽其他app"><a href="#屏蔽其他app" class="headerlink" title="屏蔽其他app"></a>屏蔽其他app</h3><p>屏蔽有2个思路</p>
+<ol>
+<li>控制launcher，隐藏app的icon图标。这个没啥好说的</li>
+<li>类似如下这个效果。只要用户点击任何其他app都提示，app被禁止</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220426102755.png" alt="20220426102755"></p>
+<h3 id="权限自动点击"><a href="#权限自动点击" class="headerlink" title="权限自动点击"></a>权限自动点击</h3><p>由于需要比较多的权限，不同手机的设置路径也不尽相同。如果能实现自动点击，自动选择，无疑会给用户很大的帮助。</p>
+<h3 id="手机远程控制"><a href="#手机远程控制" class="headerlink" title="手机远程控制"></a>手机远程控制</h3><h4 id="远程获取通讯录"><a href="#远程获取通讯录" class="headerlink" title="远程获取通讯录"></a>远程获取通讯录</h4><h4 id="远程读取用户手机短信"><a href="#远程读取用户手机短信" class="headerlink" title="远程读取用户手机短信"></a>远程读取用户手机短信</h4><h4 id="远程读取用户通话记录"><a href="#远程读取用户通话记录" class="headerlink" title="远程读取用户通话记录"></a>远程读取用户通话记录</h4><h4 id="远程获取用户手机截屏"><a href="#远程获取用户手机截屏" class="headerlink" title="远程获取用户手机截屏"></a>远程获取用户手机截屏</h4><h4 id="远程录制用户手机屏幕"><a href="#远程录制用户手机屏幕" class="headerlink" title="远程录制用户手机屏幕"></a>远程录制用户手机屏幕</h4><h4 id="远程锁定被控制手机"><a href="#远程锁定被控制手机" class="headerlink" title="远程锁定被控制手机"></a>远程锁定被控制手机</h4><h4 id="远程控制被控手机app删除或者增加"><a href="#远程控制被控手机app删除或者增加" class="headerlink" title="远程控制被控手机app删除或者增加"></a>远程控制被控手机app删除或者增加</h4><h4 id="远程控制被控手机app打开或者关闭"><a href="#远程控制被控手机app打开或者关闭" class="headerlink" title="远程控制被控手机app打开或者关闭"></a>远程控制被控手机app打开或者关闭</h4><h4 id="远程控制被控手机录音"><a href="#远程控制被控手机录音" class="headerlink" title="远程控制被控手机录音"></a>远程控制被控手机录音</h4><h4 id="远程控制被控手机活动范围，设定电子围栏，超出范围提醒"><a href="#远程控制被控手机活动范围，设定电子围栏，超出范围提醒" class="headerlink" title="远程控制被控手机活动范围，设定电子围栏，超出范围提醒"></a>远程控制被控手机活动范围，设定电子围栏，超出范围提醒</h4><h2 id="防沉迷app思考和拓展"><a href="#防沉迷app思考和拓展" class="headerlink" title="防沉迷app思考和拓展"></a>防沉迷app思考和拓展</h2><p>后话：做防沉迷这段时间，确实发现这个市场还挺大的。我们做的方向是，类似阳光守护那种。有两个端：家长端和孩子端。<br>家长端：可以控制孩子的手机，包括获取孩子手机app，远程截屏，远程锁屏等。<br>孩子端：只可以打开被家长允许的app，只能在规定时间玩手机等</p>
+<p>其实,有了这个技术，应用场景是很多的。从控制端和被控端来思考</p>
+<ol>
+<li><p>假设只有一个端</p>
+<ul>
+<li>可以做成一个防沉迷app单机版，解决学生等老离不开手机的问题，帮自己改掉习惯，投入学习</li>
+<li>可以做成一个习惯训练app，设置一个社区，社区的人打卡比赛，谁能养成习惯给予奖励。</li>
+</ul>
+</li>
+<li><p>有一个控制端和一个被控端</p>
+<ul>
+<li>家长控制孩子</li>
+<li>老师控制学生</li>
+<li>孩子给上了年纪的父母远程协助</li>
+<li>其他场景</li>
+</ul>
+</li>
+</ol>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>做了这么多，还有一些没解决问题。有意者可以联系 Q:2169564366 （备注：防沉迷）技术交流。一起成长</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/" rel="tag">项目总结</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
   id="post-fix-mac-rabbitmq-issue"
   class="article article-type-post"
   itemscope
@@ -741,196 +889,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8/" rel="tag">股票</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-股票-20220323"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/03/23/%E8%82%A1%E7%A5%A8-20220323/"
-    >股票-20220323</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/03/23/%E8%82%A1%E7%A5%A8-20220323/" class="article-date">
-  <time datetime="2022-03-23T00:15:28.000Z" itemprop="datePublished">2022-03-23</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%95%E8%B5%84-%E8%82%A1%E7%A5%A8/">投资 - 股票</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="题材"><a href="#题材" class="headerlink" title="题材"></a>题材</h2><h3 id="BIPV成为光伏"><a href="#BIPV成为光伏" class="headerlink" title="BIPV成为光伏"></a>BIPV成为光伏</h3><p>中信证券：BIPV成为光伏节能建筑新形态，龙头企业抢占先发优势 </p>
-<p>【本文来自持牌证券机构，不代表平台观点，请独立判断和决策。】</p>
-<p>中信证券指出，BIPV全生命周期经济性凸显，在平价时代成为更具竞争力的光伏建筑解决方案。“双碳”目标驱动之下，建筑行业转型需求迫切，政策支持力度有望提升，“十四五”期间或迎爆发式增长，潜在市场规模可达千亿级别。</p>
-<p>1）BIPV解锁光伏建筑应用新场景</p>
-<p>光伏建筑一体化（Building Integrated Photovoltaic, BIPV）是分布式光伏发电系统的一种应用形式，实现了光伏发电产品和建筑的有机结合，兼具发电功能和建材属性，针对传统屋顶加装的光伏系统存在的一系列问题提供了解决方案。</p>
-<p>从国内市场来看，工业厂房、商业建筑、公共建筑屋顶和外立墙面可安装面积大，在晶硅组件成本不断下降、效率持续提升的情况下，已初具经济性，成为BIPV最具潜力和可行性的应用场景。</p>
-<p>在全球范围内，BIPV尚处于起步阶段，2020年安装规模约1GW，占全球新增光伏装机规模约1%。BIPV的发展前期主要依赖政策支持，而随着经济性的不断提升，对政策的依赖度也在减弱，预计将在光伏平价时代迎来发展契机。</p>
-<p>作为建筑行业实现“双碳”目标的重要路径，光伏建筑持续获政策支持，“十四五”期间有望加速铺开。</p>
-<p>建筑行业减碳压力倒逼下，BIPV将迎爆发式增长。中信基于建筑面积的测算，预计“十四五”末国内BIPV市场规模或可达千亿级别，发展前景广阔。</p>
-<p>2）发展路径探索期，龙头抢占先发优势</p>
-<p>BIPV产业链下游的产品与服务集成环节处于发展初期，格局未定，吸引来自光伏和建筑两个行业的玩家纷纷入局。</p>
-<p>虽然多方努力下标准体系日臻完善，但推广落地仍存在诸多难点：1）行业融合难，建筑与光伏互相割裂；2）运营期维保缺位，无法满足维修与升级需求；3）项目全周期涉及多方利益主体，责任与收益划分不明确，成熟的商业模式有待探索。随着政策的出台，各方的积极探索，上述问题有望逐步得到解决。</p>
-<p>预计2022年将是BIPV行业政策和项目加快落地的一年，在双碳“1+N”政策体系中，BIPV是实现建筑节能的有效方案之一；在市场发展中，各方主体都在积极推动规模化项目的落地。</p>
-<p>从已有项目经验来看，BIPV各环节玩家均有望开拓市场突破口，其中推进速度较快的是组件企业和建筑建材企业。</p>
-<p>同时，基于BIPV“光伏+建筑”的双重属性，光伏企业与建筑企业联合发展的模式应运而生，通过强强联合，先发领跑优势明显。BIPV相较于常规光伏系统有更多样化的组件产品，更好的封装材料，更薄的玻璃，低压电流的解决方案等；光伏产品和建筑结合的部分需要更坚固的结构件，更好的防水材料等。BIPV行业的发展将给产业链带来明显的变化。</p>
-<p>推荐积极合作前瞻布局的企业：隆基股份，福斯特，森特股份，东方雨虹，亚玛顿</p>
-<h3 id="风电"><a href="#风电" class="headerlink" title="风电"></a>风电</h3><p>民生证券：十四五”能源规划发布，加快推动能源绿色低碳转型，风光装机有望迎来加速</p>
-<p>【本文来自持牌证券机构，不代表平台观点，请独立判断和决策。】</p>
-<p>《“十四五”现代能源体系规划》日前正式印发。民生证券点评称，《规划》提出“全面推进风电和太阳能发电大规模开发和高质量发展，风光装机有望迎来加速。此外，加强电力输送通道建设、氢能关键技术攻关等都有所涉及。</p>
-<p>事件：</p>
-<p>3月22日，国家发改委、国家能源局正式印发《“十四五”现代能源体系规划》。</p>
-<p>点评：</p>
-<p>1）安全稳定优先</p>
-<p>增强能源供应链稳定性和安全性。在推动能源革命的同时也要确保能源供应安全，我国“富煤贫油少气”的资源禀赋，决定了能源低碳转型过程难以一蹴而就，需要通盘谋划。</p>
-<p>《规划》提出“发挥煤电支撑性调节性作用，统筹电力保供和减污降碳，根据发展需要合理建设先进煤电”。现阶段高参数、大容量煤电仍是煤炭清洁高效利用的不二之选，也是能源供应的压舱石和稳定器。</p>
-<p>《规划》同时提出“全面加强核电安全管理，实行最严格的安全标准和最严格的监管”、“在确保安全的前提下，积极有序推动沿海核电项目建设，保持平稳建设节奏”，在前期三门2号、台山1号问题的处理上，绝对安全始终放在首位，包括国产第三代核电“华龙一号” 首批4台示范机组的投产进度也有所放缓。虽然《规划》提出“到2025 年核电运行装机容量达到7000万千瓦左右”，但截至目前国内51台在运机组合计装机容量5331万千瓦，在建机组中规划在2025年及以前投产的有12台、合计装机1294万千瓦；如果将规划在2026年投产的6台机组进度提前，并不符合“绝对安全”的宗旨，因此我们维持2025年66GW在运核电的装机目标不变。</p>
-<p>2）兼顾绿色低碳</p>
-<p>加快推动能源绿色低碳转型。《规划》提出“全面推进风电和太阳能发电大规模开发和高质量发展，优先就地就近开发利用”、“积极推进水电基地建设，推动金沙江上游、雅砻江中游、黄河上游等河段水电项目开工建设，实施雅鲁藏布江下游水电开发等重大工程”、“推动西南地区水电与风电、太阳能发电协同互补”。大型水电工程的巨大库容和机组快速启停能力，使其具备良好的调节性能，适合与风、光联合开发、运营，打造清洁能源外送基地。</p>
-<p>3）《规划》同时提出“稳步发展城镇生活垃圾焚烧发电，有序发展农林生物质发电和沼气发电”，结合新型城镇化和城乡融合发展工作的要求，垃圾发电行业将稳中有进。</p>
-<p>《规划》的成文日期在1月29日，主要内容基本延续了前期各项相关政策。</p>
-<p>3）氢能关注度也持续提升</p>
-<p>此外，国盛证券也点评指出，氢能关注度也持续提升，顶层设计即将出台，氢能产业有望开启发展新阶段。发改委将于3月23日（星期三）上午10:00召开发布会，介绍氢能产业发展中长期规划（2021—2035年）有关情况。</p>
-<p>本次规划或将提出加快推动氢能关键技术的攻关，适度超前部署一批氢能项目，着力攻克可再生能源制氢和氢能储运、应用及燃料电池等核心技术，氢能作为能源转型过程中实现工业、交通等领域脱碳的重要方式，当前关注度得到快速提升。</p>
-<p>2021年我国燃料电池汽车示范工作正式启动，入围城市群均已推出相关补贴&#x2F;扶持政策，从应用端推动氢能产业发展；此外在供给端，内蒙古等新能源装机大省“十四五”期间将着力推动绿氢发展，部分化工企业也在大力布局工业副产氢、煤制氢等灰氢&#x2F;蓝氢的生产。随着《氢能产业发展中长期规划（2021-2035年）》即将于3月23日发布，顶层规划正式落地，氢能产业有望开启商业化发展新阶段 。</p>
-<p>推荐绿色低碳方向，水电推荐：长江电力，火电推荐  申能股份 核电推荐 中国核电   风电运营 推荐 三峡能源</p>
-<h3 id="猪肉"><a href="#猪肉" class="headerlink" title="猪肉"></a>猪肉</h3><p>国海证券：供给过剩、需求不足和成本持续高企加速产能去化，生猪行业目前既具安全边际、又有向上弹性<br>【本文来自持牌证券机构，不代表平台观点，请独立判断和决策。】</p>
-<p>国海证券认为，生猪养殖行业近期持续亏损，产能加速出清，猪价年中有望触底反转。当前生猪板块仍处在重要布局窗口期，既具安全边际，又有向上弹性。</p>
-<p>1）生猪数据跟踪</p>
-<p>本周生猪均价11.78元&#x2F;公斤，环比-0.24元；15公斤仔猪价格403元&#x2F;头，环比+3元；50公斤二元母猪价格为1632元&#x2F;头，环比持平；本周前三等级白条均价15.48元&#x2F;公斤，环比-0.24元；商品猪出栏均重117.58公斤，环比-0.18公斤。</p>
-<p>2）既具安全边际，又有向上弹性</p>
-<p>本周猪价继续下行，基本面维持疲弱的趋势，据农业农村部信息，截至2月末全国能繁母猪存栏量4268万头，环比下降0.5%，为连续八个月下滑，单从数据上看比1月份去化幅度有所下降，但考虑到春节等因素，这次能繁母猪下滑仍处在合理范围。且与历次周期不同，在这轮下行周期里，能繁母猪始终保持着月度下降，可见能繁处于高强度去化当中。生猪行业当前情况下，供给过剩、需求不足和成本持续高企等多重因素堆积，将带来产能去化加速。</p>
-<p>3）当前生猪板块仍处在重要布局窗口期</p>
-<p>①产能持续去化，从去年7月份以来连续八个月环比下降，产能下行保持着高强度，去化方向保持着高稳定性，且在供需和成本等多重因素之下有望加速；</p>
-<p>②猪价处在底部区域，且往下空间非常小，处在极其有利于产能去化的环境下；</p>
-<p>③估值仍处于底部区域，尤其头部企业对应2022年估值处在底部，具备了足够的防御性，也为猪价上行期带来了较大的弹性。</p>
-<p>因此，当前仍处在非常好的配置时点。  关注：养殖成本领先的 牧原股份 。成本下降的 温氏股份，新希望；周期反转带动优异业绩弹性的 傲农生物；间距养殖成本和资金优势的 巨星农牧  </p>
-<h2 id="个股"><a href="#个股" class="headerlink" title="个股"></a>个股</h2><h3 id="数据港"><a href="#数据港" class="headerlink" title="数据港"></a>数据港</h3><p>“数字经济+东数西算+5G”已在酝酿新一轮需求浪潮，这家公司新增8个数据中心扩张20000个机柜，同时卡位“北上广+内蒙古”核心资源。<br>数据港（603881）：<br>①长江证券于海宁看好公司2021年新增8个数据中心，其中公司IT负载合计达到约352.72兆瓦（MW），折算成5千瓦（KW）标准机柜约70,544个，大幅扩张约2万个机柜，预计未来伴随项目上架率提升，将逐步实现收入和利润；<br>②伴随着“东数西算”政策落地以及数字经济持续推进，叠加“能耗双控”或将推动数据中心迎来供给侧改革，公司作为批发型IDC头部厂商有望受益，公司数据中心占据杭州、上海等核心区域，并陆续新增河北张北、北京房山、江苏南通、广东河源、内蒙古乌兰察布等数据中心；<br>③5G大规模商用给数据中心带来的下一轮需求增长已在酝酿，根据GSMA智库数据，2025年中国将以6亿用户数成为全球最大的5G市场，占全球比重40%；<br>④于海宁预计公司2022-2024年净利润为1.65&#x2F;2.58&#x2F;3.51亿元，同比增长48.6%&#x2F;56.4%&#x2F;36.0%，对应PE为82&#x2F;53&#x2F;39倍；<br>⑤风险提示：公司多元化拓展不及预期、行业竞争持续加剧等。</p>
-<p>“数字经济+东数西算+5G”已在酝酿新一轮需求浪潮，这家公司新增8个数据中心扩张20000个机柜，同时卡位“北上广+内蒙古”核心资源事件：数据港发布2021年年报，报告期内公司实现营收12.06亿元，同比增长32.55%；实现归母净利润1.11亿元，同比下滑18.59%；实现扣非净利润0.99亿元，同比下滑22.16%；实现EBITDA8.16亿元，同比增长50.83%。长江证券于海宁认为，2021年大量项目交付带来的折旧成本的增加对公司盈利能力有所承压，预计未来伴随项目上架率提升，将逐步实现收入和利润。公司机柜规模仍高速扩张，项目储备丰富，后续扩张确定性强。截至2021年底，公司累计已建成及已运营数据中心33个，较2020年底新增8个数据中心；其中公司IT负载合计达到约352.72兆瓦（MW），折算成5千瓦（KW）标准机柜约70,544个，较2020年底的50,060个机柜大幅扩张约2万个机柜。伴随着“东数西算”政策落地以及数字经济持续推进，叠加“能耗双控”或将推动数据中心迎来供给侧改革，公司作为批发型IDC头部厂商，有望持续受益。于海宁预计公司2022-2024年净利润为1.65&#x2F;2.58&#x2F;3.51亿元，同比增长48.6%&#x2F;56.4%&#x2F;36.0%，对应PE为82&#x2F;53&#x2F;39倍。四季度营收环比增幅较快，机柜规模高速扩张2021年四季度，公司实现营收3.51亿元，同比增长36.12%，环比增长15.10%，主要系四季度机柜上架率的稳步抬升带来收入的提升。公司在2021年大量的项目交付之后，折旧等运维成本大幅增加，其中电费、房屋设备租赁及折旧成本大幅上升，成本占比达到90%，分别同比增长36%和71%，折旧费用暂时拖累业绩。<br>目前，公司在建工程达到3.34亿元，较去年年末减少15.70亿元，公司在2021年在建工程转固项目较多。展望2022年，于海宁认为新投入运营的数据中心项目将随终端客户的上架进度逐步实现收入和利润。“东数西算”政策落地大背景下，存量热门区域的IDC资源稀缺性或将进一步提升由于数据中心属于高能耗行业，对土地资源、电力资源等有较高需求，同时鉴于大型IDC客户集中于北上广深等一线城市，长期来看在一线城市IDC资源仍然会呈现供应紧缺的情况。此时具备完善的包括能评在内的审批手续的专业第三方IDC运营商将具备显著优势。公司的数据中心占据杭州、上海等核心区域，并在原有数据中心的基础上，又陆续新增河北张北、北京房山、江苏南通、广东河源、内蒙古乌兰察布等数据中心。展望2022年及未来，公司将紧跟国家“东数西算”的数据中心布局规划指引，持续拓展与积累核心城市数据中心资源，快速拓展业务规模及挖掘潜在客户，有望在政策推动下持续受益。此外，5G大规模商用给数据中心带来的下一轮需求增长已在酝酿。根据GSMA智库数据，到2025年，全球411家运营商将会在119个国家&#x2F;地区商用5G网络，全球5G用户数将超过16亿，中国将以6亿用户数成为全球最大的5G市场，占比40%。</p>
-<h3 id="天马科技"><a href="#天马科技" class="headerlink" title="天马科技"></a>天马科技</h3><p>这家特种水产饲料巨头获机构关注，公司打造鳗鲡全产业链，高品质鳗鲡饲料产销量稳居全球首位，国内市场占有率25%；</p>
-<p>天马科技于3月21日接待机构调研时表示，公司2021年实现营业总收入54.86亿元，同比增长50.73%；实现营业利润15,746.82万元，同比增长23.97%；实现利润总额15,480.73万元，同比增长22.24%；实现归属于上市公司股东的净利润8,321.49万元，同比增长20.70%。报告期内，公司取得了营收和利润双增长的成绩，实现了企业持续、稳定和较快发展。</p>
-<p>报告期内，公司全产业链布局初步到位，特种水产饲料和畜禽饲料产销量均创历史新高；公司鳗鲡绿色生态智慧养殖项目顺利推进，鳗鲡养殖效果良好，在2021年第四季度已开始第一批出鱼，为公司带来新的利润增长点；在食品端，公司启动线上化与地域化战略，在稳固出口渠道的同时积极拓展国内线上及线下渠道，营业收入稳步增长。</p>
-<p>公司上市时以特种水产饲料为主营业务，特种水产配合饲料产品主要应用于鳗鲡、石斑鱼、大黄鱼、鲆鲽鳎、海参、鲍等特种水产动物从种苗期至养成期的养殖全过程，其中公司的鳗鲡配合饲料产销量多年来稳居全球首位。</p>
-<p>公司目前已成功打造了鳗鲡全产业链，高品质鳗鲡饲料产销量多年来稳居全球首位，目前国内市场占有率在25%左右。</p>
-<p>A股相关上市公司中，<em><strong>粤海饲料</strong></em> 主要从事水产饲料研发、生产及销售，并以虾料、海水鱼料等特种水产饲料为主，覆盖水产动物的不同生长阶段。</p>
-<h3 id="金通灵"><a href="#金通灵" class="headerlink" title="金通灵"></a>金通灵</h3><p>机构密集调研这家流体机械小龙头，公司氢燃料电池空气压缩机下半年投产，目标拿下氢能源车相关产品10%的市场份额；金通灵于3月7-8日接待三批机构调研，截止2025年，氢燃料电池汽车保有量为10万辆，中国氢燃料电池空气压缩机市场规模预测为60亿元。公司目标是该类产品在“十四五”末占氢能源车相关产品市场份额的10%左右。</p>
-<p>调研过程中，公司透露，氢燃料电池空气压缩机的生产线建设将于今年上半年竣工，下半年正式试生产。后续将根据市场需求和客户反馈，持续优化技术参数和质量水平。通过未来两到三年的努力，争取实现销售量达到设计的产能。</p>
-<p>除氢燃料电池空气压缩机外，公司在氢能领域还布局了生物质制氢，同时，公司在氢能领域与北京汉氢科氢能技有限公司进行了合作。</p>
-<p>A股相关上市公司中，致远新能参股企业江苏申氢宸主要产品为燃料电池阳极端核心部件，业务正逐步进入量产阶段，主要客户为中弗新能源、东方电气和捷氢能源等。厚普股份在氢能基础设施中的业务为氢能加注设备及核心零部件的研发、生产和集成，多项核心零部件拥有自主知识产权。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8/" rel="tag">股票</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-springboot中的属性文件总结"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/03/22/springboot%E4%B8%AD%E7%9A%84%E5%B1%9E%E6%80%A7%E6%96%87%E4%BB%B6%E6%80%BB%E7%BB%93/"
-    >springboot中的属性文件总结</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/03/22/springboot%E4%B8%AD%E7%9A%84%E5%B1%9E%E6%80%A7%E6%96%87%E4%BB%B6%E6%80%BB%E7%BB%93/" class="article-date">
-  <time datetime="2022-03-22T14:14:35.000Z" itemprop="datePublished">2022-03-22</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/">技术生活 - 编程技术 - 后端技术</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="属性文件放在哪里"><a href="#属性文件放在哪里" class="headerlink" title="属性文件放在哪里"></a>属性文件放在哪里</h2><p>我们知道springboot的属性文件一般是以.properties结尾或者以ymal结尾。至于这两种配置方式的优劣，仁者见仁智者见智了。但是，他们在某些场景的特点还是要注意以下的。那就是yaml中配置的属性是有顺序的，properties中配置的文件是没有顺序的，这个时候如果您的应用程序对属性的加载顺序有要求，这个时候使用yaml配置文件为佳。</p>
-<p>一般情况下，大概有4个地方可以放置属性文件。</p>
-<ol>
-<li>项目根目录下的 config 目录下</li>
-<li>项目的根目录下的application.properties文件</li>
-<li>项目src下面的 resources 目录下的 config 目录下</li>
-<li>项目src下面的 resources 目录下的application.properties文件</li>
-</ol>
-<h2 id="属性文件的优先级"><a href="#属性文件的优先级" class="headerlink" title="属性文件的优先级"></a>属性文件的优先级</h2><p>如下图，这几个位置的优先级，1&gt;2&gt;3&gt;4 ，所以，如果您有属性需要全局覆盖，就可以在项目根目录下面的 config文件夹下面设置<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220322222034.png" alt="20220322222034"></p>
-<h2 id="属性文件的依赖注入"><a href="#属性文件的依赖注入" class="headerlink" title="属性文件的依赖注入"></a>属性文件的依赖注入</h2><p>由于springboot 包含了spring的特性。回顾一下，spring中怎么注入属性的。假设我们有一个server.properties的配置文件需要配置到项目的中。<br>属性文件server.properties</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">site.name=测试站点</span><br><span class="line">site.url=http://localhost/</span><br></pre></td></tr></table></figure>
-
-<p>java接受属性文件的bean</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">@PropertySource(&quot;classpath:site.properties&quot;)</span><br><span class="line">class Site &#123;</span><br><span class="line">    @Value(&quot;$&#123;site.name&#125;&quot;)</span><br><span class="line">    String name;</span><br><span class="line">    @Value(&quot;$&#123;site.url&#125;&quot;)</span><br><span class="line">    String url;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意：这里</p>
-<ol>
-<li>Site类使用了 Component注解，这个代表这个类要交个容器托管，这样，属性才可以注入。</li>
-<li>使用了@Value注解，使用了 server.properties 中的字段的全拼去引用 属性</li>
-<li>使用了PropertySource引用自己定义的属性名字的属性文件。</li>
-</ol>
-<p>没问题，启动springboot在别的地方调用site即可获取属性</p>
-<h2 id="属性文件的安全性"><a href="#属性文件的安全性" class="headerlink" title="属性文件的安全性"></a>属性文件的安全性</h2><p>上面的例子中，每个属性都要调用全拼属性的名字来引用，如果有非常多的属性怎么办？？？？？别着急springboot也想到了</p>
-<p>&#96;&#96;&#96;&#96;<br>@Component<br>@PropertySource(“classpath:site.properties”)<br>@ConfigurationProperties(prefix &#x3D; “site”)<br>class Site {<br>    String name;<br>    String url;<br>}</p>
-<p>&#96;&#96;&#96;</p>
-<p>这里和上面的例子比起来，没有使用@Value注解来获取属性，极大降低了工作量和出错的概率。而这一期都是 @ConfigurationProperties的 功劳。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BC%98%E5%85%88%E7%BA%A7/" rel="tag">优先级</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="tag">配置文件</a></li></ul>
 
     </footer>
   </div>

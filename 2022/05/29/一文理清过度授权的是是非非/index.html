@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.7k</span>
+            <span class="post-count">1.9k</span>
         </span>
     </span>
 
@@ -144,7 +144,13 @@
 <li>让他人代付gas费用</li>
 <li>dapp中允许dapp支配自己的资金去赚取收益 </li>
 <li>订阅web3的一些服务，自动扣款等</li>
+<li>代币归集，如果100000 个地址需要归集，你需要给10000个地址打手续费，而且每个地址都有零星的不能用的小数点后边N位的以太坊，好恐怖！如果授权就不一样了</li>
 </ul>
+<h3 id="手续费是谁来付"><a href="#手续费是谁来付" class="headerlink" title="手续费是谁来付"></a>手续费是谁来付</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">假设：A账号有10000个token代币,B账号没有token代币,C账号也没有token代币！</span><br><span class="line">那么：A账号 委托 B账号 转给C账号 100个token代币 怎么来实现呢？</span><br><span class="line">首先：A账号 和 B账号建立一种委托关联,登录A账户执行approve(b,100)方法结果为：结果：_allowed[A][B] = 100token</span><br><span class="line">然后：在执行登录B账户执行transferFrom(A,C,100),这里的B就是委托账号发送者,gas从B扣,必须确保token数量小于_allowed[A][B]</span><br><span class="line">总结：其实就是A转入C,但是要经过B的账号来发送交易！</span><br></pre></td></tr></table></figure>
+
+
+
+
 <h1 id="如何防范过度授权威胁"><a href="#如何防范过度授权威胁" class="headerlink" title="如何防范过度授权威胁"></a>如何防范过度授权威胁</h1><ul>
 <li>不要使用来源不明或者自己不信任的dapp</li>
 <li>定期使用撤销授权工具清理授权</li>
@@ -237,6 +243,15 @@
 
    
   <nav class="article-nav">
+    
+      <a href="/2022/06/01/update-ganache-from-less-than-v6-x-x-to-v7-x-x/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            update-ganache-from-less-than-v6.x.x-to-v7.x.x
+          
+        </div>
+      </a>
     
     
       <a href="/2022/05/23/react-native-environment/" class="article-nav-link">

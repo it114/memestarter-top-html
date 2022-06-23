@@ -130,6 +130,128 @@
     
     
     <article
+  id="post-https-ssl-403-error"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/06/24/https-ssl-403-error/"
+    >https-ssl-403-error</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/06/24/https-ssl-403-error/" class="article-date">
+  <time datetime="2022-06-23T16:55:31.000Z" itemprop="datePublished">2022-06-24</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E8%BF%90%E7%BB%B4/">技术生活 - 编程技术 - 运维</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>由于用到小程序，需要配置ssl服务器；因为之前配置了好多次，以为这次这个事情也就10分钟的事情，谁知道花费了几个小时。按照正常流程申了ssl证书配置了域名和nginx ，当访问https:&#x2F;&#x2F;打开网站的的时候，莫名的打不开了。。。就以为是nginx配置问题。疯狂的找资料。因为服务器面板和云服务器443端口都开了，所以我就没往这里想。</p>
+<h1 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h1><p>充分尝试之后，还是不行，之后，我一个一个的排查，先关闭防火墙；结果。。。。有反应了，https 出现了 403 ，巨大的进步。但是这一步怎么也解决不了。后来发现nginx文件没有配置默认的入口文件。</p>
+<h1 id="经验"><a href="#经验" class="headerlink" title="经验"></a>经验</h1><p>遇到问题多方思考。最熟悉的地方👄容易忽略。<br>分享一个nginx配置文件生成网址，还挺有用的，可以根据nginx版本 ，ssl版本和其他一些方面，动态生成nginx配置还挺有用。<br><a target="_blank" rel="noopener" href="https://ssl-config.mozilla.org/#server=nginx&amp;version=1.20.2&amp;config=intermediate&amp;openssl=1.1.1k&amp;hsts=false&amp;ocsp=false&amp;guideline=5.6">https://ssl-config.mozilla.org/#server=nginx&amp;version=1.20.2&amp;config=intermediate&amp;openssl=1.1.1k&amp;hsts=false&amp;ocsp=false&amp;guideline=5.6</a></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" rel="tag">问题记录</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-update-ganache-from-less-than-v6-x-x-to-v7-x-x"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/06/01/update-ganache-from-less-than-v6-x-x-to-v7-x-x/"
+    >update-ganache-from-less-than-v6.x.x-to-v7.x.x</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/06/01/update-ganache-from-less-than-v6-x-x-to-v7-x-x/" class="article-date">
+  <time datetime="2022-05-31T18:19:01.000Z" itemprop="datePublished">2022-06-01</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E5%8C%BA%E5%9D%97%E9%93%BE/">技术生活 - 编程技术 - 区块链</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="ganache不保存数据"><a href="#ganache不保存数据" class="headerlink" title="ganache不保存数据"></a>ganache不保存数据</h1><p>每次重启，账户都被情况，数据，交易全部都没了，每次重启reset了db。不想要这个效果，从文档看传入-db参数可以解决这个问题。无奈，这个V6.x.x有bug ，需要v7.x.x才行。</p>
+<h1 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h1><p>v7.x.x的版本变化比较大</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The Ganache npm packages have been combined and renamed from ganache-cli and ganache-core to ganache. You may need to uninstall the old packages before installing the new ganache.</span><br></pre></td></tr></table></figure>
+
+<p>如果升级需要删除老版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall --global ganache-cli ganache-core</span><br><span class="line">npm install --global ganache</span><br></pre></td></tr></table></figure>
+
+<p>命令行参数也改了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x@y-MacBook-Pro ~ % ganache</span><br><span class="line">ganache v7.2.0 (@ganache/cli: 0.3.0, @ganache/core: 0.3.0)</span><br><span class="line">Starting RPC server</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a target="_blank" rel="noopener" href="https://github.com/trufflesuite/ganache/blob/develop/UPGRADE-GUIDE.md">https://github.com/trufflesuite/ganache/blob/develop/UPGRADE-GUIDE.md</a></p>
+<h1 id="最好的解决方案"><a href="#最好的解决方案" class="headerlink" title="最好的解决方案"></a>最好的解决方案</h1><p>升级之后，还是有问题。可能是我配置有问题，ganache命令行应该就是为了内存设计。如果为了缓存数据，可以用ganache 的 UI 版本。<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220601024732.png" alt="20220601024732"><br>Remix 添加ganache的网络<br><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220601024705.png" alt="20220601024705"></p>
+<p>ganache UI 版本有一个workspace概念，可以很好的隔离保存每次不同的数据区块</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blockchain/" rel="tag">blockchain</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ganache/" rel="tag">ganache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">区块链</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
   id="post-一文理清过度授权的是是非非"
   class="article article-type-post"
   itemscope
@@ -193,7 +315,13 @@
 <li>让他人代付gas费用</li>
 <li>dapp中允许dapp支配自己的资金去赚取收益 </li>
 <li>订阅web3的一些服务，自动扣款等</li>
+<li>代币归集，如果100000 个地址需要归集，你需要给10000个地址打手续费，而且每个地址都有零星的不能用的小数点后边N位的以太坊，好恐怖！如果授权就不一样了</li>
 </ul>
+<h3 id="手续费是谁来付"><a href="#手续费是谁来付" class="headerlink" title="手续费是谁来付"></a>手续费是谁来付</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">假设：A账号有10000个token代币,B账号没有token代币,C账号也没有token代币！</span><br><span class="line">那么：A账号 委托 B账号 转给C账号 100个token代币 怎么来实现呢？</span><br><span class="line">首先：A账号 和 B账号建立一种委托关联,登录A账户执行approve(b,100)方法结果为：结果：_allowed[A][B] = 100token</span><br><span class="line">然后：在执行登录B账户执行transferFrom(A,C,100),这里的B就是委托账号发送者,gas从B扣,必须确保token数量小于_allowed[A][B]</span><br><span class="line">总结：其实就是A转入C,但是要经过B的账号来发送交易！</span><br></pre></td></tr></table></figure>
+
+
+
+
 <h1 id="如何防范过度授权威胁"><a href="#如何防范过度授权威胁" class="headerlink" title="如何防范过度授权威胁"></a>如何防范过度授权威胁</h1><ul>
 <li>不要使用来源不明或者自己不信任的dapp</li>
 <li>定期使用撤销授权工具清理授权</li>
@@ -723,154 +851,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blockchain/" rel="tag">blockchain</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">区块链</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D/" rel="tag">数字签名</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-防沉迷app-项目总结2"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/04/26/%E9%98%B2%E6%B2%89%E8%BF%B7app-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%932/"
-    >防沉迷app-项目总结2</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/04/26/%E9%98%B2%E6%B2%89%E8%BF%B7app-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%932/" class="article-date">
-  <time datetime="2022-04-26T02:50:08.000Z" itemprop="datePublished">2022-04-26</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">技术生活 - 编程技术 - 项目总结</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="防沉迷项目总结（2）"><a href="#防沉迷项目总结（2）" class="headerlink" title="防沉迷项目总结（2）"></a>防沉迷项目总结（2）</h1><h2 id="软件开发的需求变动问题"><a href="#软件开发的需求变动问题" class="headerlink" title="软件开发的需求变动问题"></a>软件开发的需求变动问题</h2><p>作为开发者，最不喜欢的场景是需求朝令夕改。频繁的需求改动对开发者的耐性和信心是极大的打击。</p>
-<ol>
-<li>心情：这个就不用多说了，开发是很枯燥的。让程序员重复做一个事情，不停的重复更枯燥。</li>
-<li>设计问题：最初a需求的技术方案，开发者设计好了，需求变了之后，技术方案都有可能会受到影响。</li>
-</ol>
-<p>对于这个问题，目前是无解。市场是对的，老板也是对的，需求没错。所以就需要开发者提高自身素质，对潜在的需求变动要有前瞻性。在技术设计方面<br>对于可能的变动预留足够的弹性空间。</p>
-<h3 id="一个被需求折磨的例子"><a href="#一个被需求折磨的例子" class="headerlink" title="一个被需求折磨的例子"></a>一个被需求折磨的例子</h3><p>需求a：桌面app只需要显示和隐藏<br>a基础上改动后的需求b：要初始化显示系统app，同时行列也要变化。</p>
-<p>这块改动比较大，改动之前的就不贴代码了</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br></pre></td><td class="code"><pre><span class="line"> package com.benny.openlauncher.util;</span><br><span class="line"></span><br><span class="line">import android.util.Log;</span><br><span class="line"></span><br><span class="line">import com.benny.openlauncher.AppObject;</span><br><span class="line">import com.benny.openlauncher.activity.HomeActivity;</span><br><span class="line">import com.benny.openlauncher.model.App;</span><br><span class="line">import com.benny.openlauncher.model.Item;</span><br><span class="line">import com.benny.openlauncher.widget.CellContainer;</span><br><span class="line">import com.benny.openlauncher.widget.Desktop;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">// 桌面app排列有关工具类</span><br><span class="line">public class DeskTopUtils &#123;</span><br><span class="line"></span><br><span class="line">    // 第一次初始化</span><br><span class="line">    public static void onCreate(List&lt;App&gt; apps) &#123;</span><br><span class="line">       // TODO </span><br><span class="line">    &#125;</span><br><span class="line">    // 添加到hide，并从数据库移除</span><br><span class="line">    public static void removeFromDesk(String pkg) &#123;</span><br><span class="line">        Log.d(&quot;DeskTopUtils&quot;,&quot;remove local app from desk pkg:&quot;+ pkg);</span><br><span class="line">        // hide 更新</span><br><span class="line">        ArrayList&lt;String&gt; hiddenList = AppSettings.get().getHiddenAppsList();</span><br><span class="line">        if(HomeActivity._db == null )return;</span><br><span class="line"></span><br><span class="line">        // 根据pkg找到app</span><br><span class="line">        List&lt;App&gt;  apps =  AppManager.getInstance(AppObject.get()).getNonFilteredApps();</span><br><span class="line">        App findApp = null;</span><br><span class="line">        for (App app : apps) &#123;</span><br><span class="line">            if (app.getComponentName().contains(pkg)) &#123;</span><br><span class="line">                findApp = app;</span><br><span class="line">                // 构造Intent string</span><br><span class="line">                HomeActivity._db.deleteItemByIntent(Tool.getIntentAsString(Tool.getIntentFromApp(findApp)));</span><br><span class="line">                Log.d(&quot;DeskTopUtils&quot;,&quot;remove find match local app &quot;+ findApp.getComponentName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if( findApp == null ) &#123;</span><br><span class="line">            Log.d(&quot;DeskTopUtils&quot;,&quot;removeFromDesk can&#x27;t find match local app &quot;+ pkg);</span><br><span class="line">            return;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            Log.d(&quot;DeskTopUtils&quot;,&quot;removeFromDesk find match local app &quot;+ findApp.getComponentName());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 生成坐标</span><br><span class="line">    private static String genCoordinate(List&lt;List&lt;Item&gt;&gt; itemLists )&#123;</span><br><span class="line">        String coordinateStr =  &quot;&quot;;</span><br><span class="line">        for (int pageCount = 0; pageCount &lt; itemLists.size(); pageCount++) &#123;</span><br><span class="line">            List&lt;Item&gt; page = itemLists.get(pageCount);</span><br><span class="line">            for (int j = 0; j &lt; page.size(); j++) &#123;</span><br><span class="line">                coordinateStr += &quot;(&quot;+pageCount +&quot;,&quot; + page.get(j)._x+&quot;,&quot;+page.get(j)._y+&quot;);&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return coordinateStr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 从hide移除，并从desktop中选择合适位置，添加进去</span><br><span class="line">    public static void addToDesk(String pkg) &#123;</span><br><span class="line">        // hide 更新</span><br><span class="line">        ArrayList&lt;String&gt; hiddenList = AppSettings.get().getHiddenAppsList();</span><br><span class="line">        if(HomeActivity._db == null )return;</span><br><span class="line"></span><br><span class="line">        // 根据pkg找到app</span><br><span class="line">        List&lt;App&gt;  apps =  AppManager.getInstance(AppObject.get()).getNonFilteredApps();</span><br><span class="line">        App findApp = null;</span><br><span class="line">        for (App app : apps) &#123;</span><br><span class="line">            if (app.getComponentName().contains(pkg)) &#123;</span><br><span class="line">                findApp = app;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if( findApp == null ) &#123;</span><br><span class="line">            Log.d(&quot;DeskTopUtils&quot;,&quot;addToDesk can&#x27;t find match local app &quot;+ pkg);</span><br><span class="line">            return;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            Log.d(&quot;DeskTopUtils&quot;,&quot;addToDesk find match local app &quot;+ findApp.getComponentName());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 数据库更新</span><br><span class="line">        List&lt;CellContainer&gt; _pages = new ArrayList&lt;&gt;();</span><br><span class="line">        List&lt;List&lt;Item&gt;&gt; desktopItems = HomeActivity._db.getDesktop();</span><br><span class="line"></span><br><span class="line">        String deskGrid = genCoordinate(desktopItems);</span><br><span class="line">        int row = AppSettings.get().getDesktopRowCount();</span><br><span class="line">        int col = AppSettings.get().getDesktopColumnCount();</span><br><span class="line"></span><br><span class="line">        // 查找每一个page中的合适位置</span><br><span class="line">        String t_point = &quot;&quot;;</span><br><span class="line">        int find_x = 0;</span><br><span class="line">        int find_y = 0;</span><br><span class="line">        boolean find = false;</span><br><span class="line"></span><br><span class="line">        // 倒序，刚容易找到位置，先这样</span><br><span class="line">        for (int pageCount = 0; pageCount &lt; desktopItems.size(); pageCount++) &#123;</span><br><span class="line">            List&lt;Item&gt; page = desktopItems.get(pageCount);</span><br><span class="line">            // 如果倒序，刚容易找到位置，先这样;取舍：这样可以在添加的时候，优先使用最前面的空缺位置</span><br><span class="line">            for( int j=0;j&lt;page.size();j++) &#123;</span><br><span class="line">                //尝试在每一个元素周边寻找区域</span><br><span class="line">                Item t_item = page.get(j);</span><br><span class="line">                int t_x = t_item._x;</span><br><span class="line">                int t_y = t_item._y;</span><br><span class="line">                // 右边</span><br><span class="line">                int tx_top = t_x-1;</span><br><span class="line">                if( tx_top &gt;=0 ) &#123;</span><br><span class="line">                    t_point = &quot;(&quot; +pageCount+&quot;,&quot;+tx_top+&quot;,&quot;+t_y+&quot;)&quot;;</span><br><span class="line">                    if( !deskGrid.contains( t_point ) ) &#123;</span><br><span class="line">                        find_x = tx_top;</span><br><span class="line">                        find_y = t_y;</span><br><span class="line">                        find = true;</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                // 左边</span><br><span class="line">                tx_top = t_x +1;</span><br><span class="line">                if( tx_top &gt;=0 &amp;&amp; tx_top &lt; col )&#123;</span><br><span class="line">                    t_point = &quot;(&quot;+pageCount+&quot;,&quot;+tx_top+&quot;,&quot;+t_y+&quot;)&quot;;</span><br><span class="line">                    if( !deskGrid.contains( t_point ) ) &#123;</span><br><span class="line">                        find_x = tx_top;</span><br><span class="line">                        find_y = t_y;</span><br><span class="line">                        find = true;</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                // 上边</span><br><span class="line">                int ty_top = t_y -1;</span><br><span class="line">                if( ty_top &gt;=0 )&#123;</span><br><span class="line">                    t_point = &quot;(&quot;+pageCount+&quot;,&quot;+t_x+&quot;,&quot;+ty_top+&quot;)&quot;;</span><br><span class="line">                    if( !deskGrid.contains( t_point ) ) &#123;</span><br><span class="line">                        find_x  = t_x;</span><br><span class="line">                        find_y = ty_top;</span><br><span class="line">                        find = true;</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                // 下边</span><br><span class="line">                ty_top = t_y + 1;</span><br><span class="line">                if( ty_top &gt;=0 &amp;&amp; ty_top &lt; row)&#123;</span><br><span class="line">                    t_point = &quot;(&quot;+pageCount+&quot;,&quot;+t_x+&quot;,&quot;+ty_top+&quot;)&quot;;</span><br><span class="line">                    if( !deskGrid.contains( t_point ) ) &#123;</span><br><span class="line">                        find_x  = t_x;</span><br><span class="line">                        find_y = ty_top;</span><br><span class="line">                        find = true;</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            Item newItem = Item.newAppItem(findApp);</span><br><span class="line">            newItem._spanY = 1;</span><br><span class="line">            newItem._spanX = 1;</span><br><span class="line">            if( find ) &#123;</span><br><span class="line">                newItem._x = find_x;</span><br><span class="line">                newItem._y = find_y;</span><br><span class="line">                HomeActivity._db.saveItem(newItem, pageCount, Definitions.ItemPosition.Desktop);</span><br><span class="line">                Log.d(&quot;DeskTopUtils&quot;,&quot;addToDesk find location to locate app  page,x,y=&quot;+pageCount +&quot;,&quot; +find_x+&quot;,&quot;+ find_y +&quot;，package=&quot;+Tool.getIntentAsString(newItem._intent));</span><br><span class="line">                break;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                // 新建一个页面，放置app</span><br><span class="line">                if ( pageCount == desktopItems.size()-1 ) &#123;</span><br><span class="line">                    int newPage = pageCount + 1;</span><br><span class="line">                    newItem._x = 0;</span><br><span class="line">                    newItem._y = 0;</span><br><span class="line">                    HomeActivity._db.saveItem(newItem, newPage, Definitions.ItemPosition.Desktop);</span><br><span class="line">                    Log.d(&quot;DeskTopUtils&quot;, &quot;addToDesk no location , new page ,  page,x,y=&quot; + newPage + &quot;,&quot; + find_x + &quot;,&quot; + find_y + &quot;，package=&quot; + Tool.getIntentAsString(newItem._intent));</span><br><span class="line">                    break;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    Log.d(&quot;DeskTopUtils&quot;, &quot;addToDesk no location , query new page try&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/" rel="tag">项目总结</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-防沉迷app-项目总结1"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/04/26/%E9%98%B2%E6%B2%89%E8%BF%B7app-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%931/"
-    >防沉迷app-项目总结1</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/04/26/%E9%98%B2%E6%B2%89%E8%BF%B7app-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%931/" class="article-date">
-  <time datetime="2022-04-26T02:10:04.000Z" itemprop="datePublished">2022-04-26</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%94%9F%E6%B4%BB-%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF-%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">技术生活 - 编程技术 - 项目总结</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="防沉迷项目总结（1）"><a href="#防沉迷项目总结（1）" class="headerlink" title="防沉迷项目总结（1）"></a>防沉迷项目总结（1）</h1><h2 id="防沉迷介绍"><a href="#防沉迷介绍" class="headerlink" title="防沉迷介绍"></a>防沉迷介绍</h2><p>现代社会，手机成了个人的计算中心，各种人与人、人与物的连接，都通过手机连接到每一个个体，极大的方便了人们的生活、学习、工作和娱乐。然而正是这样的便捷性，高度依赖性，使人们越来越离不开手机，很多人深陷其中，不能自拔，甚至严重影响正常的休息、生活、学习、工作和交流，越来越考验人的自律能力。因此很多人需要适当的提醒、干预或者强制的方式来摆脱这种状况。“防沉迷APP”的想法被创业者发现并实施。</p>
-<p>作为一款手机防沉迷软件，该软件在解救两亿手机控、低头族，让她成为学生、考生、家长、低头族、手机控、战拖们的必备应用。</p>
-<p>目前知名的国内防沉迷app有：格雷盒子，青柠守护，阳光守护等</p>
-<h2 id="防沉迷技术难点"><a href="#防沉迷技术难点" class="headerlink" title="防沉迷技术难点"></a>防沉迷技术难点</h2><h3 id="设置默认桌面"><a href="#设置默认桌面" class="headerlink" title="设置默认桌面"></a>设置默认桌面</h3><p>目前已知问题，小米桌面如果没有经过官方的认证，就不让设置其他第三方桌面（launcher）设置为默认桌面。小米这么做也有道理。因为第三方桌面有可能会做一些伤害用户体验的行为。有官方的背书，能在一定程度上避免这个问题。同样的问题还在华为手机上出现。华为手机直接是不让设置默认桌面，根本没有这个选项。</p>
-<h3 id="开机自启动"><a href="#开机自启动" class="headerlink" title="开机自启动"></a>开机自启动</h3><p>防沉迷，最重要的是让用户在使用手机的时候，只能操作某一类或者某一些app。这里问题就来了，怎么做到呢？第一想到的就是设置默认桌面，同时隐藏设置桌面的配置。但是上面说了，目前主流手机厂商对这方面有着自己的顾虑和思考。<br>那没有没有可能在不支持的手机上支持用户app开机启动，同时只允许打开自己的app，不允许切换到其他app，达到类似launcher（桌面）的效果呢？<br>答案是肯定的。</p>
-<h3 id="手机兼容性"><a href="#手机兼容性" class="headerlink" title="手机兼容性"></a>手机兼容性</h3><p>安卓手机厂商众多，各种改。而防沉迷用到的api又比较底层，兼容性是一个让开发者头疼的问题。</p>
-<h3 id="屏蔽其他app"><a href="#屏蔽其他app" class="headerlink" title="屏蔽其他app"></a>屏蔽其他app</h3><p>屏蔽有2个思路</p>
-<ol>
-<li>控制launcher，隐藏app的icon图标。这个没啥好说的</li>
-<li>类似如下这个效果。只要用户点击任何其他app都提示，app被禁止</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/it114/blogcdn@master/blog/images20220426102755.png" alt="20220426102755"></p>
-<h3 id="权限自动点击"><a href="#权限自动点击" class="headerlink" title="权限自动点击"></a>权限自动点击</h3><p>由于需要比较多的权限，不同手机的设置路径也不尽相同。如果能实现自动点击，自动选择，无疑会给用户很大的帮助。</p>
-<h3 id="手机远程控制"><a href="#手机远程控制" class="headerlink" title="手机远程控制"></a>手机远程控制</h3><h4 id="远程获取通讯录"><a href="#远程获取通讯录" class="headerlink" title="远程获取通讯录"></a>远程获取通讯录</h4><h4 id="远程读取用户手机短信"><a href="#远程读取用户手机短信" class="headerlink" title="远程读取用户手机短信"></a>远程读取用户手机短信</h4><h4 id="远程读取用户通话记录"><a href="#远程读取用户通话记录" class="headerlink" title="远程读取用户通话记录"></a>远程读取用户通话记录</h4><h4 id="远程获取用户手机截屏"><a href="#远程获取用户手机截屏" class="headerlink" title="远程获取用户手机截屏"></a>远程获取用户手机截屏</h4><h4 id="远程录制用户手机屏幕"><a href="#远程录制用户手机屏幕" class="headerlink" title="远程录制用户手机屏幕"></a>远程录制用户手机屏幕</h4><h4 id="远程锁定被控制手机"><a href="#远程锁定被控制手机" class="headerlink" title="远程锁定被控制手机"></a>远程锁定被控制手机</h4><h4 id="远程控制被控手机app删除或者增加"><a href="#远程控制被控手机app删除或者增加" class="headerlink" title="远程控制被控手机app删除或者增加"></a>远程控制被控手机app删除或者增加</h4><h4 id="远程控制被控手机app打开或者关闭"><a href="#远程控制被控手机app打开或者关闭" class="headerlink" title="远程控制被控手机app打开或者关闭"></a>远程控制被控手机app打开或者关闭</h4><h4 id="远程控制被控手机录音"><a href="#远程控制被控手机录音" class="headerlink" title="远程控制被控手机录音"></a>远程控制被控手机录音</h4><h4 id="远程控制被控手机活动范围，设定电子围栏，超出范围提醒"><a href="#远程控制被控手机活动范围，设定电子围栏，超出范围提醒" class="headerlink" title="远程控制被控手机活动范围，设定电子围栏，超出范围提醒"></a>远程控制被控手机活动范围，设定电子围栏，超出范围提醒</h4><h2 id="防沉迷app思考和拓展"><a href="#防沉迷app思考和拓展" class="headerlink" title="防沉迷app思考和拓展"></a>防沉迷app思考和拓展</h2><p>后话：做防沉迷这段时间，确实发现这个市场还挺大的。我们做的方向是，类似阳光守护那种。有两个端：家长端和孩子端。<br>家长端：可以控制孩子的手机，包括获取孩子手机app，远程截屏，远程锁屏等。<br>孩子端：只可以打开被家长允许的app，只能在规定时间玩手机等</p>
-<p>其实,有了这个技术，应用场景是很多的。从控制端和被控端来思考</p>
-<ol>
-<li><p>假设只有一个端</p>
-<ul>
-<li>可以做成一个防沉迷app单机版，解决学生等老离不开手机的问题，帮自己改掉习惯，投入学习</li>
-<li>可以做成一个习惯训练app，设置一个社区，社区的人打卡比赛，谁能养成习惯给予奖励。</li>
-</ul>
-</li>
-<li><p>有一个控制端和一个被控端</p>
-<ul>
-<li>家长控制孩子</li>
-<li>老师控制学生</li>
-<li>孩子给上了年纪的父母远程协助</li>
-<li>其他场景</li>
-</ul>
-</li>
-</ol>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>做了这么多，还有一些没解决问题。有意者可以联系 Q:2169564366 （备注：防沉迷）技术交流。一起成长</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/" rel="tag">项目总结</a></li></ul>
 
     </footer>
   </div>
